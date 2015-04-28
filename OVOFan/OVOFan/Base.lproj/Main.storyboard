@@ -114,17 +114,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mxY-nW-f8N">
-                        <barButtonItem key="leftBarButtonItem" image="map" style="plain" id="hv6-bL-LUs">
+                        <barButtonItem key="leftBarButtonItem" image="map" id="hv6-bL-LUs">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="showStadiumMapTapp:" destination="vXZ-lx-hvc" id="Kuz-Ih-IDB"/>
-                                <segue destination="lML-cW-2IE" kind="popoverPresentation" identifier="ShowStadiumMapSegue" popoverAnchorBarButtonItem="hv6-bL-LUs" id="2ge-Uv-4wq">
+                                <action selector="showStadiumMapTapped:" destination="vXZ-lx-hvc" id="3HA-zB-Rxl"/>
+                                <segue destination="lML-cW-2IE" kind="popoverPresentation" identifier="ShowStadiumMapSegue" popoverAnchorBarButtonItem="hv6-bL-LUs" id="arP-UL-ZPt">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="Hbv-uZ-2GD">
+                        <barButtonItem key="rightBarButtonItem" title="Next Match" id="Hbv-uZ-2GD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="showUpcomingGameTapped:" destination="vXZ-lx-hvc" id="NBi-a5-Y4C"/>
+                                <segue destination="v5O-Db-3Mu" kind="popoverPresentation" identifier="ShowUpcomingGameSegue" popoverAnchorBarButtonItem="Hbv-uZ-2GD" id="oEK-69-4wc">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -133,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262" y="462"/>
+            <point key="canvasLocation" x="1220" y="462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1LJ-Rw-h9R">

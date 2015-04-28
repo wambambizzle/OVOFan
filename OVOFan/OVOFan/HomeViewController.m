@@ -8,13 +8,16 @@
 
 #import "HomeViewController.h"
 #import "StadiumMapViewController.h"
+#import "UpcomingGameViewController.h"
 
 #import "NetworkManager.h"
 
 @interface HomeViewController () <UIPopoverPresentationControllerDelegate>
 
 - (IBAction)scheduleTapped:(id)sender;
-- (IBAction)showStadiumMapTapp:(id)sender;
+- (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender;
+- (IBAction)showUpcomingGameTapped:(UIBarButtonItem *)sender;
+
 
 @end
 
@@ -40,22 +43,31 @@
     
 }
 
-- (IBAction)showStadiumMapTapp:(id)sender
+- (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender
 {
     [self performSegueWithIdentifier:@"ShowStadiumMapSegue" sender:self];
+}
+
+- (IBAction)showUpcomingGameTapped:(UIBarButtonItem *)sender
+{
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ShowStadiumMapSegue"])
     {
-        StadiumMapViewController *desPopupCalcVC = (StadiumMapViewController *)[segue destinationViewController];
-        desPopupCalcVC.popoverPresentationController.delegate = self; // must set our "self" as a delegate of
-        //    popUpVC.recieveAllEnergyTypes = allEnergyTypes;
-        //        NSLog(@"%@", popUpVC.recieveAllEnergyTypes);
-        // Calls our class method from PowerCalc and sets it in an Array
-//        float contentHeight = 44.0f; // set the height of the modal to 44px * number of items in array
-        desPopupCalcVC.preferredContentSize = CGSizeMake(310.0f, 415.0f); // giving a size to the pop over view width and height
+        StadiumMapViewController *stadiumMapVC = (StadiumMapViewController *)[segue destinationViewController];
+        stadiumMapVC.popoverPresentationController.delegate = self; // must set our "self" as a
+        stadiumMapVC.preferredContentSize = CGSizeMake(310.0f, 415.0f); // giving a size to the pop over view width and height
+    }
+    else if ([segue.identifier isEqualToString:@"ShowUpcomingGameSegue"])
+    {
+//            [[NetworkManager sharedNetworkManager] grabTheSchedule];
+        UpcomingGameViewController *upcomingGameVC = (UpcomingGameViewController *)[segue destinationViewController];
+        upcomingGameVC.popoverPresentationController.delegate = self;
+        upcomingGameVC.preferredContentSize = CGSizeMake(250.0f, 250.0f);
+
     }
     
 }

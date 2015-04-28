@@ -11,6 +11,7 @@
 		A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398A1AEEC43F00BDE25E /* Schedule.m */; };
 		A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */; };
 		A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539901AEF281000BDE25E /* UpcomingGameViewController.m */; };
+		A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539931AEF2E3800BDE25E /* UpcomingMatch.m */; };
 		A8DC61F01AEE938E006AB0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61EF1AEE938E006AB0B6 /* main.m */; };
 		A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */; };
 		A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */; };
@@ -40,6 +41,8 @@
 		A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadiumMapViewController.m; sourceTree = "<group>"; };
 		A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingGameViewController.h; sourceTree = "<group>"; };
 		A86539901AEF281000BDE25E /* UpcomingGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingGameViewController.m; sourceTree = "<group>"; };
+		A86539921AEF2E3800BDE25E /* UpcomingMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingMatch.h; sourceTree = "<group>"; };
+		A86539931AEF2E3800BDE25E /* UpcomingMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingMatch.m; sourceTree = "<group>"; };
 		A8DC61EA1AEE938E006AB0B6 /* OVOFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVOFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC61EE1AEE938E006AB0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC61EF1AEE938E006AB0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 			children = (
 				A86539891AEEC43F00BDE25E /* Schedule.h */,
 				A865398A1AEEC43F00BDE25E /* Schedule.m */,
+				A86539921AEF2E3800BDE25E /* UpcomingMatch.h */,
+				A86539931AEF2E3800BDE25E /* UpcomingMatch.m */,
 				A86539851AEEC3EE00BDE25E /* NetworkManager.h */,
 				A86539861AEEC3EE00BDE25E /* NetworkManager.m */,
 			);
@@ -263,6 +268,7 @@
 				A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
 				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,
+				A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */,
 				A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */,
 				A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */,
 				A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */,
