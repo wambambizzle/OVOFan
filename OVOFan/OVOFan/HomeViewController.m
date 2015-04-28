@@ -10,12 +10,13 @@
 #import "StadiumMapViewController.h"
 #import "UpcomingGameViewController.h"
 
+#import "UpcomingMatch.h"
 #import "NetworkManager.h"
 
 @interface HomeViewController () <UIPopoverPresentationControllerDelegate>
 
-- (IBAction)scheduleTapped:(id)sender;
-- (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender;
+- (IBAction)scheduleTapped:(UIButton *)sender;
+//- (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender;
 - (IBAction)showUpcomingGameTapped:(UIBarButtonItem *)sender;
 
 
@@ -35,17 +36,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)scheduleTapped:(id)sender
+- (IBAction)scheduleTapped:(UIButton *)sender
 {
-    [[NetworkManager sharedNetworkManager] grabTheSchedule];
+    [[NetworkManager sharedNetworkManager] fetchTheSchedule];
     [self performSegueWithIdentifier:@"ShowScheduleSegue" sender:self];
-    
-    
 }
 
 - (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender
 {
-    [self performSegueWithIdentifier:@"ShowStadiumMapSegue" sender:self];
+//    [self performSegueWithIdentifier:@"ShowStadiumMapSegue" sender:self];
 }
 
 - (IBAction)showUpcomingGameTapped:(UIBarButtonItem *)sender
@@ -63,11 +62,9 @@
     }
     else if ([segue.identifier isEqualToString:@"ShowUpcomingGameSegue"])
     {
-//            [[NetworkManager sharedNetworkManager] grabTheSchedule];
         UpcomingGameViewController *upcomingGameVC = (UpcomingGameViewController *)[segue destinationViewController];
         upcomingGameVC.popoverPresentationController.delegate = self;
         upcomingGameVC.preferredContentSize = CGSizeMake(250.0f, 250.0f);
-
     }
     
 }

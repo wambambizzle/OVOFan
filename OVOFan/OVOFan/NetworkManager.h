@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UpcomingGameViewController.h"
+#import "UpcomingMatch.h"
 
 @interface NetworkManager : NSObject
+
+@property (strong, nonatomic)id<UpcomingGameViewControllerDelegate> delegate;
 
 // Class method to access the singleton object
 + (NetworkManager *)sharedNetworkManager;
 
-- (void) grabTheSchedule;
+- (void)fetchTheSchedule;
+- (void)fetchTheUpcomingMatch;
 
 @end

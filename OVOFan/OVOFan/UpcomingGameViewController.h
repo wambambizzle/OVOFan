@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UpcomingGameViewController : UIViewController
+#import "UpcomingMatch.h"
+
+@protocol UpcomingGameViewControllerDelegate
+
+-(void)nextMatchWasFound:(UpcomingMatch *)nextMatch;
+
+@end
+
+@interface UpcomingGameViewController : UIViewController <UpcomingGameViewControllerDelegate>
 
 @end

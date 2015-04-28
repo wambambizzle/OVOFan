@@ -10,16 +10,16 @@
 
 @implementation UpcomingMatch
 
-- (instancetype)initWithName:(NSString *)name latitude:(double)lat longitude:(double)lng andZipcode:(NSString *)zip
+- (instancetype)initWithDate:(NSString *)date location:(NSString *)location time:(NSString *)time homeLogo:(UIImage *)homeLogo andAwayLogo:(UIImage *)awayLogo
 {
     self = [super init];
     if (self)
     {
-        //        _name = name;
-        //        _latitude = lat;
-        //        _longitude = lng;
-        //        _zipCode = zip;
-        //        _coordinate = CLLocationCoordinate2DMake(lat, lng);
+        _date = date;
+        _location = location;
+        _time = time;
+        _homeLogo = homeLogo;
+        _awayLogo = awayLogo;
     }
     
     return self;
@@ -27,6 +27,8 @@
 
 - (BOOL)parseupComingMatchInfo:(NSDictionary *)nextMatchDictionary
 {
+    BOOL rc = NO;
+    
     if (nextMatchDictionary)
     {
         NSDictionary *results = [nextMatchDictionary objectForKey:@"results"];
@@ -36,25 +38,23 @@
         self.location = [next objectForKey:@"location"];
         self.time = [next objectForKey:@"time"];
         
-//        NSArray *categories = [aVenue objectForKey:@"categories"];
-//        NSDictionary *iconA = [categories objectAtIndex:0];
-//        NSDictionary *iconTrue = [iconA objectForKey:@"icon"];
-//        NSString *prefix = [iconTrue objectForKey:@"prefix"];
-//        NSString *suffix = [iconTrue objectForKey:@"suffix"];
-//        
-//        NSString *icon = [NSString stringWithFormat:@"%@44%@", prefix, suffix];
-//        NSURL *iconURL = [NSURL URLWithString:icon];
-//        NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
-//        UIImage *image = [UIImage imageWithData:imageData];
-//        cell.imageView.image = image;
+        NSArray *clubLogos = [results objectForKey:@"Club Logos"];
+        NSDictionary *homeLogoDic = clubLogos[0];
+//        NSLog(@"%@", [homeLogoDic objectForKey:@"clubLogos"]);
+        NSString *homeString = [homeLogoDic objectForKey:@"clubLogos"];
+        NSURL *homeIconURL = [NSURL URLWithString:homeString];
+        NSData *homeImgData = [NSData dataWithContentsOfURL:homeIconURL];
+        self.homeLogo = [UIImage imageWithData:homeImgData];
+        NSDictionary *awayLogoDic = clubLogos[1];
+        NSURL *awayIconURL = [NSURL URLWithString:[awayLogoDic objectForKey:@"clubLogos"]];
+        NSData *awayImgData = [NSData dataWithContentsOfURL:awayIconURL];
+        self.awayLogo = [UIImage imageWithData:awayImgData];
+        rc = YES;
         
-        
-        
-        
-
-        
+ // JNA - turn this img from url into an Ansyncronus call
+    
     }
-    return YES;
+    return rc;
 }
 
 @end

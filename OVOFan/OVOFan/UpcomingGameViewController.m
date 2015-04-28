@@ -7,8 +7,23 @@
 //
 
 #import "UpcomingGameViewController.h"
+#import "NetworkManager.h"
+
+#import "UpcomingMatch.h"
+
+
 
 @interface UpcomingGameViewController ()
+{
+    NSMutableArray *matchesArray;
+    UpcomingMatch *theMatch;
+}
+
+@property (weak, nonatomic) IBOutlet UIImageView *homeIconImage;
+@property (weak, nonatomic) IBOutlet UIImageView *awayIconImage;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -17,7 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+     [NetworkManager sharedNetworkManager].delegate = self;
+    [[NetworkManager sharedNetworkManager] fetchTheUpcomingMatch];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -25,6 +42,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)nextMatchWasFound:(UpcomingMatch *)nextMatch
+{
+    NSLog(@"%@", nextMatch);
+    self.dateLabel.text = nextMatch.date;
+    self.locationLabel.text = nextMatch.location;
+    self.timeLabel.text = nextMatch.time;
+    self.homeIconImage.image = nextMatch.homeLogo;
+    self.awayIconImage.image = nextMatch.awayLogo;
+    
+//    theMatch = nextMatch;
+    
+   
+}
+
 
 /*
 #pragma mark - Navigation

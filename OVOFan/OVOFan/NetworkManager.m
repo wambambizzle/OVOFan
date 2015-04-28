@@ -8,6 +8,12 @@
 
 #import "NetworkManager.h"
 
+typedef enum
+{
+    DataFetchTypeSchedule,
+    DataFetchTypeUpcomingGame,
+} DataFetchType;
+
 @interface NetworkManager () <NSURLSessionDataDelegate>
 {
     NSURLSessionConfiguration *configuration;
@@ -20,6 +26,7 @@
 @implementation NetworkManager
 
 static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/ondemand/4b6j8tp8";
+static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/ondemand/7frwoxaw";
 
 + (NetworkManager *)sharedNetworkManager //Singleton Method
 {
@@ -49,11 +56,19 @@ static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/ondemand/4b6
     return self;
 }
 
-- (void) grabTheSchedule
+- (void)fetchTheSchedule
 {
     NSURL *url = [NSURL URLWithString:mainSchedApiURL];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
     [self startDataTask:dataTask];
+}
+
+- (void)fetchTheUpcomingMatch
+{
+    NSURL *url = [NSURL URLWithString:upcomingMatchApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+    
 }
 
 - (void)startDataTask:(NSURLSessionDataTask *)dataTask
@@ -83,32 +98,46 @@ static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/ondemand/4b6
         NSMutableData *receivedData3 = receivedDataDict[[NSNumber numberWithInteger:task.taskIdentifier]];
         NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:receivedData3 options:0 error:nil];
         
-        NSLog(@"%@", aDictionary);
-//        City *aCity = citiesForActiveTasks[[NSNumber numberWithInteger:task.taskIdentifier]];
+        BOOL nextMatchFound = NO;
+        
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"Upcoming Game"])
+            {
+                UpcomingMatch *upComingMatch = [[UpcomingMatch alloc] init];
+               nextMatchFound = [upComingMatch parseupComingMatchInfo:aDictionary];
+                if (nextMatchFound)
+                {
+                    [self.delegate nextMatchWasFound:upComingMatch];
+                }
+            }
+        
+        
+        
+        
+//        NSLog(@"%@", aDictionary);
 //        DataFetchType fetchType;
-//        if ([aDictionary objectForKey:@"results"])
+//        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"Upcoming Game"])
 //        {
-//            fetchType = DataFetchTypeCoordinates;
+//            fetchType = DataFetchTypeUpcomingGame;
 //        }
 //        else
 //        {
-//            fetchType = DataFetchTypeWeather;
+//            fetchType = DataFetchTypeSchedule;
 //        }
 //        BOOL coordinatesSuccess = NO;
 //        BOOL weatherSuccess = NO;
 //        switch (fetchType)
 //        {
-//            case DataFetchTypeCoordinates:
+//            case DataFetchTypeUpcomingGame:
 //                coordinatesSuccess = [aCity parseCoordinateInfo:aDictionary];
 //                break;
-//            case DataFetchTypeWeather:
+//            case DataFetchTypeSchedule:
 //                weatherSuccess = [aCity.currentWeather parseWeatherInfo:aDictionary];
 //                break;
 //                
 //            default:
 //                break;
 //        }
-//        
+        
 //        if (coordinatesSuccess)
 //        {
 //            [self.delegate cityWasFound:aCity];
