@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539861AEEC3EE00BDE25E /* NetworkManager.m */; };
+		A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398A1AEEC43F00BDE25E /* Schedule.m */; };
+		A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */; };
+		A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539901AEF281000BDE25E /* UpcomingGameViewController.m */; };
 		A8DC61F01AEE938E006AB0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61EF1AEE938E006AB0B6 /* main.m */; };
 		A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */; };
-		A8DC61F61AEE938E006AB0B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F51AEE938E006AB0B6 /* ViewController.m */; };
+		A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */; };
 		A8DC61F91AEE938E006AB0B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8DC61F71AEE938E006AB0B6 /* Main.storyboard */; };
 		A8DC61FB1AEE938E006AB0B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8DC61FA1AEE938E006AB0B6 /* Images.xcassets */; };
 		A8DC61FE1AEE938E006AB0B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DC61FC1AEE938E006AB0B6 /* LaunchScreen.xib */; };
 		A8DC620A1AEE938E006AB0B6 /* OVOFanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC62091AEE938E006AB0B6 /* OVOFanTests.m */; };
+		A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC62141AEE97C4006AB0B6 /* ScheduleTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +32,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A86539851AEEC3EE00BDE25E /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		A86539861AEEC3EE00BDE25E /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		A86539891AEEC43F00BDE25E /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		A865398A1AEEC43F00BDE25E /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		A865398C1AEEDC9800BDE25E /* StadiumMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadiumMapViewController.h; sourceTree = "<group>"; };
+		A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadiumMapViewController.m; sourceTree = "<group>"; };
+		A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingGameViewController.h; sourceTree = "<group>"; };
+		A86539901AEF281000BDE25E /* UpcomingGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingGameViewController.m; sourceTree = "<group>"; };
 		A8DC61EA1AEE938E006AB0B6 /* OVOFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVOFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC61EE1AEE938E006AB0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC61EF1AEE938E006AB0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8DC61F11AEE938E006AB0B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A8DC61F41AEE938E006AB0B6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A8DC61F51AEE938E006AB0B6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A8DC61F41AEE938E006AB0B6 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A8DC61F81AEE938E006AB0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8DC61FA1AEE938E006AB0B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A8DC61FD1AEE938E006AB0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A8DC62031AEE938E006AB0B6 /* OVOFanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OVOFanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC62081AEE938E006AB0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC62091AEE938E006AB0B6 /* OVOFanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OVOFanTests.m; sourceTree = "<group>"; };
+		A8DC62131AEE97C4006AB0B6 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		A8DC62141AEE97C4006AB0B6 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +75,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A86539881AEEC3F500BDE25E /* Model Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A86539891AEEC43F00BDE25E /* Schedule.h */,
+				A865398A1AEEC43F00BDE25E /* Schedule.m */,
+				A86539851AEEC3EE00BDE25E /* NetworkManager.h */,
+				A86539861AEEC3EE00BDE25E /* NetworkManager.m */,
+			);
+			name = "Model Objects";
+			sourceTree = "<group>";
+		};
 		A8DC61E11AEE938E006AB0B6 = {
 			isa = PBXGroup;
 			children = (
@@ -83,10 +109,10 @@
 			children = (
 				A8DC61F11AEE938E006AB0B6 /* AppDelegate.h */,
 				A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */,
-				A8DC61F41AEE938E006AB0B6 /* ViewController.h */,
-				A8DC61F51AEE938E006AB0B6 /* ViewController.m */,
-				A8DC61F71AEE938E006AB0B6 /* Main.storyboard */,
+				A8DC62161AEE97CE006AB0B6 /* View Controllers */,
+				A86539881AEEC3F500BDE25E /* Model Objects */,
 				A8DC61FA1AEE938E006AB0B6 /* Images.xcassets */,
+				A8DC61F71AEE938E006AB0B6 /* Main.storyboard */,
 				A8DC61FC1AEE938E006AB0B6 /* LaunchScreen.xib */,
 				A8DC61ED1AEE938E006AB0B6 /* Supporting Files */,
 			);
@@ -117,6 +143,21 @@
 				A8DC62081AEE938E006AB0B6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A8DC62161AEE97CE006AB0B6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC61F41AEE938E006AB0B6 /* HomeViewController.h */,
+				A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */,
+				A8DC62131AEE97C4006AB0B6 /* ScheduleTableViewController.h */,
+				A8DC62141AEE97C4006AB0B6 /* ScheduleTableViewController.m */,
+				A865398C1AEEDC9800BDE25E /* StadiumMapViewController.h */,
+				A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */,
+				A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */,
+				A86539901AEF281000BDE25E /* UpcomingGameViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8DC61F61AEE938E006AB0B6 /* ViewController.m in Sources */,
+				A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */,
+				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
+				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,
+				A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */,
+				A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */,
 				A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */,
+				A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */,
 				A8DC61F01AEE938E006AB0B6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +462,7 @@
 				A8DC620F1AEE938E006AB0B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8DC62101AEE938E006AB0B6 /* Build configuration list for PBXNativeTarget "OVOFanTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +471,7 @@
 				A8DC62121AEE938E006AB0B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
