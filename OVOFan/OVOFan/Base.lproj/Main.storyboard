@@ -30,7 +30,40 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POj-f0-8Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="184"/>
+            <point key="canvasLocation" x="2356" y="-324"/>
+        </scene>
+        <!--Shuttle Map View Controller-->
+        <scene sceneID="3Ko-EC-y9k">
+            <objects>
+                <viewController id="nT0-h3-5Uv" customClass="ShuttleMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="blf-NF-8qm"/>
+                        <viewControllerLayoutGuide type="bottom" id="owR-3f-jXy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="waj-fX-Qp5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sji-hf-Ip6">
+                                <rect key="frame" x="0.0" y="164" width="600" height="436"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sji-hf-Ip6" firstAttribute="top" secondItem="blf-NF-8qm" secondAttribute="bottom" constant="100" id="Kma-9O-UJa"/>
+                            <constraint firstAttribute="trailing" secondItem="sji-hf-Ip6" secondAttribute="trailing" id="drK-gn-0oj"/>
+                            <constraint firstItem="owR-3f-jXy" firstAttribute="top" secondItem="sji-hf-Ip6" secondAttribute="bottom" id="eKx-aS-RWZ"/>
+                            <constraint firstItem="sji-hf-Ip6" firstAttribute="leading" secondItem="waj-fX-Qp5" secondAttribute="leading" id="s1J-Y1-9QH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nGi-Lp-U8E"/>
+                    <connections>
+                        <outlet property="mapView" destination="sji-hf-Ip6" id="Pgy-PY-ctd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9u6-Nw-RKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1978" y="1234"/>
         </scene>
         <!--Stadium Map View Controller-->
         <scene sceneID="79c-1p-7Qm">
@@ -65,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x8O-8X-rhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="-334"/>
+            <point key="canvasLocation" x="154" y="-316"/>
         </scene>
         <!--Upcoming Game View Controller-->
         <scene sceneID="zy9-77-gFC">
@@ -168,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVf-fj-Gdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192" y="-350"/>
+            <point key="canvasLocation" x="934" y="-332"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -191,10 +224,21 @@
                                     <action selector="scheduleTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZnF-Va-Qlb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT2-hH-uTC">
+                                <rect key="frame" x="521" y="94" width="64" height="31"/>
+                                <state key="normal" image="bus">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shuttleMapTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RgM-PM-iF2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Tod-bq-Gy8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="ERw-wy-2Fq"/>
+                            <constraint firstItem="Tod-bq-Gy8" firstAttribute="centerY" secondItem="iT2-hH-uTC" secondAttribute="centerY" id="RgM-Fq-OQy"/>
+                            <constraint firstAttribute="trailing" secondItem="iT2-hH-uTC" secondAttribute="trailing" constant="15" id="maB-Bn-F0T"/>
                             <constraint firstItem="Tod-bq-Gy8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="zNx-hG-Mfa"/>
                         </constraints>
                     </view>
@@ -202,7 +246,6 @@
                         <barButtonItem key="leftBarButtonItem" image="map" id="hv6-bL-LUs">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="showStadiumMapTapped:" destination="vXZ-lx-hvc" id="3HA-zB-Rxl"/>
                                 <segue destination="lML-cW-2IE" kind="popoverPresentation" identifier="ShowStadiumMapSegue" popoverAnchorBarButtonItem="hv6-bL-LUs" id="arP-UL-ZPt">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
@@ -211,7 +254,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Next Match" id="Hbv-uZ-2GD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="showUpcomingGameTapped:" destination="vXZ-lx-hvc" id="NBi-a5-Y4C"/>
                                 <segue destination="v5O-Db-3Mu" kind="popoverPresentation" identifier="ShowUpcomingGameSegue" popoverAnchorBarButtonItem="Hbv-uZ-2GD" id="oEK-69-4wc">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
@@ -220,6 +262,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="1r5-Fg-7sH" kind="show" identifier="ShowScheduleSegue" id="G1w-3U-fEp"/>
+                        <segue destination="JlI-qR-u18" kind="show" identifier="ShowShuttleMapSegue" id="KT8-jr-0MO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -268,10 +311,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1p-kl-lwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="-556"/>
+            <point key="canvasLocation" x="1693" y="-316"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u7O-97-CrD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JlI-qR-u18" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eej-dI-VOK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nT0-h3-5Uv" kind="relationship" relationship="rootViewController" id="gun-bZ-ucP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxy-P8-6oG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1268" y="1234"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bus" width="64" height="31"/>
         <image name="calendar" width="60" height="60"/>
         <image name="map" width="16" height="27"/>
         <image name="stadiummap" width="982" height="1236"/>

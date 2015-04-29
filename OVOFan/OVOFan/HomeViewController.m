@@ -16,8 +16,7 @@
 @interface HomeViewController () <UIPopoverPresentationControllerDelegate>
 
 - (IBAction)scheduleTapped:(UIButton *)sender;
-//- (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender;
-- (IBAction)showUpcomingGameTapped:(UIBarButtonItem *)sender;
+- (IBAction)shuttleMapTapped:(UIButton *)sender;
 
 
 @end
@@ -38,19 +37,15 @@
 
 - (IBAction)scheduleTapped:(UIButton *)sender
 {
-    [[NetworkManager sharedNetworkManager] fetchTheSchedule];
+//    [[NetworkManager sharedNetworkManager] fetchTheSchedule];
     [self performSegueWithIdentifier:@"ShowScheduleSegue" sender:self];
 }
 
-- (IBAction)showStadiumMapTapped:(UIBarButtonItem *)sender
+- (IBAction)shuttleMapTapped:(UIButton *)sender
 {
-//    [self performSegueWithIdentifier:@"ShowStadiumMapSegue" sender:self];
+    [self performSegueWithIdentifier:@"ShowShuttleMapSegue" sender:self];
 }
 
-- (IBAction)showUpcomingGameTapped:(UIBarButtonItem *)sender
-{
-    
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

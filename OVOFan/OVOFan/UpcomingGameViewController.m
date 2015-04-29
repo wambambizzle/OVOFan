@@ -45,7 +45,7 @@
 
 -(void)nextMatchWasFound:(UpcomingMatch *)nextMatch
 {
-    NSLog(@"%@", nextMatch);
+//    NSLog(@"%@", nextMatch);
     self.dateLabel.text = nextMatch.date;
     self.locationLabel.text = nextMatch.location;
     self.timeLabel.text = nextMatch.time;

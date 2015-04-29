@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */; };
 		A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539861AEEC3EE00BDE25E /* NetworkManager.m */; };
 		A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398A1AEEC43F00BDE25E /* Schedule.m */; };
 		A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuttleMapViewController.h; sourceTree = "<group>"; };
+		A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuttleMapViewController.m; sourceTree = "<group>"; };
 		A86539851AEEC3EE00BDE25E /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		A86539861AEEC3EE00BDE25E /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		A86539891AEEC43F00BDE25E /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				A8DC62141AEE97C4006AB0B6 /* ScheduleTableViewController.m */,
 				A865398C1AEEDC9800BDE25E /* StadiumMapViewController.h */,
 				A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */,
+				A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */,
+				A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */,
 				A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */,
 				A86539901AEF281000BDE25E /* UpcomingGameViewController.m */,
 			);
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */,
+				A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
 				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,
 				A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */,
