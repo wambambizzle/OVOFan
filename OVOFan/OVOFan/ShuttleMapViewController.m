@@ -34,6 +34,9 @@
     [super viewDidLoad];
     [self configureMapView];
     [self configureAndDropPins];
+    [self configureLocationManager];
+
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,19 +58,19 @@
     CLLocationCoordinate2D churchAndNortonAve = CLLocationCoordinate2DMake(28.540197, -81.398224);
     MKPointAnnotation *churchAndNortonAveAnnotation = [[MKPointAnnotation alloc] init];
     [churchAndNortonAveAnnotation setCoordinate:churchAndNortonAve];
-    [churchAndNortonAveAnnotation setTitle:@"W Church St & S Norton Ave"]; //You can set the subtitle too
+    [churchAndNortonAveAnnotation setTitle:@"Stadium Drop Off"]; //You can set the subtitle too
 
     // second annotation
     CLLocationCoordinate2D centralAndHugheyAve = CLLocationCoordinate2DMake(28.541809, -81.382964);
     MKPointAnnotation *centralAndHugheyAveAnnotation = [[MKPointAnnotation alloc] init];
     [centralAndHugheyAveAnnotation setCoordinate:centralAndHugheyAve];
-    [centralAndHugheyAveAnnotation setTitle:@"W Central Blvd & S Hughey Ave"];
+    [centralAndHugheyAveAnnotation setTitle:@"Pick Up"];
     
     // third annotation
     CLLocationCoordinate2D southAndDivisionAve = CLLocationCoordinate2DMake(28.538378, -81.384842);
     MKPointAnnotation *southAndDivisionAveAnnotation = [[MKPointAnnotation alloc] init];
     [southAndDivisionAveAnnotation setCoordinate:southAndDivisionAve];
-    [southAndDivisionAveAnnotation setTitle:@"W South St & S Division Ave"];
+    [southAndDivisionAveAnnotation setTitle:@"Pick Up"];
     
     NSMutableArray *shuttleAnnotationsArray = [[NSMutableArray alloc] initWithObjects:churchAndNortonAveAnnotation, centralAndHugheyAveAnnotation, southAndDivisionAveAnnotation, nil];
   
@@ -129,12 +132,13 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *loca = [locations lastObject];
+        self.mapView.showsUserLocation = YES;
     
     
     [self enableLocationManager:NO];
     
 //    self.aLocation = [[Location alloc] initWithCoordinate:loca.coordinate pinDescription:self.aLocation.name];
-    [self configureMapView];
+//    [self configureMapView];
     
     
 //    [self.pinCurrentItem setEnabled:YES];

@@ -44,13 +44,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sji-hf-Ip6">
-                                <rect key="frame" x="0.0" y="164" width="600" height="436"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sji-hf-Ip6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sji-hf-Ip6" firstAttribute="top" secondItem="blf-NF-8qm" secondAttribute="bottom" constant="100" id="Kma-9O-UJa"/>
+                            <constraint firstItem="sji-hf-Ip6" firstAttribute="top" secondItem="blf-NF-8qm" secondAttribute="bottom" id="Kma-9O-UJa"/>
                             <constraint firstAttribute="trailing" secondItem="sji-hf-Ip6" secondAttribute="trailing" id="drK-gn-0oj"/>
                             <constraint firstItem="owR-3f-jXy" firstAttribute="top" secondItem="sji-hf-Ip6" secondAttribute="bottom" id="eKx-aS-RWZ"/>
                             <constraint firstItem="sji-hf-Ip6" firstAttribute="leading" secondItem="waj-fX-Qp5" secondAttribute="leading" id="s1J-Y1-9QH"/>
