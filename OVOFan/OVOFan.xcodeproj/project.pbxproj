@@ -13,6 +13,8 @@
 		A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */; };
 		A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539901AEF281000BDE25E /* UpcomingGameViewController.m */; };
 		A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539931AEF2E3800BDE25E /* UpcomingMatch.m */; };
+		A87F698E1AF159AE0008E72A /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F698D1AF159AE0008E72A /* NewsTableViewController.m */; };
+		A87F69911AF15CBE0008E72A /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F69901AF15CBE0008E72A /* News.m */; };
 		A8DC61F01AEE938E006AB0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61EF1AEE938E006AB0B6 /* main.m */; };
 		A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */; };
 		A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */; };
@@ -46,6 +48,10 @@
 		A86539901AEF281000BDE25E /* UpcomingGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingGameViewController.m; sourceTree = "<group>"; };
 		A86539921AEF2E3800BDE25E /* UpcomingMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingMatch.h; sourceTree = "<group>"; };
 		A86539931AEF2E3800BDE25E /* UpcomingMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingMatch.m; sourceTree = "<group>"; };
+		A87F698C1AF159AE0008E72A /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
+		A87F698D1AF159AE0008E72A /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
+		A87F698F1AF15CBE0008E72A /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		A87F69901AF15CBE0008E72A /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		A8DC61EA1AEE938E006AB0B6 /* OVOFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVOFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC61EE1AEE938E006AB0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC61EF1AEE938E006AB0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 		A86539881AEEC3F500BDE25E /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A87F698F1AF15CBE0008E72A /* News.h */,
+				A87F69901AF15CBE0008E72A /* News.m */,
 				A86539891AEEC43F00BDE25E /* Schedule.h */,
 				A865398A1AEEC43F00BDE25E /* Schedule.m */,
 				A86539921AEF2E3800BDE25E /* UpcomingMatch.h */,
@@ -98,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				A8DC61EC1AEE938E006AB0B6 /* OVOFan */,
-				A8DC62061AEE938E006AB0B6 /* OVOFanTests */,
 				A8DC61EB1AEE938E006AB0B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,7 +150,7 @@
 				A8DC62071AEE938E006AB0B6 /* Supporting Files */,
 			);
 			path = OVOFanTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		A8DC62071AEE938E006AB0B6 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -162,8 +169,11 @@
 				A8DC62141AEE97C4006AB0B6 /* ScheduleTableViewController.m */,
 				A865398C1AEEDC9800BDE25E /* StadiumMapViewController.h */,
 				A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */,
+				A87F698C1AF159AE0008E72A /* NewsTableViewController.h */,
+				A87F698D1AF159AE0008E72A /* NewsTableViewController.m */,
 				A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */,
 				A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */,
+				A8DC62061AEE938E006AB0B6 /* OVOFanTests */,
 				A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */,
 				A86539901AEF281000BDE25E /* UpcomingGameViewController.m */,
 			);
@@ -271,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */,
+				A87F698E1AF159AE0008E72A /* NewsTableViewController.m in Sources */,
+				A87F69911AF15CBE0008E72A /* News.m in Sources */,
 				A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
 				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,

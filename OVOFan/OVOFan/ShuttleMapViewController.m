@@ -131,7 +131,7 @@
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation *loca = [locations lastObject];
+//    CLLocation *loca = [locations lastObject];
         self.mapView.showsUserLocation = YES;
     
     

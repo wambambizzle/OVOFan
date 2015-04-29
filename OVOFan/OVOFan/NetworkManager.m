@@ -25,8 +25,9 @@ typedef enum
 
 @implementation NetworkManager
 
-static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/ondemand/4b6j8tp8";
-static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/ondemand/7frwoxaw";
+static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/4b6j8tp8?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/7frwoxaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/36adt662?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt&kimlimit=6";
 
 + (NetworkManager *)sharedNetworkManager //Singleton Method
 {
@@ -71,6 +72,13 @@ static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/ondemand
     
 }
 
+- (void)fetchRecentNewsArticles
+{
+    NSURL *url = [NSURL URLWithString:recentNewsApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+}
+
 - (void)startDataTask:(NSURLSessionDataTask *)dataTask
 {
     
@@ -109,6 +117,16 @@ static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/ondemand
                     [self.delegate nextMatchWasFound:upComingMatch];
                 }
             }
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ocity-article"])
+        {
+//            UpcomingMatch *upComingMatch = [[UpcomingMatch alloc] init];
+//            nextMatchFound = [upComingMatch parseupComingMatchInfo:aDictionary];
+//            if (nextMatchFound)
+//            {
+//                [self.delegate nextMatchWasFound:upComingMatch];
+//            }
+        }
+        
         
         
         

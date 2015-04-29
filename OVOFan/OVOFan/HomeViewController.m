@@ -17,6 +17,7 @@
 
 - (IBAction)scheduleTapped:(UIButton *)sender;
 - (IBAction)shuttleMapTapped:(UIButton *)sender;
+- (IBAction)recentNewsTapped:(UIButton *)sender;
 
 
 @end
@@ -37,7 +38,6 @@
 
 - (IBAction)scheduleTapped:(UIButton *)sender
 {
-//    [[NetworkManager sharedNetworkManager] fetchTheSchedule];
     [self performSegueWithIdentifier:@"ShowScheduleSegue" sender:self];
 }
 
@@ -45,6 +45,13 @@
 {
     [self performSegueWithIdentifier:@"ShowShuttleMapSegue" sender:self];
 }
+
+- (IBAction)recentNewsTapped:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"ShowNewsSegue" sender:self];
+}
+
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -61,7 +68,7 @@
         upcomingGameVC.popoverPresentationController.delegate = self;
         upcomingGameVC.preferredContentSize = CGSizeMake(250.0f, 250.0f);
     }
-    
+
 }
 
 #pragma mark - PopoverPresentationController delegate

@@ -10,9 +10,6 @@
 
 @interface Schedule : NSObject
 
-@property (strong, nonatomic) NSString *homeClubName;
-
-
 - (BOOL)parseScheduleInfo:(NSDictionary *)scheduleDictionary;
 
 @end

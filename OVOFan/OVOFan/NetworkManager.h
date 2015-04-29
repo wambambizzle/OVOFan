@@ -19,5 +19,6 @@
 
 - (void)fetchTheSchedule;
 - (void)fetchTheUpcomingMatch;
+- (void)fetchRecentNewsArticles;
 
 @end
