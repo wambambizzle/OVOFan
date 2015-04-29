@@ -11,7 +11,7 @@
 @import CoreLocation;
 @import MapKit;
 
-#define MAP_DISPLAY_SCALE 1.1 *1609.344
+#define MAP_DISPLAY_SCALE 1.5 *1609.344
 
 @interface ShuttleMapViewController () <CLLocationManagerDelegate, MKAnnotation>
 {
@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     [self configureMapView];
-
+    [self configureAndDropPins];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,23 +44,36 @@
 
 -(void)configureMapView
 {
-
-    self.coordinate = CLLocationCoordinate2DMake(28.541016, -81.381289);
-    
+    self.coordinate = CLLocationCoordinate2DMake(28.541974, -81.390542);
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.coordinate, MAP_DISPLAY_SCALE, MAP_DISPLAY_SCALE);
     [self.mapView setRegion:viewRegion];
-    
 }
 
-//-(void)configurePin
-//{
-//    [self.mapView addAnnotation:];
-//}
-//
-//-(void)dropPin
-//{
-//    [self.mapView addAnnotation:];
-//}
+-(void)configureAndDropPins
+{
+    // first annotation
+    CLLocationCoordinate2D churchAndNortonAve = CLLocationCoordinate2DMake(28.540197, -81.398224);
+    MKPointAnnotation *churchAndNortonAveAnnotation = [[MKPointAnnotation alloc] init];
+    [churchAndNortonAveAnnotation setCoordinate:churchAndNortonAve];
+    [churchAndNortonAveAnnotation setTitle:@"W Church St & S Norton Ave"]; //You can set the subtitle too
+
+    // second annotation
+    CLLocationCoordinate2D centralAndHugheyAve = CLLocationCoordinate2DMake(28.541809, -81.382964);
+    MKPointAnnotation *centralAndHugheyAveAnnotation = [[MKPointAnnotation alloc] init];
+    [centralAndHugheyAveAnnotation setCoordinate:centralAndHugheyAve];
+    [centralAndHugheyAveAnnotation setTitle:@"W Central Blvd & S Hughey Ave"];
+    
+    // third annotation
+    CLLocationCoordinate2D southAndDivisionAve = CLLocationCoordinate2DMake(28.538378, -81.384842);
+    MKPointAnnotation *southAndDivisionAveAnnotation = [[MKPointAnnotation alloc] init];
+    [southAndDivisionAveAnnotation setCoordinate:southAndDivisionAve];
+    [southAndDivisionAveAnnotation setTitle:@"W South St & S Division Ave"];
+    
+    NSMutableArray *shuttleAnnotationsArray = [[NSMutableArray alloc] initWithObjects:churchAndNortonAveAnnotation, centralAndHugheyAveAnnotation, southAndDivisionAveAnnotation, nil];
+  
+    [self.mapView addAnnotations:shuttleAnnotationsArray];
+    
+}
 
 -(void)configureLocationManager
 {

@@ -35,6 +35,7 @@
      [NetworkManager sharedNetworkManager].delegate = self;
     [[NetworkManager sharedNetworkManager] fetchTheUpcomingMatch];
     
+    
 }
 
 - (void)didReceiveMemoryWarning
