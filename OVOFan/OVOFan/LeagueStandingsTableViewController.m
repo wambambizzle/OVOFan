@@ -7,6 +7,7 @@
 //
 
 #import "LeagueStandingsTableViewController.h"
+#import "LeagueStandingsCell.h"
 
 #import "NetworkManager.h"
 
@@ -25,12 +26,6 @@
     leagueArray = [[NSMutableArray alloc] init];
     [NetworkManager sharedNetworkManager].leagueStandingsdelegate = self;
     [[NetworkManager sharedNetworkManager] fetchLeagueStandings];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,19 +47,26 @@
     return leagueArray.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingsCell" forIndexPath:indexPath];
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LeagueStandingsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingsCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+     Rankings *aRank = leagueArray[indexPath.row];
+    
+    cell.clubName.text = aRank.clubName;
+    cell.goalDiff.text = aRank.goalDiff;
+    cell.points.text = aRank.pointsScored;
+    cell.position.text = aRank.position;
     
     return cell;
 }
-*/
+
 
 -(void)recentStandingsWasFound:(NSMutableArray *)recentStandings
 {
     leagueArray = recentStandings;
+    [self.tableView reloadData];
 }
 
 /*

@@ -462,11 +462,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueStandingsCell" id="HWj-1R-nzB">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueStandingsCell" rowHeight="50" id="HWj-1R-nzB" customClass="LeagueStandingsCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWj-1R-nzB" id="DD2-aY-HJl">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osd-RT-twz">
+                                            <rect key="frame" x="99" y="17" width="29" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GoalDiff" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fU-6d-E7N">
+                                            <rect key="frame" x="503" y="17" width="49" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m64-nD-Kjl">
+                                            <rect key="frame" x="20" y="17" width="49" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points Scored" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4d-qe-7E9">
+                                            <rect key="frame" x="398" y="17" width="85" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="9fU-6d-E7N" secondAttribute="centerY" id="0tE-9X-Kyz"/>
+                                        <constraint firstItem="m64-nD-Kjl" firstAttribute="leading" secondItem="DD2-aY-HJl" secondAttribute="leading" constant="20" id="8zP-Vp-nOj"/>
+                                        <constraint firstItem="9fU-6d-E7N" firstAttribute="centerY" secondItem="f4d-qe-7E9" secondAttribute="centerY" id="WXF-Wk-mnj"/>
+                                        <constraint firstAttribute="centerY" secondItem="m64-nD-Kjl" secondAttribute="centerY" id="XBJ-U6-Fj3"/>
+                                        <constraint firstAttribute="centerY" secondItem="osd-RT-twz" secondAttribute="centerY" id="a4s-Yr-bfn"/>
+                                        <constraint firstAttribute="trailing" secondItem="9fU-6d-E7N" secondAttribute="trailing" constant="48" id="cA2-JT-u3a"/>
+                                        <constraint firstItem="osd-RT-twz" firstAttribute="leading" secondItem="m64-nD-Kjl" secondAttribute="trailing" constant="30" id="hHM-fB-2vY"/>
+                                        <constraint firstItem="9fU-6d-E7N" firstAttribute="leading" secondItem="f4d-qe-7E9" secondAttribute="trailing" constant="20" id="xgZ-In-CqM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="clubName" destination="osd-RT-twz" id="B83-FM-Pkc"/>
+                                    <outlet property="goalDiff" destination="9fU-6d-E7N" id="lb6-os-4sd"/>
+                                    <outlet property="points" destination="f4d-qe-7E9" id="lBp-e8-Dz5"/>
+                                    <outlet property="position" destination="m64-nD-Kjl" id="WYS-TZ-7hp"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

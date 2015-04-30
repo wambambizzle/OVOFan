@@ -10,4 +10,9 @@
 
 @interface LeagueStandingsCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *clubName;
+@property (strong, nonatomic) IBOutlet UILabel *goalDiff;
+@property (strong, nonatomic) IBOutlet UILabel *points;
+@property (strong, nonatomic) IBOutlet UILabel *position;
+
 @end

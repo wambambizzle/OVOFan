@@ -10,7 +10,6 @@
 
 @interface NewsCell : UITableViewCell
 
-//@property (strong, nonatomic) IBOutlet UILabel *articleLink;
 @property (strong, nonatomic) IBOutlet UILabel *articleTitle;
 @property (strong, nonatomic) IBOutlet UIImageView *articleImage;
 
