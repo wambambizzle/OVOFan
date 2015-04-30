@@ -173,9 +173,9 @@
 				A87F698D1AF159AE0008E72A /* NewsTableViewController.m */,
 				A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */,
 				A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */,
-				A8DC62061AEE938E006AB0B6 /* OVOFanTests */,
 				A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */,
 				A86539901AEF281000BDE25E /* UpcomingGameViewController.m */,
+				A8DC62061AEE938E006AB0B6 /* OVOFanTests */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

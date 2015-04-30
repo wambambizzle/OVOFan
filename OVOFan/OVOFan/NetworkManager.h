@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NewsTableViewController.h"
 #import "UpcomingGameViewController.h"
+
+#import "News.h"
 #import "UpcomingMatch.h"
 
 @interface NetworkManager : NSObject
 
+@property (strong, nonatomic)id<NewsTableViewControllerDelegate> newsdelegate;
 @property (strong, nonatomic)id<UpcomingGameViewControllerDelegate> delegate;
 
 // Class method to access the singleton object

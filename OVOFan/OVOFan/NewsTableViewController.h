@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsTableViewController : UITableViewController
+#import "News.h"
+
+@protocol NewsTableViewControllerDelegate 
+
+-(void)recentNewsWasFound:(NSArray *)recentNews;
+
+@end
+
+@interface NewsTableViewController : UITableViewController <NewsTableViewControllerDelegate>
 
 @end

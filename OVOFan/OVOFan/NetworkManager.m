@@ -27,7 +27,7 @@ typedef enum
 
 static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/4b6j8tp8?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/7frwoxaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
-static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/36adt662?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt&kimlimit=6";
+static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/ejewyfaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 
 + (NetworkManager *)sharedNetworkManager //Singleton Method
 {
@@ -81,9 +81,8 @@ static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/36adt662?ap
 
 - (void)startDataTask:(NSURLSessionDataTask *)dataTask
 {
-    
-     [receivedDataDict setObject:[[NSMutableData alloc] init] forKey:[NSNumber numberWithInteger:dataTask.taskIdentifier]];
-     [dataTask resume];
+    [receivedDataDict setObject:[[NSMutableData alloc] init] forKey:[NSNumber numberWithInteger:dataTask.taskIdentifier]];
+    [dataTask resume];
 }
 
 #pragma mark - NSURLSession delegate
@@ -106,30 +105,27 @@ static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/36adt662?ap
         NSMutableData *receivedData3 = receivedDataDict[[NSNumber numberWithInteger:task.taskIdentifier]];
         NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:receivedData3 options:0 error:nil];
         
-        BOOL nextMatchFound = NO;
+        BOOL upcomingMatcFound = NO;
         
         if ([[aDictionary objectForKey:@"name"] isEqualToString:@"Upcoming Game"])
             {
                 UpcomingMatch *upComingMatch = [[UpcomingMatch alloc] init];
-               nextMatchFound = [upComingMatch parseupComingMatchInfo:aDictionary];
-                if (nextMatchFound)
+               upcomingMatcFound = [upComingMatch parseupComingMatchInfo:aDictionary];
+                if (upcomingMatcFound)
                 {
                     [self.delegate nextMatchWasFound:upComingMatch];
                 }
             }
-        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ocity-article"])
-        {
-//            UpcomingMatch *upComingMatch = [[UpcomingMatch alloc] init];
-//            nextMatchFound = [upComingMatch parseupComingMatchInfo:aDictionary];
-//            if (nextMatchFound)
+//        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo - recent news"])
+//        {
+//            News *recentNews = [[News alloc] init];
+//            objectWasFound = [recentNews newsArticleWithDictionary:aDictionary];
+//            if (objectWasFound)
 //            {
-//                [self.delegate nextMatchWasFound:upComingMatch];
+//                [self.newsdelegate recentNewsWasFound:recentNews];
 //            }
-        }
-        
-        
-        
-        
+//        }
+     
         
 //        NSLog(@"%@", aDictionary);
 //        DataFetchType fetchType;

@@ -8,9 +8,12 @@
 
 #import "NewsTableViewController.h"
 
+#import "NetworkManager.h"
+
 @interface NewsTableViewController ()
 {
     NSMutableArray *recentNewsArray;
+    News *newArticle;
 }
 
 @end
@@ -20,11 +23,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [NetworkManager sharedNetworkManager].newsdelegate = self;
+    [[NetworkManager sharedNetworkManager] fetchRecentNewsArticles];
     
     recentNewsArray = [[NSMutableArray alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -34,8 +40,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-
     return 1;
 }
 
@@ -53,6 +57,10 @@
     return cell;
 }
 
+-(void)recentNewsWasFound:(News *)recentNews
+{
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
