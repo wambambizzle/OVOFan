@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "NewsTableViewController.h"
 #import "UpcomingGameViewController.h"
+#import "LeagueStandingsTableViewController.h"
 
 #import "News.h"
 #import "UpcomingMatch.h"
+#import "Rankings.h"
 
 @interface NetworkManager : NSObject
 
+@property (strong, nonatomic)id<LeagueStandingTableViewControllerDelegate> leagueStandingsdelegate;
 @property (strong, nonatomic)id<NewsTableViewControllerDelegate> newsdelegate;
 @property (strong, nonatomic)id<UpcomingGameViewControllerDelegate> delegate;
 
@@ -24,5 +27,6 @@
 - (void)fetchTheSchedule;
 - (void)fetchTheUpcomingMatch;
 - (void)fetchRecentNewsArticles;
+- (void)fetchLeagueStandings;
 
 @end

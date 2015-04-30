@@ -36,7 +36,6 @@
     [self configureAndDropPins];
     [self configureLocationManager];
 
-
 }
 
 - (void)didReceiveMemoryWarning

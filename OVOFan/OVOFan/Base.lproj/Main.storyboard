@@ -31,7 +31,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POj-f0-8Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="-324"/>
+            <point key="canvasLocation" x="2650" y="542"/>
         </scene>
         <!--Shuttle Map View Controller-->
         <scene sceneID="3Ko-EC-y9k">
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9u6-Nw-RKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="1126"/>
+            <point key="canvasLocation" x="2308" y="-324"/>
         </scene>
         <!--Stadium Map View Controller-->
         <scene sceneID="79c-1p-7Qm">
@@ -243,11 +243,22 @@
                                     <action selector="recentNewsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="k2k-S6-4RH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2E-1R-qcK">
+                                <rect key="frame" x="533" y="160" width="41" height="57"/>
+                                <state key="normal" image="trophy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leagueStandingsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Hbb-Xm-udx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="d2E-1R-qcK" firstAttribute="top" secondItem="iT2-hH-uTC" secondAttribute="bottom" constant="35" id="58L-UY-fwK"/>
                             <constraint firstItem="Tod-bq-Gy8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="ERw-wy-2Fq"/>
                             <constraint firstItem="zMV-f1-gXb" firstAttribute="centerX" secondItem="Tod-bq-Gy8" secondAttribute="centerX" id="MrX-zh-S18"/>
+                            <constraint firstItem="iT2-hH-uTC" firstAttribute="centerX" secondItem="d2E-1R-qcK" secondAttribute="centerX" id="MvC-pT-EyZ"/>
                             <constraint firstItem="Tod-bq-Gy8" firstAttribute="centerY" secondItem="iT2-hH-uTC" secondAttribute="centerY" id="RgM-Fq-OQy"/>
                             <constraint firstItem="zMV-f1-gXb" firstAttribute="top" secondItem="Tod-bq-Gy8" secondAttribute="bottom" constant="20" id="let-Xa-W85"/>
                             <constraint firstAttribute="trailing" secondItem="iT2-hH-uTC" secondAttribute="trailing" constant="15" id="maB-Bn-F0T"/>
@@ -276,6 +287,7 @@
                         <segue destination="1r5-Fg-7sH" kind="show" identifier="ShowScheduleSegue" id="G1w-3U-fEp"/>
                         <segue destination="JlI-qR-u18" kind="show" identifier="ShowShuttleMapSegue" id="KT8-jr-0MO"/>
                         <segue destination="ve4-ns-w7H" kind="show" identifier="ShowNewsSegue" id="mbh-8e-1xo"/>
+                        <segue destination="5Dk-7H-bui" kind="show" identifier="ShowLeagueStandingSegue" id="nXA-kl-i8G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -324,7 +336,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1p-kl-lwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="-316"/>
+            <point key="canvasLocation" x="1975" y="550"/>
         </scene>
         <!--News Table View Controller-->
         <scene sceneID="cML-D0-g01">
@@ -441,6 +453,32 @@
             </objects>
             <point key="canvasLocation" x="1002" y="1318"/>
         </scene>
+        <!--League Standings Table View Controller-->
+        <scene sceneID="YEQ-0X-NPv">
+            <objects>
+                <tableViewController id="5Dk-7H-bui" customClass="LeagueStandingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oSI-5l-6AV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeagueStandingsCell" id="HWj-1R-nzB">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWj-1R-nzB" id="DD2-aY-HJl">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5Dk-7H-bui" id="1O1-rh-gxU"/>
+                            <outlet property="delegate" destination="5Dk-7H-bui" id="fYO-d4-tt2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYK-68-DqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="1440"/>
+        </scene>
         <!--Website View Controller-->
         <scene sceneID="kNk-OX-pNq">
             <objects>
@@ -486,11 +524,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3C7-0n-L0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1002" y="2106"/>
+            <point key="canvasLocation" x="1002" y="2012"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u7O-97-CrD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxy-P8-6oG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JlI-qR-u18" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eej-dI-VOK">
@@ -502,9 +541,8 @@
                         <segue destination="nT0-h3-5Uv" kind="relationship" relationship="rootViewController" id="gun-bZ-ucP"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uxy-P8-6oG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2232" y="1116"/>
+            <point key="canvasLocation" x="1622" y="-332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6VL-0q-XmR">
@@ -531,5 +569,6 @@
         <image name="map" width="16" height="27"/>
         <image name="newspaper" width="60" height="60"/>
         <image name="stadiummap" width="982" height="1236"/>
+        <image name="trophy" width="41" height="57"/>
     </resources>
 </document>

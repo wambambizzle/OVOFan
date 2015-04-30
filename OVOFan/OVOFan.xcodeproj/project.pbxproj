@@ -17,6 +17,9 @@
 		A87F69911AF15CBE0008E72A /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F69901AF15CBE0008E72A /* News.m */; };
 		A890E6381AF28E1500851112 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E6371AF28E1500851112 /* NewsCell.m */; };
 		A890E63B1AF2A0CA00851112 /* WebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E63A1AF2A0CA00851112 /* WebsiteViewController.m */; };
+		A890E63E1AF2B4CE00851112 /* LeagueStandingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E63D1AF2B4CE00851112 /* LeagueStandingsTableViewController.m */; };
+		A890E6411AF2B66800851112 /* Rankings.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E6401AF2B66800851112 /* Rankings.m */; };
+		A890E6451AF2CA2900851112 /* LeagueStandingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E6441AF2CA2900851112 /* LeagueStandingsCell.m */; };
 		A8DC61F01AEE938E006AB0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61EF1AEE938E006AB0B6 /* main.m */; };
 		A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */; };
 		A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */; };
@@ -58,6 +61,12 @@
 		A890E6371AF28E1500851112 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		A890E6391AF2A0CA00851112 /* WebsiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebsiteViewController.h; sourceTree = "<group>"; };
 		A890E63A1AF2A0CA00851112 /* WebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebsiteViewController.m; sourceTree = "<group>"; };
+		A890E63C1AF2B4CE00851112 /* LeagueStandingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueStandingsTableViewController.h; sourceTree = "<group>"; };
+		A890E63D1AF2B4CE00851112 /* LeagueStandingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueStandingsTableViewController.m; sourceTree = "<group>"; };
+		A890E63F1AF2B66800851112 /* Rankings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rankings.h; sourceTree = "<group>"; };
+		A890E6401AF2B66800851112 /* Rankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rankings.m; sourceTree = "<group>"; };
+		A890E6431AF2CA2900851112 /* LeagueStandingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueStandingsCell.h; sourceTree = "<group>"; };
+		A890E6441AF2CA2900851112 /* LeagueStandingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueStandingsCell.m; sourceTree = "<group>"; };
 		A8DC61EA1AEE938E006AB0B6 /* OVOFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVOFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC61EE1AEE938E006AB0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC61EF1AEE938E006AB0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +107,8 @@
 			children = (
 				A87F698F1AF15CBE0008E72A /* News.h */,
 				A87F69901AF15CBE0008E72A /* News.m */,
+				A890E63F1AF2B66800851112 /* Rankings.h */,
+				A890E6401AF2B66800851112 /* Rankings.m */,
 				A86539891AEEC43F00BDE25E /* Schedule.h */,
 				A865398A1AEEC43F00BDE25E /* Schedule.m */,
 				A86539921AEF2E3800BDE25E /* UpcomingMatch.h */,
@@ -106,6 +117,17 @@
 				A86539861AEEC3EE00BDE25E /* NetworkManager.m */,
 			);
 			name = "Model Objects";
+			sourceTree = "<group>";
+		};
+		A890E6421AF2BAB200851112 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A890E6431AF2CA2900851112 /* LeagueStandingsCell.h */,
+				A890E6441AF2CA2900851112 /* LeagueStandingsCell.m */,
+				A890E6361AF28E1500851112 /* NewsCell.h */,
+				A890E6371AF28E1500851112 /* NewsCell.m */,
+			);
+			name = "Table Cells";
 			sourceTree = "<group>";
 		};
 		A8DC61E11AEE938E006AB0B6 = {
@@ -135,8 +157,7 @@
 				A8DC61FA1AEE938E006AB0B6 /* Images.xcassets */,
 				A8DC61F71AEE938E006AB0B6 /* Main.storyboard */,
 				A8DC61FC1AEE938E006AB0B6 /* LaunchScreen.xib */,
-				A890E6361AF28E1500851112 /* NewsCell.h */,
-				A890E6371AF28E1500851112 /* NewsCell.m */,
+				A890E6421AF2BAB200851112 /* Table Cells */,
 				A8DC61ED1AEE938E006AB0B6 /* Supporting Files */,
 			);
 			path = OVOFan;
@@ -173,12 +194,14 @@
 			children = (
 				A8DC61F41AEE938E006AB0B6 /* HomeViewController.h */,
 				A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */,
+				A890E63C1AF2B4CE00851112 /* LeagueStandingsTableViewController.h */,
+				A890E63D1AF2B4CE00851112 /* LeagueStandingsTableViewController.m */,
+				A87F698C1AF159AE0008E72A /* NewsTableViewController.h */,
+				A87F698D1AF159AE0008E72A /* NewsTableViewController.m */,
 				A8DC62131AEE97C4006AB0B6 /* ScheduleTableViewController.h */,
 				A8DC62141AEE97C4006AB0B6 /* ScheduleTableViewController.m */,
 				A865398C1AEEDC9800BDE25E /* StadiumMapViewController.h */,
 				A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */,
-				A87F698C1AF159AE0008E72A /* NewsTableViewController.h */,
-				A87F698D1AF159AE0008E72A /* NewsTableViewController.m */,
 				A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */,
 				A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */,
 				A865398F1AEF281000BDE25E /* UpcomingGameViewController.h */,
@@ -292,10 +315,13 @@
 			files = (
 				A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */,
 				A87F698E1AF159AE0008E72A /* NewsTableViewController.m in Sources */,
+				A890E6451AF2CA2900851112 /* LeagueStandingsCell.m in Sources */,
+				A890E6411AF2B66800851112 /* Rankings.m in Sources */,
 				A87F69911AF15CBE0008E72A /* News.m in Sources */,
 				A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
 				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,
+				A890E63E1AF2B4CE00851112 /* LeagueStandingsTableViewController.m in Sources */,
 				A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */,
 				A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */,
 				A890E63B1AF2A0CA00851112 /* WebsiteViewController.m in Sources */,
