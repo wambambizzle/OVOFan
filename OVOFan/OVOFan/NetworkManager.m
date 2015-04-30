@@ -105,26 +105,40 @@ static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/ejewyfaw?ap
         NSMutableData *receivedData3 = receivedDataDict[[NSNumber numberWithInteger:task.taskIdentifier]];
         NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:receivedData3 options:0 error:nil];
         
-        BOOL upcomingMatcFound = NO;
+        BOOL upcomingMatchFound = NO;
         
         if ([[aDictionary objectForKey:@"name"] isEqualToString:@"Upcoming Game"])
             {
                 UpcomingMatch *upComingMatch = [[UpcomingMatch alloc] init];
-               upcomingMatcFound = [upComingMatch parseupComingMatchInfo:aDictionary];
-                if (upcomingMatcFound)
+               upcomingMatchFound = [upComingMatch parseupComingMatchInfo:aDictionary];
+                
+                if (upcomingMatchFound)
                 {
                     [self.delegate nextMatchWasFound:upComingMatch];
                 }
             }
-//        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo - recent news"])
-//        {
-//            News *recentNews = [[News alloc] init];
-//            objectWasFound = [recentNews newsArticleWithDictionary:aDictionary];
-//            if (objectWasFound)
-//            {
-//                [self.newsdelegate recentNewsWasFound:recentNews];
-//            }
-//        }
+        
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo - recent news"])
+        {
+            
+            NSDictionary *results = [aDictionary objectForKey:@"results"];
+            NSArray *recentNews = [results objectForKey:@"Recent News"];
+            
+            NSMutableArray *newsObjectsArray = [[NSMutableArray alloc] init];
+
+            for (int i = 0; i < recentNews.count; i++)
+            {
+                News *news = [News newsArticleWithDictionary:aDictionary dicToParse:i];
+//                NSLog(@"%@", news);
+                [newsObjectsArray addObject:news];
+            }
+            
+            if (newsObjectsArray.count != 0)
+            {
+                [self.newsdelegate recentNewsWasFound:newsObjectsArray];
+            }
+            
+        }
      
         
 //        NSLog(@"%@", aDictionary);

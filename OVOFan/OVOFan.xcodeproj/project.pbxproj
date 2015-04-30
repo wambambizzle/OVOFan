@@ -15,6 +15,7 @@
 		A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539931AEF2E3800BDE25E /* UpcomingMatch.m */; };
 		A87F698E1AF159AE0008E72A /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F698D1AF159AE0008E72A /* NewsTableViewController.m */; };
 		A87F69911AF15CBE0008E72A /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F69901AF15CBE0008E72A /* News.m */; };
+		A890E6381AF28E1500851112 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E6371AF28E1500851112 /* NewsCell.m */; };
 		A8DC61F01AEE938E006AB0B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61EF1AEE938E006AB0B6 /* main.m */; };
 		A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */; };
 		A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DC61F51AEE938E006AB0B6 /* HomeViewController.m */; };
@@ -52,6 +53,8 @@
 		A87F698D1AF159AE0008E72A /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		A87F698F1AF15CBE0008E72A /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		A87F69901AF15CBE0008E72A /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		A890E6361AF28E1500851112 /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		A890E6371AF28E1500851112 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		A8DC61EA1AEE938E006AB0B6 /* OVOFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVOFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DC61EE1AEE938E006AB0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DC61EF1AEE938E006AB0B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				A8DC61FA1AEE938E006AB0B6 /* Images.xcassets */,
 				A8DC61F71AEE938E006AB0B6 /* Main.storyboard */,
 				A8DC61FC1AEE938E006AB0B6 /* LaunchScreen.xib */,
+				A890E6361AF28E1500851112 /* NewsCell.h */,
+				A890E6371AF28E1500851112 /* NewsCell.m */,
 				A8DC61ED1AEE938E006AB0B6 /* Supporting Files */,
 			);
 			path = OVOFan;
@@ -290,6 +295,7 @@
 				A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */,
 				A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */,
 				A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */,
+				A890E6381AF28E1500851112 /* NewsCell.m in Sources */,
 				A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */,
 				A8DC61F01AEE938E006AB0B6 /* main.m in Sources */,
 			);

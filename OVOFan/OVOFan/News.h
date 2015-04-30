@@ -11,13 +11,13 @@
 
 @interface News : NSObject
 
-@property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSURL *articleLink;
 @property (strong, nonatomic) NSString *articleTitle;
 @property (strong, nonatomic) UIImage *articleImage;
 
 
-- (instancetype)initWithArticleTitle:(NSString *)articleTitle date:(NSString *)date articleImage:(UIImage *)articleImage;
+- (instancetype)initWithArticleTitle:(NSString *)articleTitle articleLink:(NSURL *)articleLink articleImage:(UIImage *)articleImage;
 
-+ (instancetype)newsArticleWithDictionary:(NSDictionary *)newsDictionary;
++ (instancetype)newsArticleWithDictionary:(NSDictionary *)newsDictionary dicToParse:(int)i;
 
 @end

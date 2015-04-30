@@ -12,7 +12,7 @@
 
 @protocol NewsTableViewControllerDelegate 
 
--(void)recentNewsWasFound:(NSArray *)recentNews;
+-(void)recentNewsWasFound:(NSMutableArray *)recentNews;
 
 @end
 

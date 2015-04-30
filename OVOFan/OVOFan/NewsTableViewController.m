@@ -8,12 +8,14 @@
 
 #import "NewsTableViewController.h"
 
+#import "NewsCell.h"
+
 #import "NetworkManager.h"
 
 @interface NewsTableViewController ()
 {
     NSMutableArray *recentNewsArray;
-    News *newArticle;
+
 }
 
 @end
@@ -46,20 +48,34 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return recentNewsArray.count;
+
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+
+        News *anArticle = recentNewsArray[indexPath.row];
+    
+        cell.articleTitle.text = anArticle.articleTitle;
+        
+        cell.articleImage.image = anArticle.articleImage;
+    
+          [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
     
     return cell;
 }
 
--(void)recentNewsWasFound:(News *)recentNews
+-(void)recentNewsWasFound:(NSMutableArray *)recentNews
 {
-    
+
+    recentNewsArray = recentNews;
+    [self.tableView reloadData];
+//    NSLog(@"%@", recentNewsArray);
 }
 
 /*
