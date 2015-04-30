@@ -7,6 +7,7 @@
 //
 
 #import "NewsTableViewController.h"
+#import "WebsiteViewController.h"
 
 #import "NewsCell.h"
 
@@ -15,7 +16,6 @@
 @interface NewsTableViewController ()
 {
     NSMutableArray *recentNewsArray;
-
 }
 
 @end
@@ -76,6 +76,20 @@
     recentNewsArray = recentNews;
     [self.tableView reloadData];
 //    NSLog(@"%@", recentNewsArray);
+}
+
+#pragma mark - UITableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    News *anArticle = [recentNewsArray objectAtIndex:indexPath.row];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WebsiteViewController *websiteVC = [storyboard instantiateViewControllerWithIdentifier:@"WebsiteVC"];
+    websiteVC.anArticle = anArticle;
+   
+    [self showViewController:websiteVC sender:nil];
+        
 }
 
 /*

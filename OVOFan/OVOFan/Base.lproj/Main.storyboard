@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9u6-Nw-RKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="1234"/>
+            <point key="canvasLocation" x="2890" y="1126"/>
         </scene>
         <!--Stadium Map View Controller-->
         <scene sceneID="79c-1p-7Qm">
@@ -439,7 +439,54 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6s-lS-8wa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128" y="1306"/>
+            <point key="canvasLocation" x="1002" y="1318"/>
+        </scene>
+        <!--Website View Controller-->
+        <scene sceneID="kNk-OX-pNq">
+            <objects>
+                <viewController storyboardIdentifier="WebsiteVC" id="oz9-fk-Eg1" customClass="WebsiteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ihr-yn-1Ls"/>
+                        <viewControllerLayoutGuide type="bottom" id="o4b-fV-bh0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KMS-Hf-OhA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60B-on-WAD">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o4b-fV-bh0" firstAttribute="top" secondItem="60B-on-WAD" secondAttribute="bottom" id="9MN-Hr-VFL"/>
+                            <constraint firstItem="60B-on-WAD" firstAttribute="leading" secondItem="KMS-Hf-OhA" secondAttribute="leading" id="ECu-aO-rp3"/>
+                            <constraint firstAttribute="trailing" secondItem="60B-on-WAD" secondAttribute="trailing" id="KrP-5q-vyY"/>
+                            <constraint firstItem="60B-on-WAD" firstAttribute="top" secondItem="Ihr-yn-1Ls" secondAttribute="bottom" id="Mcx-jE-L1C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="60B-on-WAD" secondAttribute="trailing" id="Vso-dD-BVc"/>
+                            <constraint firstItem="60B-on-WAD" firstAttribute="top" secondItem="Ihr-yn-1Ls" secondAttribute="bottom" id="WPp-tQ-y6I"/>
+                            <constraint firstItem="o4b-fV-bh0" firstAttribute="top" secondItem="60B-on-WAD" secondAttribute="bottom" id="YEF-gn-RcJ"/>
+                            <constraint firstItem="60B-on-WAD" firstAttribute="leading" secondItem="KMS-Hf-OhA" secondAttribute="leadingMargin" id="jPP-PH-daA"/>
+                            <constraint firstAttribute="centerY" secondItem="60B-on-WAD" secondAttribute="centerY" constant="-32" id="oIV-pj-vvI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Vso-dD-BVc"/>
+                                <exclude reference="WPp-tQ-y6I"/>
+                                <exclude reference="jPP-PH-daA"/>
+                                <exclude reference="oIV-pj-vvI"/>
+                                <exclude reference="YEF-gn-RcJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="60B-on-WAD" id="We3-dL-onK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3C7-0n-L0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="2106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u7O-97-CrD">
@@ -457,7 +504,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxy-P8-6oG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2080" y="1234"/>
+            <point key="canvasLocation" x="2232" y="1116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6VL-0q-XmR">
