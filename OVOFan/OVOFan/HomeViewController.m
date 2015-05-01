@@ -19,6 +19,7 @@
 - (IBAction)shuttleMapTapped:(UIButton *)sender;
 - (IBAction)recentNewsTapped:(UIButton *)sender;
 - (IBAction)leagueStandingsTapped:(UIButton *)sender;
+//- (IBAction)teamTapped:(UIButton *)sender;
 
 
 @end
@@ -56,6 +57,11 @@
 {
     [self performSegueWithIdentifier:@"ShowLeagueStandingSegue" sender:self];
 }
+
+//- (IBAction)teamTapped:(UIButton *)sender
+//{
+//    [self performSegueWithIdentifier:@"ShowTeamSegue" sender:self];
+//}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

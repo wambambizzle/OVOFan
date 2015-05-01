@@ -8,12 +8,6 @@
 
 #import "NetworkManager.h"
 
-typedef enum
-{
-    DataFetchTypeSchedule,
-    DataFetchTypeUpcomingGame,
-} DataFetchType;
-
 @interface NetworkManager () <NSURLSessionDataDelegate>
 {
     NSURLSessionConfiguration *configuration;
@@ -29,6 +23,7 @@ static NSString *mainSchedApiURL = @"https://www.kimonolabs.com/api/4b6j8tp8?api
 static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/7frwoxaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/ejewyfaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *leagueStandingsApiURL = @"https://www.kimonolabs.com/api/6ok0l5mc?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+static NSString *teamApiURL = @"https://www.kimonolabs.com/api/5oe8yp4q?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 
 + (NetworkManager *)sharedNetworkManager //Singleton Method
 {
@@ -87,6 +82,14 @@ static NSString *leagueStandingsApiURL = @"https://www.kimonolabs.com/api/6ok0l5
     [self startDataTask:dataTask];
 }
 
+- (void)fetchCurrentTeam
+{
+    NSURL *url = [NSURL URLWithString:teamApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+}
+
+
 - (void)startDataTask:(NSURLSessionDataTask *)dataTask
 {
     [receivedDataDict setObject:[[NSMutableData alloc] init] forKey:[NSNumber numberWithInteger:dataTask.taskIdentifier]];
@@ -102,7 +105,7 @@ static NSString *leagueStandingsApiURL = @"https://www.kimonolabs.com/api/6ok0l5
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
-    NSMutableData *receivedData2 = receivedDataDict[[NSNumber numberWithInteger:dataTask.taskIdentifier]]; // <- like saying object for key
+    NSMutableData *receivedData2 = receivedDataDict[[NSNumber numberWithInteger:dataTask.taskIdentifier]];
     [receivedData2 appendData:data];
 }
 
@@ -167,9 +170,27 @@ static NSString *leagueStandingsApiURL = @"https://www.kimonolabs.com/api/6ok0l5
             {
                 [self.leagueStandingsdelegate recentStandingsWasFound:rankingObjectsArray];
             }
+        
+        }
+        
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-squad"])
+        {
+            NSDictionary *results = [aDictionary objectForKey:@"results"];
+            NSArray *squad = [results objectForKey:@"Squad"];
             
+            NSMutableArray *playersObjectsArray = [[NSMutableArray alloc] init];
             
+            for (int i = 0; i < squad.count; i++)
+            {
+                Team *aPlayer = [Team teamWithDictionary:aDictionary dicToParse:i];
+                [playersObjectsArray addObject:aPlayer];
+            }
             
+            if (playersObjectsArray.count != 0)
+            {
+                [self.teamdelegate teamMembersWereFound:playersObjectsArray];
+            }
+
         }
         
         

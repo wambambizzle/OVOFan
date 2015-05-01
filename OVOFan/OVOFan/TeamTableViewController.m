@@ -1,37 +1,38 @@
 //
-//  LeagueStandingsTableViewController.m
+//  TeamTableViewController.m
 //  OVOFan
 //
 //  Created by Jordan Anderson on 4/30/15.
 //  Copyright (c) 2015 Jordan Anderson. All rights reserved.
 //
 
-#import "LeagueStandingsTableViewController.h"
-#import "LeagueStandingsCell.h"
+#import "TeamTableViewController.h"
+
+#import "TeamCell.h"
 
 #import "NetworkManager.h"
 
-@interface LeagueStandingsTableViewController ()
+@interface TeamTableViewController ()
 {
-    NSMutableArray *leagueArray;
+    NSMutableArray *teamMemArray;
 }
 
 @end
 
-@implementation LeagueStandingsTableViewController
+@implementation TeamTableViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    leagueArray = [[NSMutableArray alloc] init];
-    [NetworkManager sharedNetworkManager].leagueStandingsdelegate = self;
-    [[NetworkManager sharedNetworkManager] fetchLeagueStandings];
+    [[NetworkManager sharedNetworkManager] fetchCurrentTeam];
+    [NetworkManager sharedNetworkManager].teamdelegate = self;
+    teamMemArray = [[NSMutableArray alloc] init];
+   
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -44,37 +45,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return leagueArray.count;
+    return teamMemArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LeagueStandingsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingsCell" forIndexPath:indexPath];
+    TeamCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell" forIndexPath:indexPath];
     
-     Rankings *aRank = leagueArray[indexPath.row];
+    Team *aPlayer = teamMemArray[indexPath.row];
     
-    cell.clubName.text = aRank.clubName;
-    cell.goalDiff.text = aRank.goalDiff;
-    cell.points.text = aRank.pointsScored;
-    cell.position.text = aRank.position;
+    cell.playerImage.image = aPlayer.playerImage;
+    cell.name.text = aPlayer.name;
+    cell.number.text = aPlayer.number;
+    cell.position.text = aPlayer.position;
+    cell.weight.text = aPlayer.weight;
+    cell.height.text = aPlayer.height;
+    cell.age.text = aPlayer.age;
     
     return cell;
 }
 
 
--(void)recentStandingsWasFound:(NSMutableArray *)recentStandings
+-(void)teamMembersWereFound:(NSMutableArray *)team
 {
-    leagueArray = recentStandings;
+    teamMemArray = team;
     [self.tableView reloadData];
 }
 
-#pragma mark - UITableView delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
 
 /*
 // Override to support conditional editing of the table view.
