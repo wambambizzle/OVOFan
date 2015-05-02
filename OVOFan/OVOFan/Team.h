@@ -18,9 +18,10 @@
 @property (strong, nonatomic) NSString *weight;
 @property (strong, nonatomic) NSString *number;
 @property (strong, nonatomic) UIImage *playerImage;
+@property (strong, nonatomic) NSString *detailsLink;
 
 
-- (instancetype)initWithPlayerImage:(UIImage *)playerImage age:(NSString *)age height:(NSString *)height name:(NSString *)name position:(NSString *)position number:(NSString *)number AndWeight:(NSString *)weight;
+- (instancetype)initWithPlayerImage:(UIImage *)playerImage age:(NSString *)age height:(NSString *)height name:(NSString *)name position:(NSString *)position number:(NSString *)number detailsLink:(NSString *)detailsLink AndWeight:(NSString *)weight;
 
 + (instancetype)teamWithDictionary:(NSDictionary *)aDictionary dicToParse:(int)i;
 

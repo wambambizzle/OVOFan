@@ -10,7 +10,7 @@
 
 @implementation Team
 
-- (instancetype)initWithPlayerImage:(UIImage *)playerImage age:(NSString *)age height:(NSString *)height name:(NSString *)name position:(NSString *)position number:(NSString *)number AndWeight:(NSString *)weight
+- (instancetype)initWithPlayerImage:(UIImage *)playerImage age:(NSString *)age height:(NSString *)height name:(NSString *)name position:(NSString *)position number:(NSString *)number detailsLink:(NSString *)detailsLink AndWeight:(NSString *)weight
 {
     self = [super init];
     if (self)
@@ -39,6 +39,10 @@
     NSURL *imgURL = [NSURL URLWithString:[imageDic objectForKey:@"src"]];
     NSData *playerImgData = [NSData dataWithContentsOfURL:imgURL];
     aPlayer.playerImage = [UIImage imageWithData:playerImgData];
+
+    aPlayer.detailsLink = [imageDic objectForKey:@"href"];
+//    NSLog(@"detail Links: %@", aPlayer.detailsLink);
+    //    NSLog(@"%@", aPlayer.playerImage);
     
     aPlayer.age = [squadDict objectForKey:@"age"];
     aPlayer.height = [squadDict objectForKey:@"height"];
@@ -46,6 +50,7 @@
     aPlayer.number = [squadDict objectForKey:@"number"];
     aPlayer.position = [squadDict objectForKey:@"position"];
     aPlayer.weight = [squadDict objectForKey:@"weight"];
+    
     
     return aPlayer;
 }

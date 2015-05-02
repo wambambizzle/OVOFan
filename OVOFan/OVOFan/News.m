@@ -37,9 +37,12 @@
     NSData *articleImgData = [NSData dataWithContentsOfURL:imgURL];
     theArticle.articleImage = [UIImage imageWithData:articleImgData];
     
-    theArticle.articleLink = [NSURL URLWithString:[recentNewsDict objectForKey:@"titleLink"]];
-
-    theArticle.articleTitle = [recentNewsDict objectForKey:@"titleText"];
+//    NSString *linkString = [recentNewsDict objectForKey:@"titleLink"];
+////    NSLog(@"%@", linkString);
+//    
+//    theArticle.articleLink = [NSURL URLWithString:linkString];
+//
+//    theArticle.articleTitle = [recentNewsDict objectForKey:@"titleText"];
     
     
     

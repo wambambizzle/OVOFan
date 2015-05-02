@@ -72,10 +72,9 @@
 
 -(void)recentNewsWasFound:(NSMutableArray *)recentNews
 {
-
     recentNewsArray = recentNews;
     [self.tableView reloadData];
-//    NSLog(@"%@", recentNewsArray);
+
 }
 
 #pragma mark - UITableView delegate

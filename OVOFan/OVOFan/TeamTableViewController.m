@@ -7,6 +7,7 @@
 //
 
 #import "TeamTableViewController.h"
+#import "PlayerWebViewController.h"
 
 #import "TeamCell.h"
 
@@ -73,6 +74,18 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - UITableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Team *aPlayer = [teamMemArray objectAtIndex:indexPath.row];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PlayerWebViewController *playerWebsiteVC = [storyboard instantiateViewControllerWithIdentifier:@"PlayerWebVC"];
+    playerWebsiteVC.aPlayer = aPlayer;
+   
+    [self showViewController:playerWebsiteVC sender:nil];
+}
 
 /*
 // Override to support conditional editing of the table view.
