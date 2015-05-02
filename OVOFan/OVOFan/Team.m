@@ -36,14 +36,17 @@
     NSDictionary *squadDict = [squad objectAtIndex:i];
     
     NSDictionary *imageDic = [squadDict objectForKey:@"image"];
-    NSURL *imgURL = [NSURL URLWithString:[imageDic objectForKey:@"src"]];
+    
+    NSString *imgSrcString = [imageDic objectForKey:@"src"];
+    
+    imgSrcString = [imgSrcString stringByReplacingOccurrencesOfString:@" "
+                                                       withString:@"%20"];
+    
+    NSURL *imgURL = [NSURL URLWithString: imgSrcString];
     NSData *playerImgData = [NSData dataWithContentsOfURL:imgURL];
     aPlayer.playerImage = [UIImage imageWithData:playerImgData];
-
     aPlayer.detailsLink = [imageDic objectForKey:@"href"];
-//    NSLog(@"detail Links: %@", aPlayer.detailsLink);
-    //    NSLog(@"%@", aPlayer.playerImage);
-    
+
     aPlayer.age = [squadDict objectForKey:@"age"];
     aPlayer.height = [squadDict objectForKey:@"height"];
     aPlayer.name = [squadDict objectForKey:@"name"];
@@ -54,5 +57,8 @@
     
     return aPlayer;
 }
+
+
+
 
 @end

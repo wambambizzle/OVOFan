@@ -42,6 +42,10 @@
         NSDictionary *homeLogoDic = clubLogos[0];
 //        NSLog(@"%@", [homeLogoDic objectForKey:@"clubLogos"]);
         NSString *homeString = [homeLogoDic objectForKey:@"clubLogos"];
+        
+        homeString = [homeString stringByReplacingOccurrencesOfString:@" "
+                                            withString:@"%20"];
+        
         NSURL *homeIconURL = [NSURL URLWithString:homeString];
         NSData *homeImgData = [NSData dataWithContentsOfURL:homeIconURL];
         self.homeLogo = [UIImage imageWithData:homeImgData];
