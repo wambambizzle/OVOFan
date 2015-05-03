@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "News.h"
+#import "BingSearch.h"
 
 @protocol NewsTableViewControllerDelegate 
 

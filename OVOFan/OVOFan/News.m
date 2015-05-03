@@ -10,44 +10,44 @@
 
 @implementation News
 
-- (instancetype)initWithArticleTitle:(NSString *)articleTitle articleLink:(NSURL *)articleLink articleImage:(UIImage *)articleImage
-{
-    self = [super init];
-    if (self)
-    {
-        _articleTitle = articleTitle;
-        _articleLink = articleLink;
-        _articleImage = articleImage;
-    }
-    
-    return self;
-}
-
-+ (instancetype)newsArticleWithDictionary:(NSDictionary *)newsDictionary dicToParse:(int)i
-{
-    
-    News *theArticle = [[News alloc] init];
-
-    NSDictionary *results = [newsDictionary objectForKey:@"results"];
-    NSArray *recentNews = [results objectForKey:@"Recent News"];
-    NSDictionary *recentNewsDict = [recentNews objectAtIndex:i];
-   
-    NSDictionary *imageDic = [recentNewsDict objectForKey:@"image"];
-    NSURL *imgURL = [NSURL URLWithString:[imageDic objectForKey:@"src"]];
-    NSData *articleImgData = [NSData dataWithContentsOfURL:imgURL];
-    theArticle.articleImage = [UIImage imageWithData:articleImgData];
-    
-//    NSString *linkString = [recentNewsDict objectForKey:@"titleLink"];
-////    NSLog(@"%@", linkString);
+//- (instancetype)initWithArticleTitle:(NSString *)articleTitle articleLink:(NSURL *)articleLink articleImage:(UIImage *)articleImage
+//{
+//    self = [super init];
+//    if (self)
+//    {
+//        _articleTitle = articleTitle;
+//        _articleLink = articleLink;
+//        _articleImage = articleImage;
+//    }
 //    
-//    theArticle.articleLink = [NSURL URLWithString:linkString];
+//    return self;
+//}
+
+//+ (instancetype)newsArticleWithDictionary:(NSDictionary *)newsDictionary dicToParse:(int)i
+//{
+//    
+//    News *theArticle = [[News alloc] init];
 //
-//    theArticle.articleTitle = [recentNewsDict objectForKey:@"titleText"];
-    
-    
-    
-    return theArticle;
-}
+//    NSDictionary *results = [newsDictionary objectForKey:@"results"];
+//    NSArray *recentNews = [results objectForKey:@"Recent News"];
+//    NSDictionary *recentNewsDict = [recentNews objectAtIndex:i];
+//   
+//    NSDictionary *imageDic = [recentNewsDict objectForKey:@"image"];
+//    NSURL *imgURL = [NSURL URLWithString:[imageDic objectForKey:@"src"]];
+//    NSData *articleImgData = [NSData dataWithContentsOfURL:imgURL];
+//    theArticle.articleImage = [UIImage imageWithData:articleImgData];
+//    
+////    NSString *linkString = [recentNewsDict objectForKey:@"titleLink"];
+//////    NSLog(@"%@", linkString);
+////    
+////    theArticle.articleLink = [NSURL URLWithString:linkString];
+////
+////    theArticle.articleTitle = [recentNewsDict objectForKey:@"titleText"];
+//    
+//    
+//    
+//    return theArticle;
+//}
 
 
 @end

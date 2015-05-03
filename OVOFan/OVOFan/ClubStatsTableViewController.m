@@ -1,39 +1,32 @@
 //
-//  NewsTableViewController.m
+//  ClubStatsTableViewController.m
 //  OVOFan
 //
-//  Created by Jordan Anderson on 4/29/15.
+//  Created by Jordan Anderson on 5/2/15.
 //  Copyright (c) 2015 Jordan Anderson. All rights reserved.
 //
 
-#import "NewsTableViewController.h"
-#import "WebsiteViewController.h"
+#import "ClubStatsTableViewController.h"
 
-#import "NewsCell.h"
-
-
-@interface NewsTableViewController ()
-{
-    NSMutableArray *recentNewsArray;
-}
+@interface ClubStatsTableViewController ()
 
 @end
 
-@implementation NewsTableViewController
+@implementation ClubStatsTableViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [NetworkManager sharedNetworkManager].newsdelegate = self;
-    BingSearch *aSearch = [[BingSearch alloc] init];
-    [aSearch bingNewsSearch];
     
-    recentNewsArray = [[NSMutableArray alloc] init];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
-    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -47,49 +40,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return recentNewsArray.count;
-
+    return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClubStatsCell" forIndexPath:indexPath];
     
-
-//        News *anArticle = recentNewsArray[indexPath.row];
-//    
-//        cell.articleTitle.text = anArticle.articleTitle;
-//        
-//        cell.articleImage.image = anArticle.articleImage;
-//    
-//          [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    
-    
+    // Configure the cell...
     
     return cell;
 }
 
--(void)recentNewsWasFound:(NSMutableArray *)recentNews
-{
-   recentNewsArray = recentNews;
-   [self.tableView reloadData];
-
-}
-
-#pragma mark - UITableView delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    News *anArticle = [recentNewsArray objectAtIndex:indexPath.row];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    WebsiteViewController *websiteVC = [storyboard instantiateViewControllerWithIdentifier:@"WebsiteVC"];
-    websiteVC.anArticle = anArticle;
-   
-    [self showViewController:websiteVC sender:nil];
-        
-}
 
 /*
 // Override to support conditional editing of the table view.

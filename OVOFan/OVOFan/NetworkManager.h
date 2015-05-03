@@ -25,13 +25,16 @@
 @property (strong, nonatomic)id<TeamTableViewControllerDelegate> teamdelegate;
 @property (strong, nonatomic)id<UpcomingGameViewControllerDelegate> delegate;
 
+
 // Class method to access the singleton object
 + (NetworkManager *)sharedNetworkManager;
 
 - (void)fetchTheSchedule;
 - (void)fetchTheUpcomingMatch;
-- (void)fetchRecentNewsArticles;
+//- (void)fetchRecentNewsArticles;
 - (void)fetchLeagueStandings;
 - (void)fetchCurrentTeam;
+
+
 
 @end

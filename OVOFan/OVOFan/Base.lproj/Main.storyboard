@@ -31,7 +31,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POj-f0-8Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608" y="456"/>
+            <point key="canvasLocation" x="2596" y="446"/>
         </scene>
         <!--Shuttle Map View Controller-->
         <scene sceneID="3Ko-EC-y9k">
@@ -261,11 +261,21 @@
                                     <segue destination="9Dr-aN-w7t" kind="show" identifier="ShowTeamSegue" id="z68-cB-eoq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-cq-yzv">
+                                <rect key="frame" x="20" y="239" width="60" height="60"/>
+                                <state key="normal" image="clubstats">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Uw6-RL-Hdb" kind="show" id="ulG-re-kHX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="d2E-1R-qcK" firstAttribute="top" secondItem="iT2-hH-uTC" secondAttribute="bottom" constant="35" id="58L-UY-fwK"/>
                             <constraint firstItem="Tod-bq-Gy8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="ERw-wy-2Fq"/>
+                            <constraint firstItem="KMd-cq-yzv" firstAttribute="top" secondItem="zMV-f1-gXb" secondAttribute="bottom" constant="20" id="GJj-eN-Ukw"/>
                             <constraint firstItem="zMV-f1-gXb" firstAttribute="centerX" secondItem="Tod-bq-Gy8" secondAttribute="centerX" id="MrX-zh-S18"/>
                             <constraint firstItem="iT2-hH-uTC" firstAttribute="centerX" secondItem="d2E-1R-qcK" secondAttribute="centerX" id="MvC-pT-EyZ"/>
                             <constraint firstItem="9jb-rw-6fg" firstAttribute="top" secondItem="d2E-1R-qcK" secondAttribute="bottom" constant="25" id="O5G-1Y-8Rx"/>
@@ -273,6 +283,7 @@
                             <constraint firstItem="9jb-rw-6fg" firstAttribute="centerX" secondItem="d2E-1R-qcK" secondAttribute="centerX" id="dQO-D4-Tde"/>
                             <constraint firstItem="zMV-f1-gXb" firstAttribute="top" secondItem="Tod-bq-Gy8" secondAttribute="bottom" constant="20" id="let-Xa-W85"/>
                             <constraint firstAttribute="trailing" secondItem="iT2-hH-uTC" secondAttribute="trailing" constant="15" id="maB-Bn-F0T"/>
+                            <constraint firstItem="KMd-cq-yzv" firstAttribute="centerX" secondItem="zMV-f1-gXb" secondAttribute="centerX" id="mvw-tN-TT8"/>
                             <constraint firstItem="Tod-bq-Gy8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="zNx-hG-Mfa"/>
                         </constraints>
                     </view>
@@ -424,7 +435,34 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOO-PV-DMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2520" y="1200"/>
+            <point key="canvasLocation" x="2426" y="1156"/>
+        </scene>
+        <!--Club Stats Table View Controller-->
+        <scene sceneID="Fke-Oc-dfV">
+            <objects>
+                <tableViewController id="Uw6-RL-Hdb" customClass="ClubStatsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8YJ-zb-D32">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PD3-X4-e5H">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PD3-X4-e5H" id="Hl8-ob-sb8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Uw6-RL-Hdb" id="DmV-L5-zm6"/>
+                            <outlet property="delegate" destination="Uw6-RL-Hdb" id="95W-au-Jt9"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-Nz-2JM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="1888"/>
         </scene>
         <!--News Table View Controller-->
         <scene sceneID="cML-D0-g01">
@@ -539,7 +577,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6s-lS-8wa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="1184"/>
+            <point key="canvasLocation" x="-62" y="1176"/>
         </scene>
         <!--League Standings Table View Controller-->
         <scene sceneID="YEQ-0X-NPv">
@@ -607,7 +645,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYK-68-DqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="1184"/>
+            <point key="canvasLocation" x="590" y="1176"/>
         </scene>
         <!--Website View Controller-->
         <scene sceneID="kNk-OX-pNq">
@@ -723,7 +761,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2V-SQ-qF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="1184"/>
+            <point key="canvasLocation" x="-708" y="1176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="26z-Ub-s46">
@@ -741,12 +779,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gaf-vI-okD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816" y="1200"/>
+            <point key="canvasLocation" x="1770" y="1156"/>
         </scene>
     </scenes>
     <resources>
         <image name="bus" width="64" height="31"/>
         <image name="calendar" width="60" height="60"/>
+        <image name="clubstats" width="60" height="60"/>
         <image name="map" width="16" height="27"/>
         <image name="newspaper" width="60" height="60"/>
         <image name="stadiummap" width="982" height="1236"/>
