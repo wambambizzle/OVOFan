@@ -11,6 +11,7 @@
 #import "UpcomingGameViewController.h"
 #import "LeagueStandingsTableViewController.h"
 #import "TeamTableViewController.h"
+#import "ClubStatsTableViewController.h"
 
 //#import "News.h"
 #import "UpcomingMatch.h"
@@ -25,6 +26,7 @@
 @property (strong, nonatomic)id<LeagueStandingTableViewControllerDelegate> leagueStandingsdelegate;
 @property (strong, nonatomic)id<TeamTableViewControllerDelegate> teamdelegate;
 @property (strong, nonatomic)id<UpcomingGameViewControllerDelegate> delegate;
+@property (strong, nonatomic)id<ClubStatsTableViewControllerDelegate> clubStatsdelegate;
 
 
 // Class method to access the singleton object

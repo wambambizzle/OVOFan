@@ -185,7 +185,7 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
             
             if (allStatsArray.count != 0)
             {
-//                [self. recentNewsWasFound:newsObjectsArray];
+                [self.clubStatsdelegate clubStatsWasFound:allStatsArray];
             }
             
         }

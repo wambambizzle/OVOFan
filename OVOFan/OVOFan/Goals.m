@@ -33,7 +33,7 @@
     
     aGoal.goals = [statsDict objectForKey:@"goals"];
     aGoal.rank = [statsDict objectForKey:@"rank"];
-    aGoal.player = [statsDict objectForKey:@"players"];
+    aGoal.player = [statsDict objectForKey:@"player"];
     
     return aGoal;
 }

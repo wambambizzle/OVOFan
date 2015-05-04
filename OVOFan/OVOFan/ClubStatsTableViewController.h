@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClubStatsTableViewController : UITableViewController
+@protocol ClubStatsTableViewControllerDelegate
+
+-(void)clubStatsWasFound:(NSMutableArray *)clubStats;
+
+@end
+
+@interface ClubStatsTableViewController : UITableViewController <ClubStatsTableViewControllerDelegate>
 
 @end

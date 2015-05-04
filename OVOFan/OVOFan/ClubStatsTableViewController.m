@@ -8,9 +8,19 @@
 
 #import "ClubStatsTableViewController.h"
 
+#import "AssistCell.h"
+#import "AttendanceCell.h"
+#import "GoalCell.h"
+
 #import "NetworkManager.h"
 
 @interface ClubStatsTableViewController ()
+{
+    NSArray *goalsArray;
+    NSArray *assitsArray;
+    NSArray *attendanceArray;
+    NSMutableArray *clubStatsArray;
+}
 
 @end
 
@@ -20,7 +30,13 @@
 {
     [super viewDidLoad];
     [[NetworkManager sharedNetworkManager] fetchClubStats];
-
+    [NetworkManager sharedNetworkManager].clubStatsdelegate = self;
+    
+    clubStatsArray = [[NSMutableArray alloc] init];
+    goalsArray = [[NSArray alloc] init];
+    assitsArray = [[NSArray alloc] init];
+    attendanceArray = [[NSArray alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,29 +49,83 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return clubStatsArray.count;
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    if (section == 0)
+    {
+        return goalsArray.count;
+    }
+    
+    else if (section == 1)
+    {
+        return assitsArray.count;
+    }
+    else
+    {
+        return attendanceArray.count;
+    }
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    NSArray *titlesArray = [[NSArray alloc] init];
-    
-    return titlesArray;
-}
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+//{
+//    NSArray *titlesArray = @[@"Score Leader", @"Assist Leader", @"Attendance"];
+//    
+// 
+//    return titlesArray;
+//}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClubStatsCell" forIndexPath:indexPath];
+  
+    if (indexPath.section == 0)
+    {
+        Goals *goalStat = goalsArray[indexPath.row];
+        GoalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoalsCell" forIndexPath:indexPath];
+        cell.goal.text = goalStat.goals;
+        cell.player.text = goalStat.player;
+        cell.rank.text = goalStat.rank;
+        
+        return cell;
+        
+    }
+    else if (indexPath.section == 1)
+    {
+        Assists *assistStat = assitsArray[indexPath.row];
+        AssistCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AssistsCell" forIndexPath:indexPath];
+        cell.assists.text = assistStat.assist;
+        cell.player.text = assistStat.player;
+        cell.rank.text = assistStat.rank;
+        
+        return cell;
+    }
+    else
+    {
+        Attendance *attendanceStat = attendanceArray[indexPath.row];
+        AttendanceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AttendanceCell" forIndexPath:indexPath];
+       
+        cell.aggregatedAttendance.text = attendanceStat.aggregatedAttendance;
+        cell.averageAttendance.text = attendanceStat.averageAttendance;
+        cell.largestAttendance.text = attendanceStat.largestAttendance;
+       
+        return cell;
+    }
+
     
-    // Configure the cell...
-    
-    return cell;
+}
+
+-(void)clubStatsWasFound:(NSMutableArray *)clubStats
+{
+    clubStatsArray = clubStats;
+    attendanceArray = clubStats[0];
+    assitsArray = clubStats[1];
+    goalsArray = clubStats[2];
+
+    [self.tableView reloadData];
 }
 
 

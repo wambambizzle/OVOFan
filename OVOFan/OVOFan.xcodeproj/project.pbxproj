@@ -16,6 +16,9 @@
 		A86DA78C1AF7AF3F00B83607 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA78B1AF7AF3F00B83607 /* Attendance.m */; };
 		A86DA78F1AF7AFA200B83607 /* Assists.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA78E1AF7AFA200B83607 /* Assists.m */; };
 		A86DA7921AF7AFDF00B83607 /* Goals.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA7911AF7AFDF00B83607 /* Goals.m */; };
+		A86DA7951AF7E29100B83607 /* AttendanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA7941AF7E29100B83607 /* AttendanceCell.m */; };
+		A86DA7981AF7E2C200B83607 /* GoalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA7971AF7E2C200B83607 /* GoalCell.m */; };
+		A86DA79B1AF7E2D000B83607 /* AssistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA79A1AF7E2D000B83607 /* AssistCell.m */; };
 		A87F698E1AF159AE0008E72A /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F698D1AF159AE0008E72A /* NewsTableViewController.m */; };
 		A87F69911AF15CBE0008E72A /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F69901AF15CBE0008E72A /* News.m */; };
 		A890E6381AF28E1500851112 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E6371AF28E1500851112 /* NewsCell.m */; };
@@ -68,6 +71,12 @@
 		A86DA78E1AF7AFA200B83607 /* Assists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assists.m; sourceTree = "<group>"; };
 		A86DA7901AF7AFDF00B83607 /* Goals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goals.h; sourceTree = "<group>"; };
 		A86DA7911AF7AFDF00B83607 /* Goals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goals.m; sourceTree = "<group>"; };
+		A86DA7931AF7E29100B83607 /* AttendanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceCell.h; sourceTree = "<group>"; };
+		A86DA7941AF7E29100B83607 /* AttendanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceCell.m; sourceTree = "<group>"; };
+		A86DA7961AF7E2C200B83607 /* GoalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCell.h; sourceTree = "<group>"; };
+		A86DA7971AF7E2C200B83607 /* GoalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalCell.m; sourceTree = "<group>"; };
+		A86DA7991AF7E2D000B83607 /* AssistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssistCell.h; sourceTree = "<group>"; };
+		A86DA79A1AF7E2D000B83607 /* AssistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssistCell.m; sourceTree = "<group>"; };
 		A87F698C1AF159AE0008E72A /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		A87F698D1AF159AE0008E72A /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		A87F698F1AF15CBE0008E72A /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
@@ -159,6 +168,12 @@
 		A890E6421AF2BAB200851112 /* Custom Table Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A86DA7991AF7E2D000B83607 /* AssistCell.h */,
+				A86DA79A1AF7E2D000B83607 /* AssistCell.m */,
+				A86DA7931AF7E29100B83607 /* AttendanceCell.h */,
+				A86DA7941AF7E29100B83607 /* AttendanceCell.m */,
+				A86DA7961AF7E2C200B83607 /* GoalCell.h */,
+				A86DA7971AF7E2C200B83607 /* GoalCell.m */,
 				A890E6431AF2CA2900851112 /* LeagueStandingsCell.h */,
 				A890E6441AF2CA2900851112 /* LeagueStandingsCell.m */,
 				A899BAC21AF3072D00C801BD /* TeamCell.h */,
@@ -366,9 +381,12 @@
 				A87F69911AF15CBE0008E72A /* News.m in Sources */,
 				A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
+				A86DA79B1AF7E2D000B83607 /* AssistCell.m in Sources */,
 				A86DA78F1AF7AFA200B83607 /* Assists.m in Sources */,
+				A86DA7951AF7E29100B83607 /* AttendanceCell.m in Sources */,
 				A8B58DCF1AF458140053E668 /* PlayerWebViewController.m in Sources */,
 				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,
+				A86DA7981AF7E2C200B83607 /* GoalCell.m in Sources */,
 				A899BAC41AF3072D00C801BD /* TeamCell.m in Sources */,
 				A899BAC11AF2F8C300C801BD /* Team.m in Sources */,
 				A890E63E1AF2B4CE00851112 /* LeagueStandingsTableViewController.m in Sources */,

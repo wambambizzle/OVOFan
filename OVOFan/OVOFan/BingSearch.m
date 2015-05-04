@@ -94,9 +94,7 @@
 
 + (instancetype)newsArticleWithDictionary:(NSDictionary *)newsDictionary dicToParse:(int)i
 {
-
     {
-    
         BingSearch *theArticle = [[BingSearch alloc] init];
     
         NSDictionary *dDict = [newsDictionary objectForKey:@"d"];
@@ -141,9 +139,8 @@
     if (!error)
     {
 //        NSLog(@"Download Successful");
+
         NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
-        
-//        NSLog(@"news:%@",aDictionary);
         
         NSDictionary *dDict = [aDictionary objectForKey:@"d"];
 
