@@ -8,6 +8,8 @@
 
 #import "ClubStatsTableViewController.h"
 
+#import "NetworkManager.h"
+
 @interface ClubStatsTableViewController ()
 
 @end
@@ -17,12 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NetworkManager sharedNetworkManager] fetchClubStats];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +39,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 0;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSArray *titlesArray = [[NSArray alloc] init];
+    
+    return titlesArray;
 }
 
 

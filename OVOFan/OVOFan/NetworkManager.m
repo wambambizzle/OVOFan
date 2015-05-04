@@ -31,6 +31,7 @@ static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/7frwoxaw
 static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/ejewyfaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *leagueStandingsApiURL = @"https://www.kimonolabs.com/api/6ok0l5mc?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *teamApiURL = @"https://www.kimonolabs.com/api/5oe8yp4q?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 
 + (NetworkManager *)sharedNetworkManager //Singleton Method
 {
@@ -81,12 +82,12 @@ static NSString *teamApiURL = @"https://www.kimonolabs.com/api/5oe8yp4q?apikey=A
     
 }
 
-//- (void)fetchRecentNewsArticles
-//{
-//    NSURL *url = [NSURL URLWithString:recentNewsApiURL];
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
-//    [self startDataTask:dataTask];
-//}
+- (void)fetchClubStats
+{
+    NSURL *url = [NSURL URLWithString:clubStatsApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+}
 
 - (void)fetchLeagueStandings
 {
@@ -109,71 +110,6 @@ static NSString *teamApiURL = @"https://www.kimonolabs.com/api/5oe8yp4q?apikey=A
     [dataTask resume];
 }
 
-//- (void)bingNewsSearch
-//{
-//    
-//    NSString *queryString = @"Orlando City Soccer Club";
-//    NSLog(@"query: %@", queryString);
-//    
-//    NSString *format = @"json";
-//    NSLog(@"format: %@", format);
-//    
-//    NSString *market = @"'en-us'";
-//    NSLog(@"market: %@", market);
-//    
-//    NSInteger top = 6;
-//        NSLog(@"top: %ld", top);
-//    
-//    NSMutableString *fullUri = [NSMutableString stringWithCapacity:256];
-//    
-//    [fullUri appendString:rootURL];
-//    NSLog(@"rooturl: %@",rootURL);
-//    
-//    [fullUri appendFormat:@"News?$format=%@", format];
-//        NSLog(@"fulluri: %@", fullUri);
-//    
-//    [fullUri appendFormat:@"&Query='%@'", [queryString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-//            NSLog(@"fulluri: %@", fullUri);
-//    
-//    [fullUri appendFormat:@"&Market=%@", [market stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-//    
-//                NSLog(@"fulluri: %@", fullUri);
-//    
-//    [fullUri appendFormat:@"&$top=%ld", (long)top];
-//    
-//                NSLog(@"fulluri: %@", fullUri);
-//    
-//    bingBool = YES;
-//    
-//    
-//    [self bingSave:fullUri];
-//    
-//    
-//}
-//
-//-(void)bingSave:(NSString *)urlStrg
-//{
-//    
-//    NSURL *url = [NSURL URLWithString:urlStrg];
-//    //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    //  NSData *responseDate = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//    //    NSDictionary *userInfo = [NSJSONSerialization JSONObjectWithData:responseDate options:NSJSONReadingMutableContainers error:nil];
-//    //    [self.friends addObject:userInfo];
-//    
-//    configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    NSString *authStr = [NSString stringWithFormat:@"%@:%@", accountKey, accountKey];
-//    
-//    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
-//    
-//    NSString *authValue = [NSString stringWithFormat:@"Basic %@",[authData base64EncodedStringWithOptions:0]];
-//    configuration.HTTPAdditionalHeaders = @{@"Authorization":authValue};
-//    session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
-//    
-//    [dataTask resume];
-//    
-//    //    [self cancel];
-//}
 
 #pragma mark - NSURLSession delegate
 
@@ -209,28 +145,50 @@ static NSString *teamApiURL = @"https://www.kimonolabs.com/api/5oe8yp4q?apikey=A
                 }
             }
         
-//        if ([aDictionary :@"d"]);
-//        {
-//                    NSLog(@"news:%@",aDictionary);
-//            
-////            NSDictionary *results = [aDictionary objectForKey:@"results"];
-////            NSArray *recentNews = [results objectForKey:@"Recent News"];
-////            
-////            NSMutableArray *newsObjectsArray = [[NSMutableArray alloc] init];
-//
-////            for (int i = 0; i < recentNews.count; i++)
-////            {
-////                News *news = [News newsArticleWithDictionary:aDictionary dicToParse:i];
-////
-////                [newsObjectsArray addObject:news];
-////            }
-////            
-////            if (newsObjectsArray.count != 0)
-////            {
-////                [self.newsdelegate recentNewsWasFound:newsObjectsArray];
-////            }
-//            
-//        }
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-stats"])
+        {
+            
+//            NSDictionary *results = [aDictionary objectForKey:@"results"];
+            
+            NSMutableArray *allStatsArray = [[NSMutableArray alloc] init];
+            
+            // attendance
+            NSMutableArray *attendanceObjectArray = [[NSMutableArray alloc] init];
+            Attendance *theAttendance = [Attendance attendanceStatsWithDictionary:aDictionary];
+            
+            [attendanceObjectArray addObject:theAttendance];
+            
+            // assists 
+
+            NSMutableArray *assistObjectsArray = [[NSMutableArray alloc] init];
+            
+            for (int i = 1; i < 4; i++)
+            {
+                Assists *assist = [Assists attendanceStatsWithDictionary:aDictionary dicToParse:i];
+
+                [assistObjectsArray addObject:assist];
+            }
+            
+            // goals
+            
+            NSMutableArray *goalObjectsArray = [[NSMutableArray alloc] init];
+            for (int i = 4; i < 7; i++)
+            {
+                Goals *goal = [Goals goalsStatsWithDictionary:aDictionary dicToParse:i];
+
+                [goalObjectsArray addObject:goal];
+                
+            }
+            
+            allStatsArray = [@[attendanceObjectArray, assistObjectsArray, goalObjectsArray] mutableCopy];
+//            NSLog(@"big stats array: %@", allStatsArray);
+            
+            if (allStatsArray.count != 0)
+            {
+//                [self. recentNewsWasFound:newsObjectsArray];
+            }
+            
+        }
         
         
         if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-leaguestandings"])

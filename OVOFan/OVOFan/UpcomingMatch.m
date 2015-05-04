@@ -44,7 +44,7 @@
         NSString *homeString = [homeLogoDic objectForKey:@"clubLogos"];
         
         homeString = [homeString stringByReplacingOccurrencesOfString:@" "
-                                            withString:@"%20"];
+                                            withString:@"%20"]; // or look up stringbyaddingpercentencoding method -char set
         
         NSURL *homeIconURL = [NSURL URLWithString:homeString];
         NSData *homeImgData = [NSData dataWithContentsOfURL:homeIconURL];

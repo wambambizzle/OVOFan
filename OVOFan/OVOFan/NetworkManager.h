@@ -16,6 +16,9 @@
 #import "UpcomingMatch.h"
 #import "Rankings.h"
 #import "Team.h"
+#import "Attendance.h"
+#import "Assists.h"
+#import "Goals.h"
 
 @interface NetworkManager : NSObject
 
@@ -29,7 +32,7 @@
 
 - (void)fetchTheSchedule;
 - (void)fetchTheUpcomingMatch;
-//- (void)fetchRecentNewsArticles;
+- (void)fetchClubStats;
 - (void)fetchLeagueStandings;
 - (void)fetchCurrentTeam;
 

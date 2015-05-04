@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A813ECE91AF3DB2A00618518 /* StandingsAPI.txt in Resources */ = {isa = PBXBuildFile; fileRef = A813ECE81AF3DB2A00618518 /* StandingsAPI.txt */; };
 		A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */; };
 		A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539861AEEC3EE00BDE25E /* NetworkManager.m */; };
 		A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398A1AEEC43F00BDE25E /* Schedule.m */; };
 		A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398D1AEEDC9800BDE25E /* StadiumMapViewController.m */; };
 		A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539901AEF281000BDE25E /* UpcomingGameViewController.m */; };
 		A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539931AEF2E3800BDE25E /* UpcomingMatch.m */; };
+		A86DA78C1AF7AF3F00B83607 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA78B1AF7AF3F00B83607 /* Attendance.m */; };
+		A86DA78F1AF7AFA200B83607 /* Assists.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA78E1AF7AFA200B83607 /* Assists.m */; };
+		A86DA7921AF7AFDF00B83607 /* Goals.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DA7911AF7AFDF00B83607 /* Goals.m */; };
 		A87F698E1AF159AE0008E72A /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F698D1AF159AE0008E72A /* NewsTableViewController.m */; };
 		A87F69911AF15CBE0008E72A /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F69901AF15CBE0008E72A /* News.m */; };
 		A890E6381AF28E1500851112 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A890E6371AF28E1500851112 /* NewsCell.m */; };
@@ -48,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A813ECE81AF3DB2A00618518 /* StandingsAPI.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StandingsAPI.txt; sourceTree = "<group>"; };
 		A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuttleMapViewController.h; sourceTree = "<group>"; };
 		A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuttleMapViewController.m; sourceTree = "<group>"; };
 		A86539851AEEC3EE00BDE25E /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -61,6 +62,12 @@
 		A86539901AEF281000BDE25E /* UpcomingGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingGameViewController.m; sourceTree = "<group>"; };
 		A86539921AEF2E3800BDE25E /* UpcomingMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingMatch.h; sourceTree = "<group>"; };
 		A86539931AEF2E3800BDE25E /* UpcomingMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingMatch.m; sourceTree = "<group>"; };
+		A86DA78A1AF7AF3F00B83607 /* Attendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendance.h; sourceTree = "<group>"; };
+		A86DA78B1AF7AF3F00B83607 /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
+		A86DA78D1AF7AFA200B83607 /* Assists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assists.h; sourceTree = "<group>"; };
+		A86DA78E1AF7AFA200B83607 /* Assists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assists.m; sourceTree = "<group>"; };
+		A86DA7901AF7AFDF00B83607 /* Goals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goals.h; sourceTree = "<group>"; };
+		A86DA7911AF7AFDF00B83607 /* Goals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goals.m; sourceTree = "<group>"; };
 		A87F698C1AF159AE0008E72A /* NewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewController.h; sourceTree = "<group>"; };
 		A87F698D1AF159AE0008E72A /* NewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewController.m; sourceTree = "<group>"; };
 		A87F698F1AF15CBE0008E72A /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
@@ -122,18 +129,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A813ECE51AF3D2E600618518 /* ApiCalls */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ApiCalls;
-			sourceTree = "<group>";
-		};
 		A86539881AEEC3F500BDE25E /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A86DA78A1AF7AF3F00B83607 /* Attendance.h */,
+				A86DA78B1AF7AF3F00B83607 /* Attendance.m */,
+				A86DA78D1AF7AFA200B83607 /* Assists.h */,
+				A86DA78E1AF7AFA200B83607 /* Assists.m */,
 				A89D36A61AF6BE0300843BEC /* BingSearch.h */,
 				A89D36A71AF6BE0300843BEC /* BingSearch.m */,
+				A86DA7901AF7AFDF00B83607 /* Goals.h */,
+				A86DA7911AF7AFDF00B83607 /* Goals.m */,
 				A87F698F1AF15CBE0008E72A /* News.h */,
 				A87F69901AF15CBE0008E72A /* News.m */,
 				A890E63F1AF2B66800851112 /* Rankings.h */,
@@ -183,8 +189,6 @@
 		A8DC61EC1AEE938E006AB0B6 /* OVOFan */ = {
 			isa = PBXGroup;
 			children = (
-				A813ECE81AF3DB2A00618518 /* StandingsAPI.txt */,
-				A813ECE51AF3D2E600618518 /* ApiCalls */,
 				A8DC61F11AEE938E006AB0B6 /* AppDelegate.h */,
 				A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */,
 				A8DC62161AEE97CE006AB0B6 /* View Controllers */,
@@ -337,7 +341,6 @@
 				A8DC61F91AEE938E006AB0B6 /* Main.storyboard in Resources */,
 				A8DC61FE1AEE938E006AB0B6 /* LaunchScreen.xib in Resources */,
 				A8DC61FB1AEE938E006AB0B6 /* Images.xcassets in Resources */,
-				A813ECE91AF3DB2A00618518 /* StandingsAPI.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,18 +366,21 @@
 				A87F69911AF15CBE0008E72A /* News.m in Sources */,
 				A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
+				A86DA78F1AF7AFA200B83607 /* Assists.m in Sources */,
 				A8B58DCF1AF458140053E668 /* PlayerWebViewController.m in Sources */,
 				A86539911AEF281000BDE25E /* UpcomingGameViewController.m in Sources */,
 				A899BAC41AF3072D00C801BD /* TeamCell.m in Sources */,
 				A899BAC11AF2F8C300C801BD /* Team.m in Sources */,
 				A890E63E1AF2B4CE00851112 /* LeagueStandingsTableViewController.m in Sources */,
 				A86539941AEF2E3800BDE25E /* UpcomingMatch.m in Sources */,
+				A86DA78C1AF7AF3F00B83607 /* Attendance.m in Sources */,
 				A865398E1AEEDC9800BDE25E /* StadiumMapViewController.m in Sources */,
 				A890E63B1AF2A0CA00851112 /* WebsiteViewController.m in Sources */,
 				A8DC61F61AEE938E006AB0B6 /* HomeViewController.m in Sources */,
 				A8DC61F31AEE938E006AB0B6 /* AppDelegate.m in Sources */,
 				A890E6381AF28E1500851112 /* NewsCell.m in Sources */,
 				A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */,
+				A86DA7921AF7AFDF00B83607 /* Goals.m in Sources */,
 				A899BABE1AF2F17000C801BD /* TeamTableViewController.m in Sources */,
 				A8DC61F01AEE938E006AB0B6 /* main.m in Sources */,
 				A8C355091AF55CDE000FCE74 /* ClubStatsTableViewController.m in Sources */,
