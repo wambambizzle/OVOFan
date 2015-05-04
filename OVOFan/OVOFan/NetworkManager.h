@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NewsTableViewController.h"
 #import "UpcomingGameViewController.h"
 #import "LeagueStandingsTableViewController.h"
 #import "TeamTableViewController.h"
 
-#import "News.h"
+//#import "News.h"
 #import "UpcomingMatch.h"
 #import "Rankings.h"
 #import "Team.h"
@@ -21,7 +20,6 @@
 @interface NetworkManager : NSObject
 
 @property (strong, nonatomic)id<LeagueStandingTableViewControllerDelegate> leagueStandingsdelegate;
-@property (strong, nonatomic)id<NewsTableViewControllerDelegate> newsdelegate;
 @property (strong, nonatomic)id<TeamTableViewControllerDelegate> teamdelegate;
 @property (strong, nonatomic)id<UpcomingGameViewControllerDelegate> delegate;
 

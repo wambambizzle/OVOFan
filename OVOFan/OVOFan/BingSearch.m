@@ -13,7 +13,6 @@
     NSMutableData *receivedData;
 }
 
-
 @property NSString *accountKey;
 @property NSString *rootUrl;
 @property NSString *fullUrl;
@@ -113,8 +112,6 @@
         theArticle.source = [recentNewsDict objectForKey:@"Source"];
         theArticle.date = [recentNewsDict objectForKey:@"Date"];
         
-        NSLog(@"the article object: %@", theArticle);
-        
         return theArticle;
     }
 }
@@ -143,7 +140,7 @@
 {
     if (!error)
     {
-        NSLog(@"Download Successful");
+//        NSLog(@"Download Successful");
         NSDictionary *aDictionary = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
         
 //        NSLog(@"news:%@",aDictionary);
@@ -151,7 +148,7 @@
         NSDictionary *dDict = [aDictionary objectForKey:@"d"];
 
         NSArray *results = [dDict objectForKey:@"results"];
-        NSLog(@"%@", results);
+//        NSLog(@"%@", results);
         
         NSMutableArray *newsArticlesArray = [[NSMutableArray alloc] init];
         
@@ -162,10 +159,10 @@
             [newsArticlesArray addObject:anArticle];
         }
         
-//        if (newsArticlesArray.count != 0)
-//        {
-//            [self.leagueStandingsdelegate recentStandingsWasFound:rankingObjectsArray];
-//        }
+        if (newsArticlesArray.count != 0)
+        {
+            [self.newsdelegate recentNewsWasFound:newsArticlesArray];
+        }
         
     }
     

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "News.h"
+#import "BingSearch.h"
 
 @interface WebsiteViewController : UIViewController
 
-@property(strong, nonatomic) News *anArticle;
+@property(strong, nonatomic) BingSearch *anArticle;
 
 @end

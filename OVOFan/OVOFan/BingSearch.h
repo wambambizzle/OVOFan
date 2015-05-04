@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NewsTableViewController.h"
 
 @interface BingSearch : NSObject
+
+@property (strong, nonatomic)id<NewsTableViewControllerDelegate> newsdelegate;
 
 @property (strong, nonatomic) NSURL *articleUrl;
 @property (strong, nonatomic) NSString *articleTitle;

@@ -9,6 +9,8 @@
 #import "NewsTableViewController.h"
 #import "WebsiteViewController.h"
 
+#import "BingSearch.h"
+
 #import "NewsCell.h"
 
 
@@ -24,9 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [NetworkManager sharedNetworkManager].newsdelegate = self;
+
+    
     BingSearch *aSearch = [[BingSearch alloc] init];
     [aSearch bingNewsSearch];
+    
+    aSearch.newsdelegate = self;
     
     recentNewsArray = [[NSMutableArray alloc] init];
 }
@@ -54,18 +59,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell" forIndexPath:indexPath];
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsArticleCell" forIndexPath:indexPath];
     
-
-//        News *anArticle = recentNewsArray[indexPath.row];
-//    
-//        cell.articleTitle.text = anArticle.articleTitle;
-//        
-//        cell.articleImage.image = anArticle.articleImage;
-//    
-//          [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    
+        BingSearch *anArticle = recentNewsArray[indexPath.row];
     
+        cell.articleTitle.text = anArticle.articleTitle;
+        cell.articleDescription.text = anArticle.articleDescription;
+        cell.source.text = anArticle.source;
+        cell.date.text = anArticle.date;
+    
+//    NSLog(@"%@", cell.articleTitle.text);
+//    NSLog(@"%@", cell.articleDescription.text);
     
     return cell;
 }
@@ -82,7 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    News *anArticle = [recentNewsArray objectAtIndex:indexPath.row];
+    BingSearch *anArticle = [recentNewsArray objectAtIndex:indexPath.row];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     WebsiteViewController *websiteVC = [storyboard instantiateViewControllerWithIdentifier:@"WebsiteVC"];
     websiteVC.anArticle = anArticle;

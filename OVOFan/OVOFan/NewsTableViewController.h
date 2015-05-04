@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "BingSearch.h"
 
-@protocol NewsTableViewControllerDelegate 
+@protocol NewsTableViewControllerDelegate
 
 -(void)recentNewsWasFound:(NSMutableArray *)recentNews;
 

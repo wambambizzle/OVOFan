@@ -11,6 +11,8 @@
 @interface NewsCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *articleTitle;
-@property (strong, nonatomic) IBOutlet UIImageView *articleImage;
+@property (strong, nonatomic) IBOutlet UILabel *articleDescription;
+@property (strong, nonatomic) IBOutlet UILabel *date;
+@property (strong, nonatomic) IBOutlet UILabel *source;
 
 @end
