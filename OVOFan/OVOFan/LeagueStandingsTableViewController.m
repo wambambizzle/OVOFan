@@ -38,7 +38,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
     return 1;
 }
 
@@ -47,6 +46,17 @@
     return leagueArray.count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *returnValue = @"";
+    if (section == 0)
+        returnValue = @"Eastern Conference Standings";
+    return returnValue;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 35.0f;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
