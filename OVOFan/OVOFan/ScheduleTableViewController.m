@@ -14,7 +14,8 @@
 
 @implementation ScheduleTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -43,18 +44,18 @@
 {
 
     // Return the number of rows in the section.
-    return 3;
+    return 35;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
- {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScheduleCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+// {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScheduleCell" forIndexPath:indexPath];
+//    
+//    // Configure the cell...
+//    
+//    return cell;
+//}
 
 
 /*

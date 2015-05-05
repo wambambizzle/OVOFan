@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A80FBD441AF94B3600A008EA /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80FBD431AF94B3600A008EA /* HomeCollectionViewController.m */; };
+		A80FBD471AF94D9500A008EA /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A80FBD461AF94D9500A008EA /* HomeCollectionViewCell.m */; };
+		A80FBD4A1AF9559000A008EA /* NaviMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A80FBD491AF9559000A008EA /* NaviMenu.m */; };
 		A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */; };
 		A86539871AEEC3EE00BDE25E /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86539861AEEC3EE00BDE25E /* NetworkManager.m */; };
 		A865398B1AEEC43F00BDE25E /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = A865398A1AEEC43F00BDE25E /* Schedule.m */; };
@@ -53,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A80FBD421AF94B3600A008EA /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
+		A80FBD431AF94B3600A008EA /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
+		A80FBD451AF94D9500A008EA /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
+		A80FBD461AF94D9500A008EA /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
+		A80FBD481AF9559000A008EA /* NaviMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviMenu.h; sourceTree = "<group>"; };
+		A80FBD491AF9559000A008EA /* NaviMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviMenu.m; sourceTree = "<group>"; };
 		A844FD231AF05E2D002B4203 /* ShuttleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuttleMapViewController.h; sourceTree = "<group>"; };
 		A844FD241AF05E2D002B4203 /* ShuttleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuttleMapViewController.m; sourceTree = "<group>"; };
 		A86539851AEEC3EE00BDE25E /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -149,6 +158,8 @@
 				A89D36A71AF6BE0300843BEC /* BingSearch.m */,
 				A86DA7901AF7AFDF00B83607 /* Goals.h */,
 				A86DA7911AF7AFDF00B83607 /* Goals.m */,
+				A80FBD481AF9559000A008EA /* NaviMenu.h */,
+				A80FBD491AF9559000A008EA /* NaviMenu.m */,
 				A87F698F1AF15CBE0008E72A /* News.h */,
 				A87F69901AF15CBE0008E72A /* News.m */,
 				A890E63F1AF2B66800851112 /* Rankings.h */,
@@ -165,7 +176,7 @@
 			name = "Model Objects";
 			sourceTree = "<group>";
 		};
-		A890E6421AF2BAB200851112 /* Custom Table Cells */ = {
+		A890E6421AF2BAB200851112 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
 				A86DA7991AF7E2D000B83607 /* AssistCell.h */,
@@ -174,6 +185,8 @@
 				A86DA7941AF7E29100B83607 /* AttendanceCell.m */,
 				A86DA7961AF7E2C200B83607 /* GoalCell.h */,
 				A86DA7971AF7E2C200B83607 /* GoalCell.m */,
+				A80FBD451AF94D9500A008EA /* HomeCollectionViewCell.h */,
+				A80FBD461AF94D9500A008EA /* HomeCollectionViewCell.m */,
 				A890E6431AF2CA2900851112 /* LeagueStandingsCell.h */,
 				A890E6441AF2CA2900851112 /* LeagueStandingsCell.m */,
 				A899BAC21AF3072D00C801BD /* TeamCell.h */,
@@ -181,7 +194,7 @@
 				A890E6361AF28E1500851112 /* NewsCell.h */,
 				A890E6371AF28E1500851112 /* NewsCell.m */,
 			);
-			name = "Custom Table Cells";
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		A8DC61E11AEE938E006AB0B6 = {
@@ -208,8 +221,10 @@
 				A8DC61F21AEE938E006AB0B6 /* AppDelegate.m */,
 				A8DC62161AEE97CE006AB0B6 /* View Controllers */,
 				A86539881AEEC3F500BDE25E /* Model Objects */,
-				A890E6421AF2BAB200851112 /* Custom Table Cells */,
+				A890E6421AF2BAB200851112 /* Custom Cells */,
 				A8DC61F71AEE938E006AB0B6 /* Main.storyboard */,
+				A80FBD421AF94B3600A008EA /* HomeCollectionViewController.h */,
+				A80FBD431AF94B3600A008EA /* HomeCollectionViewController.m */,
 				A8DC61FA1AEE938E006AB0B6 /* Images.xcassets */,
 				A8DC61FC1AEE938E006AB0B6 /* LaunchScreen.xib */,
 				A8DC62061AEE938E006AB0B6 /* OVOFanTests */,
@@ -381,6 +396,8 @@
 				A87F69911AF15CBE0008E72A /* News.m in Sources */,
 				A844FD251AF05E2D002B4203 /* ShuttleMapViewController.m in Sources */,
 				A8DC62151AEE97C4006AB0B6 /* ScheduleTableViewController.m in Sources */,
+				A80FBD4A1AF9559000A008EA /* NaviMenu.m in Sources */,
+				A80FBD471AF94D9500A008EA /* HomeCollectionViewCell.m in Sources */,
 				A86DA79B1AF7E2D000B83607 /* AssistCell.m in Sources */,
 				A86DA78F1AF7AFA200B83607 /* Assists.m in Sources */,
 				A86DA7951AF7E29100B83607 /* AttendanceCell.m in Sources */,
@@ -402,6 +419,7 @@
 				A899BABE1AF2F17000C801BD /* TeamTableViewController.m in Sources */,
 				A8DC61F01AEE938E006AB0B6 /* main.m in Sources */,
 				A8C355091AF55CDE000FCE74 /* ClubStatsTableViewController.m in Sources */,
+				A80FBD441AF94B3600A008EA /* HomeCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,22 +90,6 @@ typedef enum
 }
 
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    if (section == StatsSectionGoals)
-//    {
-//        UIView *goalsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
-//        
-//        goalsView.backgroundColor = [UIColor redColor];
-//        
-//        return goalsView;
-//    }
-//  
-//
-//    return nil;
-//}
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 28.0f;
