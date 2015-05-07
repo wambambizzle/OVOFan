@@ -14,7 +14,7 @@
 @interface LeagueStandingsTableViewController ()
 {
     NSMutableArray *leagueArray;
-}
+    UIColor *ovoPurple; }
 
 @end
 
@@ -27,6 +27,9 @@
     [NetworkManager sharedNetworkManager].leagueStandingsdelegate = self;
     [[NetworkManager sharedNetworkManager] fetchLeagueStandings];
     
+    self.title = @"League Standings";
+    
+    ovoPurple = [UIColor colorWithRed:97/255.0f green:43/255.0f blue:155/255.0f alpha:1];
 
 }
 
@@ -55,13 +58,12 @@
     if (section == 0)
     {
         returnValue = @"Eastern Conference Standings";
-        
-//        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
-        
+
         return returnValue;
     }
     
     return  nil;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -75,7 +77,7 @@
         {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingHeaderCell" forIndexPath:indexPath];
             
-//            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//             cell.backgroundColor = ovoPurple;
             
             return cell;
         }
@@ -90,11 +92,31 @@
             cell.points.text = aRank.pointsScored;
             cell.position.text = aRank.position;
             
-            UIColor *ovoPurple = [UIColor colorWithRed:97/255.0f green:43/255.0f blue:155/255.0f alpha:1];
-            
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
-            
             tableView.separatorColor = ovoPurple;
+            
+            if ([aRank.clubName isEqualToString:@"Orlando City SC"])
+            {
+
+//                 cell.backgroundColor = [UIColor lightGrayColor];
+                
+                cell.clubName.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:15];
+                cell.goalDiff.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:15];
+                cell.points.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:15];
+                cell.position.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:15];
+                
+                cell.clubName.textColor = ovoPurple;
+                cell.goalDiff.textColor = ovoPurple;
+                cell.points.textColor = ovoPurple;
+                cell.position.textColor = ovoPurple;
+                
+//                cell.clubName.textColor = [UIColor whiteColor];
+//                cell.goalDiff.textColor = [UIColor whiteColor];
+//                cell.points.textColor = [UIColor whiteColor];
+//                cell.position.textColor = [UIColor whiteColor];
+                
+//                self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                
+            }
 
             return cell;
         }
