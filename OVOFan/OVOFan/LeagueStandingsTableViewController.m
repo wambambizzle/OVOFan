@@ -14,7 +14,8 @@
 @interface LeagueStandingsTableViewController ()
 {
     NSMutableArray *leagueArray;
-    UIColor *ovoPurple; }
+    UIColor *ovoPurple;
+}
 
 @end
 

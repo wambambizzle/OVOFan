@@ -26,14 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
     BingSearch *aSearch = [[BingSearch alloc] init];
     [aSearch bingNewsSearch];
     
     aSearch.newsdelegate = self;
     
     recentNewsArray = [[NSMutableArray alloc] init];
+    
+    self.title = @"News";
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +66,7 @@
         cell.articleTitle.text = anArticle.articleTitle;
         cell.articleDescription.text = anArticle.articleDescription;
         cell.source.text = anArticle.source;
-        cell.date.text = anArticle.date;
+//        cell.date.text = anArticle.date;
     
 //    NSLog(@"%@", cell.articleTitle.text);
 //    NSLog(@"%@", cell.articleDescription.text);
