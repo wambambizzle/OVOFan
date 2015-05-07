@@ -35,6 +35,9 @@
     [self configureMapView];
     [self configureAndDropPins];
     [self configureLocationManager];
+    
+    self.title = @"Shuttle Map";
+    self.navigationItem.prompt = @"Citrus Bowl Connection";
 
 }
 

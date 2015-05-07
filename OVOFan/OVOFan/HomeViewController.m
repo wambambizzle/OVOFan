@@ -77,7 +77,7 @@
     {
         UpcomingGameViewController *upcomingGameVC = (UpcomingGameViewController *)[segue destinationViewController];
         upcomingGameVC.popoverPresentationController.delegate = self;
-        upcomingGameVC.preferredContentSize = CGSizeMake(250.0f, 250.0f);
+        upcomingGameVC.preferredContentSize = CGSizeMake(250.0f, 200.0f);
     }
 
 }

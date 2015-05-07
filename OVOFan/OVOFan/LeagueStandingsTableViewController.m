@@ -26,6 +26,8 @@
     leagueArray = [[NSMutableArray alloc] init];
     [NetworkManager sharedNetworkManager].leagueStandingsdelegate = self;
     [[NetworkManager sharedNetworkManager] fetchLeagueStandings];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,33 +45,61 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return leagueArray.count;
+    return leagueArray.count + 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *returnValue = @"";
+
     if (section == 0)
+    {
         returnValue = @"Eastern Conference Standings";
-    return returnValue;
+        
+//        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
+        
+        return returnValue;
+    }
+    
+    return  nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
     return 35.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LeagueStandingsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingsCell" forIndexPath:indexPath];
+        if (indexPath.row == 0)
+        {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingHeaderCell" forIndexPath:indexPath];
+            
+//            self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            
+            return cell;
+        }
+        else
+        {
+            LeagueStandingsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeagueStandingsCell" forIndexPath:indexPath];
+            
+            Rankings *aRank = leagueArray[indexPath.row - 1];
+            
+            cell.clubName.text = aRank.clubName;
+            cell.goalDiff.text = aRank.goalDiff;
+            cell.points.text = aRank.pointsScored;
+            cell.position.text = aRank.position;
+            
+            UIColor *ovoPurple = [UIColor colorWithRed:97/255.0f green:43/255.0f blue:155/255.0f alpha:1];
+            
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+            
+            tableView.separatorColor = ovoPurple;
+
+            return cell;
+        }
     
-     Rankings *aRank = leagueArray[indexPath.row];
-    
-    cell.clubName.text = aRank.clubName;
-    cell.goalDiff.text = aRank.goalDiff;
-    cell.points.text = aRank.pointsScored;
-    cell.position.text = aRank.position;
-    
-    return cell;
+    return nil;
 }
 
 
