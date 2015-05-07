@@ -44,6 +44,7 @@ typedef enum
     assitsArray = [[NSArray alloc] init];
     attendanceArray = [[NSArray alloc] init];
 
+    self.title = @"Club Statistics";
     
 }
 
@@ -92,6 +93,10 @@ typedef enum
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (section == StatsSectionGoals)
+    {
+        return 33.0f;
+    }
     return 28.0f;
 }
 
