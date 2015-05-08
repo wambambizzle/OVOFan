@@ -21,6 +21,7 @@
 - (IBAction)leagueStandingsTapped:(UIButton *)sender;
 - (IBAction)teamTapped:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *soccerButton;
 
 @end
 
@@ -72,12 +73,20 @@
         StadiumMapViewController *stadiumMapVC = (StadiumMapViewController *)[segue destinationViewController];
         stadiumMapVC.popoverPresentationController.delegate = self; // must set our "self" as a
         stadiumMapVC.preferredContentSize = CGSizeMake(310.0f, 415.0f); // giving a size to the pop over view width and height
+    
     }
     else if ([segue.identifier isEqualToString:@"ShowUpcomingGameSegue"])
     {
         UpcomingGameViewController *upcomingGameVC = (UpcomingGameViewController *)[segue destinationViewController];
+
         upcomingGameVC.popoverPresentationController.delegate = self;
         upcomingGameVC.preferredContentSize = CGSizeMake(250.0f, 200.0f);
+        
+//        upcomingGameVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+//        upcomingGameVC.popoverPresentationController.sourceView = [upcomingGameVC view];
+//        upcomingGameVC.popoverPresentationController.sourceRect = CGRectMake(100, 100, 0, 0);
+        
+
     }
 
 }
@@ -88,5 +97,7 @@
 {
     return UIModalPresentationNone; // tells the presentation style for the modal when shown
 }
+
+
 
 @end

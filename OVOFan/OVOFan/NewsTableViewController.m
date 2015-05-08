@@ -63,7 +63,15 @@
     
         BingSearch *anArticle = recentNewsArray[indexPath.row];
     
-        cell.articleTitle.text = anArticle.articleTitle;
+    NSMutableAttributedString *attributedString;
+    attributedString = [[NSMutableAttributedString alloc] initWithString:anArticle.articleTitle];
+    [attributedString addAttribute:NSKernAttributeName
+                             value:[NSNumber numberWithFloat:0.4]
+                             range:NSMakeRange(0, [anArticle.articleTitle length])];
+
+//    [self.label setAttributedText:attributedString];
+    
+        cell.articleTitle.attributedText = attributedString;
         cell.articleDescription.text = anArticle.articleDescription;
         cell.source.text = anArticle.source;
 //        cell.date.text = anArticle.date;
