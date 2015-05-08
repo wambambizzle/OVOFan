@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Fixtures";
+    self.title = @"Schedule";
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,14 +41,14 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *returnValue = @"2015 Schedule";
+    NSString *returnValue = @"2015 Fixtures";
 
     return returnValue;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 28.0f;
+    return 32.0f;
 }
 
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
