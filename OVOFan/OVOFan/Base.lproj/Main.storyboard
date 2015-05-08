@@ -3259,12 +3259,6 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday October 25, 2015 5:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIb-E8-DTS">
-                                                    <rect key="frame" x="186" y="120" width="228" height="18"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="EOz-uo-kUx" secondAttribute="centerY" constant="15" id="0pL-Pq-beR"/>
@@ -3281,8 +3275,6 @@
                                                 <constraint firstAttribute="centerY" secondItem="gvu-Z2-chh" secondAttribute="centerY" constant="15" id="gFB-vR-rnt"/>
                                                 <constraint firstAttribute="bottom" secondItem="L5U-vT-EXs" secondAttribute="bottom" constant="15" id="q4s-r1-6oA"/>
                                                 <constraint firstItem="j2Q-jL-3ut" firstAttribute="centerX" secondItem="gvu-Z2-chh" secondAttribute="centerX" id="uHK-Nc-Dbx"/>
-                                                <constraint firstAttribute="centerX" secondItem="IIb-E8-DTS" secondAttribute="centerX" id="x9x-EO-GKC"/>
-                                                <constraint firstAttribute="bottom" secondItem="IIb-E8-DTS" secondAttribute="bottom" constant="41" id="yLX-9n-wTo"/>
                                                 <constraint firstItem="EOz-uo-kUx" firstAttribute="centerX" secondItem="VvB-3b-BuE" secondAttribute="centerX" id="zVE-GJ-01v"/>
                                             </constraints>
                                             <variation key="default">
@@ -3586,6 +3578,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="5Dk-7H-bui" kind="show" identifier="ShowLeagueStandingSegue" id="nXA-kl-i8G"/>
                         <segue destination="f18-gW-L01" kind="show" identifier="ShowScheduleSegue" id="2Tm-LP-3qJ"/>
