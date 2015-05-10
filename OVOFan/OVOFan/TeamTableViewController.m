@@ -60,9 +60,10 @@
     cell.name.text = aPlayer.name;
     cell.number.text = aPlayer.number;
     cell.position.text = aPlayer.position;
-    cell.weight.text = aPlayer.weight;
-    cell.height.text = aPlayer.height;
-    cell.age.text = aPlayer.age;
+    
+//    cell.weight.text = aPlayer.weight;
+//    cell.height.text = aPlayer.height;
+//    cell.age.text = aPlayer.age;
     
     return cell;
 }
