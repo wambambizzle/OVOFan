@@ -21,7 +21,17 @@
 - (IBAction)leagueStandingsTapped:(UIButton *)sender;
 - (IBAction)teamTapped:(UIButton *)sender;
 
+- (IBAction)statsTapped:(UIButton *)sender;
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *soccerButton;
+
+@property (strong, nonatomic) IBOutlet UIButton *scheduleLabel;
+@property (strong, nonatomic) IBOutlet UIButton *newsLabel;
+@property (strong, nonatomic) IBOutlet UIButton *statsLabel;
+@property (strong, nonatomic) IBOutlet UIButton *shuttleLabel;
+@property (strong, nonatomic) IBOutlet UIButton *leagueLabel;
+@property (strong, nonatomic) IBOutlet UIButton *teamLabel;
+
 
 @end
 
@@ -63,6 +73,11 @@
 - (IBAction)teamTapped:(UIButton *)sender
 {
     [self performSegueWithIdentifier:@"ShowTeamSegue" sender:self];
+}
+
+- (IBAction)statsTapped:(UIButton *)sender
+{
+        [self performSegueWithIdentifier:@"ShowStatsSegue" sender:self];
 }
 
 

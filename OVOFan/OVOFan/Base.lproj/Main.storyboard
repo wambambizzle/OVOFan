@@ -3513,8 +3513,8 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tod-bq-Gy8">
-                                <rect key="frame" x="20" y="79" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tod-bq-Gy8" userLabel="ScheduleIcon">
+                                <rect key="frame" x="161" y="127" width="60" height="60"/>
                                 <state key="normal" image="calendar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3522,8 +3522,8 @@
                                     <action selector="scheduleTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZnF-Va-Qlb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT2-hH-uTC">
-                                <rect key="frame" x="521" y="94" width="64" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT2-hH-uTC" userLabel="ShuttleIcon">
+                                <rect key="frame" x="363" y="141" width="64" height="31"/>
                                 <state key="normal" image="bus">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3531,8 +3531,8 @@
                                     <action selector="shuttleMapTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RgM-PM-iF2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMV-f1-gXb">
-                                <rect key="frame" x="20" y="159" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMV-f1-gXb" userLabel="NewsIcon">
+                                <rect key="frame" x="160" y="257" width="60" height="60"/>
                                 <state key="normal" image="newspaper">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3540,8 +3540,8 @@
                                     <action selector="recentNewsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="k2k-S6-4RH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2E-1R-qcK">
-                                <rect key="frame" x="533" y="160" width="41" height="57"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2E-1R-qcK" userLabel="LeagueIcon">
+                                <rect key="frame" x="375" y="260" width="41" height="57"/>
                                 <state key="normal" image="trophy">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3549,8 +3549,8 @@
                                     <action selector="leagueStandingsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Hbb-Xm-udx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jb-rw-6fg">
-                                <rect key="frame" x="540" y="242" width="28" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jb-rw-6fg" userLabel="TeamIcon">
+                                <rect key="frame" x="381" y="390" width="28" height="60"/>
                                 <state key="normal" image="team">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3558,30 +3558,108 @@
                                     <action selector="teamTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0tm-We-205"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-cq-yzv">
-                                <rect key="frame" x="20" y="239" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSS-Ja-tIi" userLabel="ScheduleLabel">
+                                <rect key="frame" x="159" y="190" width="65" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Schedule">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scheduleTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zWe-ky-Ykq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZn-L2-PD9" userLabel="NewsLabel">
+                                <rect key="frame" x="170" y="320" width="39" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="News">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recentNewsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fdo-w0-hPf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UF3-Ts-Ybw" userLabel="StatsLabel">
+                                <rect key="frame" x="154" y="453" width="73" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Club Stats">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="statsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xUB-ka-Co0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oku-gT-gSS" userLabel="TeamLabel">
+                                <rect key="frame" x="377" y="453" width="37" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Team">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teamTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YTM-zs-vs0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vh-2e-oY8" userLabel="LeagueLabel">
+                                <rect key="frame" x="370" y="320" width="52" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="League">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leagueStandingsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q7V-Zs-7Co"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60s-8p-ZFo" userLabel="ShuttleLabel">
+                                <rect key="frame" x="370" y="192" width="49" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Shuttle">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shuttleMapTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M10-se-Vqx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-cq-yzv" userLabel="StatsIcon">
+                                <rect key="frame" x="160" y="390" width="60" height="60"/>
                                 <state key="normal" image="clubstats">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Uw6-RL-Hdb" kind="show" id="ulG-re-kHX"/>
+                                    <segue destination="Uw6-RL-Hdb" kind="show" identifier="ShowStatsSegue" id="ulG-re-kHX"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="d2E-1R-qcK" firstAttribute="top" secondItem="iT2-hH-uTC" secondAttribute="bottom" constant="35" id="58L-UY-fwK"/>
-                            <constraint firstItem="Tod-bq-Gy8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="15" id="ERw-wy-2Fq"/>
-                            <constraint firstItem="KMd-cq-yzv" firstAttribute="top" secondItem="zMV-f1-gXb" secondAttribute="bottom" constant="20" id="GJj-eN-Ukw"/>
-                            <constraint firstItem="zMV-f1-gXb" firstAttribute="centerX" secondItem="Tod-bq-Gy8" secondAttribute="centerX" id="MrX-zh-S18"/>
-                            <constraint firstItem="iT2-hH-uTC" firstAttribute="centerX" secondItem="d2E-1R-qcK" secondAttribute="centerX" id="MvC-pT-EyZ"/>
-                            <constraint firstItem="9jb-rw-6fg" firstAttribute="top" secondItem="d2E-1R-qcK" secondAttribute="bottom" constant="25" id="O5G-1Y-8Rx"/>
-                            <constraint firstItem="Tod-bq-Gy8" firstAttribute="centerY" secondItem="iT2-hH-uTC" secondAttribute="centerY" id="RgM-Fq-OQy"/>
-                            <constraint firstItem="9jb-rw-6fg" firstAttribute="centerX" secondItem="d2E-1R-qcK" secondAttribute="centerX" id="dQO-D4-Tde"/>
-                            <constraint firstItem="zMV-f1-gXb" firstAttribute="top" secondItem="Tod-bq-Gy8" secondAttribute="bottom" constant="20" id="let-Xa-W85"/>
-                            <constraint firstAttribute="trailing" secondItem="iT2-hH-uTC" secondAttribute="trailing" constant="15" id="maB-Bn-F0T"/>
-                            <constraint firstItem="KMd-cq-yzv" firstAttribute="centerX" secondItem="zMV-f1-gXb" secondAttribute="centerX" id="mvw-tN-TT8"/>
-                            <constraint firstItem="Tod-bq-Gy8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="zNx-hG-Mfa"/>
+                            <constraint firstItem="2vh-2e-oY8" firstAttribute="top" secondItem="d2E-1R-qcK" secondAttribute="bottom" constant="3" id="1Y2-HM-6fN"/>
+                            <constraint firstItem="d2E-1R-qcK" firstAttribute="top" secondItem="60s-8p-ZFo" secondAttribute="bottom" constant="38" id="3Qf-ys-aiX"/>
+                            <constraint firstItem="Oku-gT-gSS" firstAttribute="top" secondItem="9jb-rw-6fg" secondAttribute="bottom" constant="3" id="40U-1A-pi9"/>
+                            <constraint firstItem="60s-8p-ZFo" firstAttribute="top" secondItem="iT2-hH-uTC" secondAttribute="bottom" constant="20" id="4Nl-rb-g4W"/>
+                            <constraint firstItem="GZn-L2-PD9" firstAttribute="top" secondItem="zMV-f1-gXb" secondAttribute="bottom" constant="3" id="5eP-eO-Nmf"/>
+                            <constraint firstItem="Tod-bq-Gy8" firstAttribute="centerY" secondItem="iT2-hH-uTC" secondAttribute="centerY" id="C6J-UA-8Yf"/>
+                            <constraint firstItem="zMV-f1-gXb" firstAttribute="top" secondItem="cSS-Ja-tIi" secondAttribute="bottom" constant="37" id="Cbc-HU-xhZ"/>
+                            <constraint firstAttribute="centerX" secondItem="Tod-bq-Gy8" secondAttribute="centerX" constant="109" id="E4D-K6-V6O"/>
+                            <constraint firstItem="iT2-hH-uTC" firstAttribute="leading" secondItem="Tod-bq-Gy8" secondAttribute="trailing" constant="142" id="Gvm-cg-gFv"/>
+                            <constraint firstItem="cSS-Ja-tIi" firstAttribute="top" secondItem="Tod-bq-Gy8" secondAttribute="bottom" constant="3" id="MUh-7g-aRA"/>
+                            <constraint firstItem="d2E-1R-qcK" firstAttribute="centerX" secondItem="2vh-2e-oY8" secondAttribute="centerX" id="TGf-wM-2fv"/>
+                            <constraint firstItem="UF3-Ts-Ybw" firstAttribute="top" secondItem="KMd-cq-yzv" secondAttribute="bottom" constant="3" id="Xwm-Wx-zZ3"/>
+                            <constraint firstItem="cSS-Ja-tIi" firstAttribute="centerX" secondItem="zMV-f1-gXb" secondAttribute="centerX" constant="2" id="b7l-vf-Zzf"/>
+                            <constraint firstItem="KMd-cq-yzv" firstAttribute="top" secondItem="GZn-L2-PD9" secondAttribute="bottom" constant="40" id="h4Y-IA-Jcb"/>
+                            <constraint firstItem="9jb-rw-6fg" firstAttribute="top" secondItem="2vh-2e-oY8" secondAttribute="bottom" constant="40" id="hwy-5z-wTM"/>
+                            <constraint firstItem="Tod-bq-Gy8" firstAttribute="centerX" secondItem="cSS-Ja-tIi" secondAttribute="centerX" id="msa-QH-3Wi"/>
+                            <constraint firstItem="Oku-gT-gSS" firstAttribute="centerX" secondItem="9jb-rw-6fg" secondAttribute="centerX" id="nwY-wh-fcy"/>
+                            <constraint firstItem="60s-8p-ZFo" firstAttribute="centerX" secondItem="iT2-hH-uTC" secondAttribute="centerX" id="pyE-bo-gF0"/>
+                            <constraint firstItem="KMd-cq-yzv" firstAttribute="centerX" secondItem="UF3-Ts-Ybw" secondAttribute="centerX" id="sLA-yC-ega"/>
+                            <constraint firstItem="9jb-rw-6fg" firstAttribute="centerX" secondItem="2vh-2e-oY8" secondAttribute="centerX" constant="-1" id="slB-e8-UOy"/>
+                            <constraint firstItem="d2E-1R-qcK" firstAttribute="centerX" secondItem="60s-8p-ZFo" secondAttribute="centerX" constant="1" id="tXG-uW-94E"/>
+                            <constraint firstItem="GZn-L2-PD9" firstAttribute="centerX" secondItem="KMd-cq-yzv" secondAttribute="centerX" id="uRv-E7-V9C"/>
+                            <constraint firstAttribute="centerY" secondItem="Tod-bq-Gy8" secondAttribute="centerY" constant="143" id="vCM-7a-rkL"/>
+                            <constraint firstItem="GZn-L2-PD9" firstAttribute="centerX" secondItem="zMV-f1-gXb" secondAttribute="centerX" id="yH9-dh-g6k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mxY-nW-f8N">
@@ -3604,7 +3682,13 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="leagueLabel" destination="2vh-2e-oY8" id="Q72-SI-oU9"/>
+                        <outlet property="newsLabel" destination="GZn-L2-PD9" id="ETd-sa-885"/>
+                        <outlet property="scheduleLabel" destination="cSS-Ja-tIi" id="kWr-6F-ayS"/>
+                        <outlet property="shuttleLabel" destination="60s-8p-ZFo" id="D0r-ki-6bg"/>
                         <outlet property="soccerButton" destination="Hbv-uZ-2GD" id="VVb-ow-48N"/>
+                        <outlet property="statsLabel" destination="UF3-Ts-Ybw" id="g3y-s1-hlH"/>
+                        <outlet property="teamLabel" destination="Oku-gT-gSS" id="fxX-Vd-gAM"/>
                         <segue destination="5Dk-7H-bui" kind="show" identifier="ShowLeagueStandingSegue" id="nXA-kl-i8G"/>
                         <segue destination="f18-gW-L01" kind="show" identifier="ShowScheduleSegue" id="2Tm-LP-3qJ"/>
                         <segue destination="Phs-q3-w0t" kind="show" identifier="ShowNewsSegue" id="rCb-h0-Y9z"/>
@@ -4163,7 +4247,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bF3-Nz-2JM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="1192"/>
+            <point key="canvasLocation" x="1251" y="1200"/>
         </scene>
         <!--News Table View Controller-->
         <scene sceneID="cML-D0-g01">
