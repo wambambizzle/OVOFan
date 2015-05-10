@@ -57,13 +57,34 @@
     Team *aPlayer = teamMemArray[indexPath.row];
     
     cell.playerImage.image = aPlayer.playerImage;
-    cell.name.text = aPlayer.name;
-    cell.number.text = aPlayer.number;
-    cell.position.text = aPlayer.position;
+//    cell.playerImage.layer.borderWidth = 2.0f;
+   
+    NSArray *nameParts = [aPlayer.name componentsSeparatedByString:@" "];
+    if (![aPlayer.name containsString:@" "])
+    {
+        NSString *lastName = nameParts[0];
+        cell.lastName.text = lastName;
+        cell.firstName.text = @"";
+    }
+    else if (nameParts.count == 2)
+    {
+        NSString *firstName = nameParts[0];
+        NSString *lastName = nameParts[1];
+        cell.firstName.text = firstName;
+        cell.lastName.text = lastName;
+    }
+    else if (nameParts.count == 3)
+    {
+        NSString *firstName = nameParts[0];
+        NSString *lastName = [NSString stringWithFormat:@"%@ %@", nameParts[1], nameParts[2]];
+        cell.firstName.text = firstName;
+        cell.lastName.text = lastName;
+    }
+
     
-//    cell.weight.text = aPlayer.weight;
-//    cell.height.text = aPlayer.height;
-//    cell.age.text = aPlayer.age;
+    cell.ageWeightHeight.text = [NSString stringWithFormat:@"Age %@ | Ht. %@ | Wt. %@", aPlayer.age, aPlayer.height, aPlayer.weight];
+    cell.numbAndPosition.text = [NSString stringWithFormat:@"%@ | %@", aPlayer.number, aPlayer.position];
+    
     
     return cell;
 }
