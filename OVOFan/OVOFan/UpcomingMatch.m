@@ -50,7 +50,11 @@
         NSData *homeImgData = [NSData dataWithContentsOfURL:homeIconURL];
         self.homeLogo = [UIImage imageWithData:homeImgData];
         NSDictionary *awayLogoDic = clubLogos[1];
-        NSURL *awayIconURL = [NSURL URLWithString:[awayLogoDic objectForKey:@"clubLogos"]];
+        NSString *awayString = [awayLogoDic objectForKey:@"clubLogos"];
+        awayString = [awayString stringByReplacingOccurrencesOfString:@" "
+                                                           withString:@"%20"];
+        
+        NSURL *awayIconURL = [NSURL URLWithString:awayString];
         NSData *awayImgData = [NSData dataWithContentsOfURL:awayIconURL];
         self.awayLogo = [UIImage imageWithData:awayImgData];
         rc = YES;
