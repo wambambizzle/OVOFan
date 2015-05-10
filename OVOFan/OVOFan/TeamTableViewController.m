@@ -29,6 +29,7 @@
     [NetworkManager sharedNetworkManager].teamdelegate = self;
     teamMemArray = [[NSMutableArray alloc] init];
    
+    self.title = @"Team";
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +58,11 @@
     Team *aPlayer = teamMemArray[indexPath.row];
     
     cell.playerImage.image = aPlayer.playerImage;
-//    cell.playerImage.layer.borderWidth = 2.0f;
+    cell.playerImage.layer.cornerRadius = cell.playerImage.frame.size.height / 2;
+    cell.playerImage.layer.masksToBounds = YES;
+    cell.playerImage.layer.borderWidth = 4.5f;
+
+    cell.playerImage.layer.borderColor = [UIColor colorWithRed:0.369 green:0.161 blue:0.604 alpha:1].CGColor;
    
     NSArray *nameParts = [aPlayer.name componentsSeparatedByString:@" "];
     if (![aPlayer.name containsString:@" "])
@@ -81,6 +86,7 @@
         cell.lastName.text = lastName;
     }
 
+    cell.lastName.textColor = [UIColor colorWithRed:0.369 green:0.161 blue:0.604 alpha:1];
     
     cell.ageWeightHeight.text = [NSString stringWithFormat:@"Age %@ | Ht. %@ | Wt. %@", aPlayer.age, aPlayer.height, aPlayer.weight];
     cell.numbAndPosition.text = [NSString stringWithFormat:@"%@ | %@", aPlayer.number, aPlayer.position];

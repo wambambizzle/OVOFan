@@ -21,6 +21,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSArray *nameParts = [self.aPlayer.name componentsSeparatedByString:@" "];
+    if (![self.aPlayer.name containsString:@" "])
+    {
+        NSString *lastName = nameParts[0];
+        self.title = lastName;
+
+    }
+    else if (nameParts.count == 2)
+    {
+        NSString *lastName = nameParts[1];
+        self.title = lastName;
+    }
+    else if (nameParts.count == 3)
+    {
+        NSString *lastName = [NSString stringWithFormat:@"%@ %@", nameParts[1], nameParts[2]];
+        self.title = lastName; 
+    }
 
     WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
     self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:theConfiguration];
