@@ -162,7 +162,7 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
 
             NSMutableArray *assistObjectsArray = [[NSMutableArray alloc] init];
             
-            for (int i = 1; i < 4; i++)
+            for (int i = 1; i < 5; i++)
             {
                 Assists *assist = [Assists attendanceStatsWithDictionary:aDictionary dicToParse:i];
 
@@ -172,7 +172,7 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
             // goals
             
             NSMutableArray *goalObjectsArray = [[NSMutableArray alloc] init];
-            for (int i = 4; i < 7; i++)
+            for (int i = 6; i < 9; i++)
             {
                 Goals *goal = [Goals goalsStatsWithDictionary:aDictionary dicToParse:i];
 
