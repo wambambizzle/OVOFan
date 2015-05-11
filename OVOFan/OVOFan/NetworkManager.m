@@ -97,7 +97,6 @@ static NSString *clubStatsAttendanceApiURL = @"https://www.kimonolabs.com/api/4e
     [self startDataTask:dataTask];
 }
 
-
 - (void)fetchClubStatsGoals
 {
     NSURL *url = [NSURL URLWithString:clubStatsGoalsApiURL];
@@ -294,6 +293,25 @@ static NSString *clubStatsAttendanceApiURL = @"https://www.kimonolabs.com/api/4e
         }
         
         
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-leaguestandings"])
+        {
+            NSDictionary *results = [aDictionary objectForKey:@"results"];
+            NSArray *ranksArray = [results objectForKey:@"rankings"];
+            
+            NSMutableArray *ranksObjectsArray = [[NSMutableArray alloc] init];
+            
+            for (int i = 0; i < ranksArray.count; i++)
+            {
+                Rankings *aRank = [Rankings leagueStandingWithDictionary:aDictionary dicToParse:i];
+                [ranksObjectsArray addObject:aRank];
+            }
+            
+            if (ranksObjectsArray.count != 0)
+            {
+                [self.leagueStandingsdelegate recentStandingsWasFound:ranksObjectsArray];
+            }
+            
+        }
      
 
     }

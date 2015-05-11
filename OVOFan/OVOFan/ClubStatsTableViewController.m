@@ -191,7 +191,7 @@ typedef enum
 -(void)clubStatsAssistsWasFound:(NSMutableArray *)stats
 {
     assitsArray = stats;
-        NSLog(@"%@", assitsArray);
+
     [clubStatsArray addObject:assitsArray];
     [self.tableView reloadData];
 }

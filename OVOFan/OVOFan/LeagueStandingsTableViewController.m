@@ -30,7 +30,7 @@
     
     self.title = @"League Standings";
     
-    ovoPurple = [UIColor colorWithRed:97/255.0f green:43/255.0f blue:155/255.0f alpha:1];
+    ovoPurple = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1];
 
 }
 
