@@ -17,6 +17,7 @@
 @interface NewsTableViewController ()
 {
     NSMutableArray *recentNewsArray;
+    BingSearch *_aSearch;
 }
 
 @end
@@ -26,14 +27,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    BingSearch *aSearch = [[BingSearch alloc] init];
-    [aSearch bingNewsSearch];
+    _aSearch = [[BingSearch alloc] init];
+    [_aSearch bingNewsSearch];
     
-    aSearch.newsdelegate = self;
+    _aSearch.newsdelegate = self;
     
     recentNewsArray = [[NSMutableArray alloc] init];
     
     self.title = @"News";
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self action:@selector(refreshView:) forControlEvents: UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,6 +108,18 @@
    
     [self showViewController:websiteVC sender:nil];
         
+}
+
+#pragma mark - UITableView UIRefresh
+
+- (void)refreshView:(UIRefreshControl *)refresh
+{
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh News Articles"];
+    
+    [_aSearch bingNewsSearch];
+    
+    [refresh endRefreshing];
+    
 }
 
 /*
