@@ -62,7 +62,7 @@
     cell.playerImage.layer.masksToBounds = YES;
     cell.playerImage.layer.borderWidth = 4.5f;
 
-    cell.playerImage.layer.borderColor = [UIColor colorWithRed:0.369 green:0.161 blue:0.604 alpha:1].CGColor;
+    cell.playerImage.layer.borderColor = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1].CGColor;
    
     NSArray *nameParts = [aPlayer.name componentsSeparatedByString:@" "];
     if (![aPlayer.name containsString:@" "])
@@ -86,7 +86,7 @@
         cell.lastName.text = lastName;
     }
 
-    cell.lastName.textColor = [UIColor colorWithRed:0.369 green:0.161 blue:0.604 alpha:1];
+    cell.lastName.textColor = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1];
     
     cell.ageWeightHeight.text = [NSString stringWithFormat:@"Age %@ | Ht. %@ | Wt. %@", aPlayer.age, aPlayer.height, aPlayer.weight];
     cell.numbAndPosition.text = [NSString stringWithFormat:@"%@ | %@", aPlayer.number, aPlayer.position];
