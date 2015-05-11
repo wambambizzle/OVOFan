@@ -10,7 +10,11 @@
 
 @protocol ClubStatsTableViewControllerDelegate
 
--(void)clubStatsWasFound:(NSMutableArray *)clubStats;
+-(void)clubStatsGoalsWasFound:(NSMutableArray *)stats;
+
+-(void)clubStatsAssistsWasFound:(NSMutableArray *)stats;
+
+-(void)clubStatsAttendanceWasFound:(NSMutableArray *)stats;
 
 @end
 

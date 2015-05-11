@@ -34,10 +34,13 @@
 
 - (void)fetchTheSchedule;
 - (void)fetchTheUpcomingMatch;
-- (void)fetchClubStats;
 - (void)fetchLeagueStandings;
 - (void)fetchCurrentTeam;
 
+//- (void)fetchClubStats;
 
+- (void)fetchClubStatsGoals;
+- (void)fetchClubStatsAssists;
+- (void)fetchClubStatsAttendance;
 
 @end

@@ -28,14 +28,15 @@
     Goals *aGoal = [[Goals alloc] init];
     
     NSDictionary *results = [aDictionary objectForKey:@"results"];
-    NSArray *stats = [results objectForKey:@"stats-attendance"];
+    NSArray *stats = [results objectForKey:@"ovo-stats-goals"];
     NSDictionary *statsDict = [stats objectAtIndex:i];
     
     aGoal.goals = [statsDict objectForKey:@"goals"];
     aGoal.rank = [statsDict objectForKey:@"rank"];
     aGoal.player = [statsDict objectForKey:@"player"];
-    
+
     return aGoal;
+
 }
 
 @end

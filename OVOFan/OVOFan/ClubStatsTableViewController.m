@@ -26,6 +26,7 @@ typedef enum
     NSArray *goalsArray;
     NSArray *assitsArray;
     NSArray *attendanceArray;
+    
     NSMutableArray *clubStatsArray;
 }
 
@@ -36,7 +37,10 @@ typedef enum
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NetworkManager sharedNetworkManager] fetchClubStats];
+    [[NetworkManager sharedNetworkManager] fetchClubStatsGoals];
+    [[NetworkManager sharedNetworkManager] fetchClubStatsAssists];
+    [[NetworkManager sharedNetworkManager] fetchClubStatsAttendance];
+    
     [NetworkManager sharedNetworkManager].clubStatsdelegate = self;
     
     clubStatsArray = [[NSMutableArray alloc] init];
@@ -44,7 +48,7 @@ typedef enum
     assitsArray = [[NSArray alloc] init];
     attendanceArray = [[NSArray alloc] init];
 
-    self.title = @"Club Statistics";
+    self.title = @"Club Stats";
     
 }
 
@@ -176,13 +180,27 @@ typedef enum
 
 #pragma mark - Custom Delegate
 
--(void)clubStatsWasFound:(NSMutableArray *)clubStats
+-(void)clubStatsGoalsWasFound:(NSMutableArray *)stats
 {
-    clubStatsArray = clubStats;
-    attendanceArray = clubStats[0];
-    assitsArray = clubStats[1];
-    goalsArray = clubStats[2];
+    goalsArray = stats;
 
+    [clubStatsArray addObject:goalsArray];
+    [self.tableView reloadData];
+}
+
+-(void)clubStatsAssistsWasFound:(NSMutableArray *)stats
+{
+    assitsArray = stats;
+        NSLog(@"%@", assitsArray);
+    [clubStatsArray addObject:assitsArray];
+    [self.tableView reloadData];
+}
+
+-(void)clubStatsAttendanceWasFound:(NSMutableArray *)stats
+{
+    attendanceArray = stats;
+    [clubStatsArray addObject:attendanceArray];
+    
     [self.tableView reloadData];
 }
 

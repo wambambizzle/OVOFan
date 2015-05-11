@@ -23,12 +23,12 @@
     return self;
 }
 
-+ (instancetype)attendanceStatsWithDictionary:(NSDictionary *)aDictionary dicToParse:(int)i
++ (instancetype)assistStatsWithDictionary:(NSDictionary *)aDictionary dicToParse:(int)i
 {
     Assists *anAssist = [[Assists alloc] init];
     
     NSDictionary *results = [aDictionary objectForKey:@"results"];
-    NSArray *stats = [results objectForKey:@"stats-attendance"];
+    NSArray *stats = [results objectForKey:@"stats-assist"];
     NSDictionary *statsDict = [stats objectAtIndex:i];
     
     anAssist.assist = [statsDict objectForKey:@"assists"];

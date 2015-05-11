@@ -16,6 +16,6 @@
 
 - (instancetype)initWithAssist:(NSString *)assist player:(NSString *)player rank:(NSString *)rank;
 
-+ (instancetype)attendanceStatsWithDictionary:(NSDictionary *)aDictionary dicToParse:(int)i;
++ (instancetype)assistStatsWithDictionary:(NSDictionary *)aDictionary dicToParse:(int)i;
 
 @end

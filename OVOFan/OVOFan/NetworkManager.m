@@ -31,7 +31,13 @@ static NSString *upcomingMatchApiURL = @"https://www.kimonolabs.com/api/7frwoxaw
 static NSString *recentNewsApiURL = @"https://www.kimonolabs.com/api/ejewyfaw?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *leagueStandingsApiURL = @"https://www.kimonolabs.com/api/6ok0l5mc?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 static NSString *teamApiURL = @"https://www.kimonolabs.com/api/5oe8yp4q?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+
 static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+
+static NSString *clubStatsGoalsApiURL = @"https://www.kimonolabs.com/api/ei0ey1g8?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+
+static NSString *clubStatsAssistsApiURL = @"https://www.kimonolabs.com/api/8huac3sm?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
+static NSString *clubStatsAttendanceApiURL = @"https://www.kimonolabs.com/api/4ezoeqhq?apikey=AD4O0cRRulTPwjT2llph80hhqIU8QDtt";
 
 + (NetworkManager *)sharedNetworkManager //Singleton Method
 {
@@ -56,12 +62,7 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
         configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
         receivedDataDict = [[NSMutableDictionary alloc] init];
-        accountKey = @"yFPI0Ijp55ibaYc2Mj2OahxDBeFnrCCnLvicm2DqHHQ=";
-        rootURL = @"https://api.datamarket.azure.com/Bing/Search/";
-        
-//        yFPI0Ijp55ibaYc2Mj2OahxDBeFnrCCnLvicm2DqHHQ=  made one
-        
-//        uU7jIa1gQhNsJmCcPLJQUEzs4tVNiVQ+VswDptyjFOQ default
+    
     }
     
     return self;
@@ -82,13 +83,6 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
     
 }
 
-- (void)fetchClubStats
-{
-    NSURL *url = [NSURL URLWithString:clubStatsApiURL];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
-    [self startDataTask:dataTask];
-}
-
 - (void)fetchLeagueStandings
 {
     NSURL *url = [NSURL URLWithString:leagueStandingsApiURL];
@@ -103,6 +97,35 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
     [self startDataTask:dataTask];
 }
 
+
+- (void)fetchClubStatsGoals
+{
+    NSURL *url = [NSURL URLWithString:clubStatsGoalsApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+}
+
+- (void)fetchClubStatsAssists
+{
+    NSURL *url = [NSURL URLWithString:clubStatsAssistsApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+}
+
+- (void)fetchClubStatsAttendance
+{
+    NSURL *url = [NSURL URLWithString:clubStatsAttendanceApiURL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+    [self startDataTask:dataTask];
+}
+
+
+//- (void)fetchClubStats
+//{
+//    NSURL *url = [NSURL URLWithString:clubStatsApiURL];
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
+//    [self startDataTask:dataTask];
+//}
 
 - (void)startDataTask:(NSURLSessionDataTask *)dataTask
 {
@@ -145,69 +168,107 @@ static NSString *clubStatsApiURL = @"https://www.kimonolabs.com/api/akd6qfh8?api
                 }
             }
         
-        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-stats"])
+//        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-stats"])
+//        {
+//            
+////            NSDictionary *results = [aDictionary objectForKey:@"results"];
+//            
+//            NSMutableArray *allStatsArray = [[NSMutableArray alloc] init];
+//            
+//            // attendance
+//            NSMutableArray *attendanceObjectArray = [[NSMutableArray alloc] init];
+//            Attendance *theAttendance = [Attendance attendanceStatsWithDictionary:aDictionary];
+//            
+//            [attendanceObjectArray addObject:theAttendance];
+//            
+//            // assists 
+//
+//            NSMutableArray *assistObjectsArray = [[NSMutableArray alloc] init];
+//            
+//            for (int i = 1; i < 5; i++)
+//            {
+//                Assists *assist = [Assists attendanceStatsWithDictionary:aDictionary dicToParse:i];
+//
+//                [assistObjectsArray addObject:assist];
+//            }
+//            
+//            // goals
+//            
+//            NSMutableArray *goalObjectsArray = [[NSMutableArray alloc] init];
+//            for (int i = 6; i < 9; i++)
+//            {
+//                Goals *goal = [Goals goalsStatsWithDictionary:aDictionary dicToParse:i];
+//
+//                [goalObjectsArray addObject:goal];
+//                
+//            }
+//            
+//            allStatsArray = [@[attendanceObjectArray, assistObjectsArray, goalObjectsArray] mutableCopy];
+////            NSLog(@"big stats array: %@", allStatsArray);
+//            
+//            if (allStatsArray.count != 0)
+//            {
+//                [self.clubStatsdelegate clubStatsWasFound:allStatsArray];
+//            }
+//            
+//        }
+        
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-stats-goals"])
         {
-            
-//            NSDictionary *results = [aDictionary objectForKey:@"results"];
-            
-            NSMutableArray *allStatsArray = [[NSMutableArray alloc] init];
-            
-            // attendance
-            NSMutableArray *attendanceObjectArray = [[NSMutableArray alloc] init];
-            Attendance *theAttendance = [Attendance attendanceStatsWithDictionary:aDictionary];
-            
-            [attendanceObjectArray addObject:theAttendance];
-            
-            // assists 
 
-            NSMutableArray *assistObjectsArray = [[NSMutableArray alloc] init];
+            NSDictionary *results = [aDictionary objectForKey:@"results"];
+            NSArray *goalsArray = [results objectForKey:@"ovo-stats-goals"];
             
-            for (int i = 1; i < 5; i++)
-            {
-                Assists *assist = [Assists attendanceStatsWithDictionary:aDictionary dicToParse:i];
-
-                [assistObjectsArray addObject:assist];
-            }
+            NSMutableArray *goalsObjectsArray = [[NSMutableArray alloc] init];
             
-            // goals
-            
-            NSMutableArray *goalObjectsArray = [[NSMutableArray alloc] init];
-            for (int i = 6; i < 9; i++)
+            for (int i = 0; i < goalsArray.count; i++)
             {
                 Goals *goal = [Goals goalsStatsWithDictionary:aDictionary dicToParse:i];
-
-                [goalObjectsArray addObject:goal];
                 
+                [goalsObjectsArray addObject:goal];
             }
             
-            allStatsArray = [@[attendanceObjectArray, assistObjectsArray, goalObjectsArray] mutableCopy];
-//            NSLog(@"big stats array: %@", allStatsArray);
-            
-            if (allStatsArray.count != 0)
+            if (goalsObjectsArray.count != 0)
             {
-                [self.clubStatsdelegate clubStatsWasFound:allStatsArray];
+                [self.clubStatsdelegate clubStatsGoalsWasFound:goalsObjectsArray];
             }
             
         }
         
-        
-        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-leaguestandings"])
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-stats-assist"])
         {
+            
             NSDictionary *results = [aDictionary objectForKey:@"results"];
-            NSArray *rankings = [results objectForKey:@"rankings"];
+            NSArray *assistsArray = [results objectForKey:@"stats-assist"];
             
-            NSMutableArray *rankingObjectsArray = [[NSMutableArray alloc] init];
+            NSMutableArray *assistObjectsArray = [[NSMutableArray alloc] init];
             
-            for (int i = 0; i < rankings.count; i++)
+            for (int i = 0; i < assistsArray.count; i++)
             {
-                Rankings *rank = [Rankings leagueStandingWithDictionary:aDictionary dicToParse:i];
+                Assists *assist = [Assists assistStatsWithDictionary:aDictionary dicToParse:i];
                 
-                [rankingObjectsArray addObject:rank];
+                [assistObjectsArray addObject:assist];
             }
             
-            if (rankingObjectsArray.count != 0)
+            if (assistObjectsArray.count != 0)
             {
-                [self.leagueStandingsdelegate recentStandingsWasFound:rankingObjectsArray];
+                [self.clubStatsdelegate clubStatsAssistsWasFound:assistObjectsArray];
+            }
+            
+        }
+        
+        if ([[aDictionary objectForKey:@"name"] isEqualToString:@"ovo-stats-attendance"])
+        {
+            NSMutableArray *attendanceObjectsArray = [[NSMutableArray alloc] init];
+            
+            Attendance *attendance = [Attendance attendanceStatsWithDictionary:aDictionary];
+                
+            [attendanceObjectsArray addObject:attendance];
+            
+            
+            if (attendanceObjectsArray.count != 0)
+            {
+                [self.clubStatsdelegate clubStatsAttendanceWasFound:attendanceObjectsArray];
             }
         
         }
