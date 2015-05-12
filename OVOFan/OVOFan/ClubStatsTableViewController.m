@@ -205,6 +205,7 @@ typedef enum
     
     [self.tableView reloadData];
 }
+
 #pragma mark - NSNotificantion Center Error
 
 -(void)showWithError:(NSNotification *)errorNotification
@@ -212,8 +213,9 @@ typedef enum
     NSError *error = [errorNotification.userInfo objectForKey:@"error"];
     
     NSString *alertTitle = [NSString stringWithFormat:@"%@", [error localizedDescription]];
-        NSString *alertMessage = @"Click Retry to try again";
-        UIAlertController *alertController = [UIAlertController
+    NSString *alertMessage = @"Click Retry to try again";
+    
+    UIAlertController *alertController = [UIAlertController
                                               alertControllerWithTitle:alertTitle
                                               message:alertMessage
                                               preferredStyle:UIAlertControllerStyleAlert];

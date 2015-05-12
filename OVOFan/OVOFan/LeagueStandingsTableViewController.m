@@ -31,6 +31,8 @@
     self.title = @"League Standings";
     
     ovoPurple = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showWithError:) name:@"showWithError" object:nil];
 
 }
 
@@ -137,6 +139,39 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - NSNotificantion Center Error
+
+-(void)showWithError:(NSNotification *)errorNotification
+{
+    NSError *error = [errorNotification.userInfo objectForKey:@"error"];
+    
+    NSString *alertTitle = [NSString stringWithFormat:@"%@", [error localizedDescription]];
+    NSString *alertMessage = @"Click Retry to try again";
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:alertTitle
+                                          message:alertMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         
+                                                         
+                                                     }];
+    
+    UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {
+                                                            
+                                                        [[NetworkManager sharedNetworkManager] fetchLeagueStandings];
+                                                            
+                                                        }];
+    [alertController addAction:okAction];
+    [alertController addAction:retryAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
 }
 
 /*

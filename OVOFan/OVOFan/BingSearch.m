@@ -163,13 +163,15 @@
         
     }
     
-
         //    NSDictionary *recentNewsDict = [recentNews objectAtIndex:i];
 
-        
-        
-        
+    if (error)
+    {
+        NSDictionary *errorDic = @{@"error": error};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showWithError" object:nil userInfo:errorDic];
     }
+    
+}
     
 
 

@@ -35,6 +35,8 @@
      [NetworkManager sharedNetworkManager].delegate = self;
     [[NetworkManager sharedNetworkManager] fetchTheUpcomingMatch];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showWithError:) name:@"showWithError" object:nil];
+    
     
 }
 
@@ -56,6 +58,39 @@
 //    theMatch = nextMatch;
     
    
+}
+
+#pragma mark - NSNotificantion Center Error
+
+-(void)showWithError:(NSNotification *)errorNotification
+{
+    NSError *error = [errorNotification.userInfo objectForKey:@"error"];
+    
+    NSString *alertTitle = [NSString stringWithFormat:@"%@", [error localizedDescription]];
+    NSString *alertMessage = @"Click Retry to try again";
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:alertTitle
+                                          message:alertMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         
+                                                         
+                                                     }];
+    
+    UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction *action) {
+                                                            
+                                                        [[NetworkManager sharedNetworkManager] fetchTheUpcomingMatch];
+                                                            
+                                                        }];
+    [alertController addAction:okAction];
+    [alertController addAction:retryAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
 }
 
 
