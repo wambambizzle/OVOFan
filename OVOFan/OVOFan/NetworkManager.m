@@ -270,8 +270,16 @@ static NSString *clubStatsAttendanceApiURL = @"https://www.kimonolabs.com/api/4e
      
 
     }
+    if (error)
+    {
+        NSDictionary *errorDic = @{@"error": error};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showWithError" object:nil userInfo:errorDic];
+    }
     
 }
+
+
+
 
 
 
