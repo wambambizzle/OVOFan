@@ -7,10 +7,14 @@
 //
 
 #import "WebsiteViewController.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 
 @import WebKit;
 
 @interface WebsiteViewController () <WKNavigationDelegate>
+{
+    JGProgressHUD *HUD;
+}
 
 //@property (strong, nonatomic) IBOutlet WKWebView *webView;
 @property (strong, nonatomic) IBOutlet WKWebView *webView;
@@ -23,14 +27,13 @@
 {
     [super viewDidLoad];
     
-    WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:theConfiguration];
-    self.webView.navigationDelegate = self;
-//    NSURL *nsurl=[NSURL URLWithString: webUrl];
-    NSURLRequest *nsrequest = [NSURLRequest requestWithURL:self.anArticle.articleUrl];
-
-    [self.webView loadRequest:nsrequest];
-    [self.view addSubview:self.webView];
+    [self JGShowLoadingHud];
+    [self newsWebviewConfigure];
+    
+    if (self.webView)
+    {
+        [HUD dismissAfterDelay:2 animated:YES];
+    }
     
 }
 
@@ -40,38 +43,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-//#pragma mark - NSNotificantion Center Error
-//
-//-(void)showWithError:(NSNotification *)errorNotification
-//{
-//    NSError *error = [errorNotification.userInfo objectForKey:@"error"];
-//    
-//    NSString *alertTitle = [NSString stringWithFormat:@"%@", [error localizedDescription]];
-//    NSString *alertMessage = @"Click Retry to try again";
-//    
-//    UIAlertController *alertController = [UIAlertController
-//                                          alertControllerWithTitle:alertTitle
-//                                          message:alertMessage
-//                                          preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-//                                                     handler:^(UIAlertAction *action) {
-//                                                         
-//                                                         
-//                                                     }];
-//    
-//    UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
-//                                                        handler:^(UIAlertAction *action) {
-//                                                            
-//
-//                                                            
-//                                                        }];
-//    [alertController addAction:okAction];
-//    [alertController addAction:retryAction];
-//    
-//    [self presentViewController:alertController animated:YES completion:nil];
-//    
-//}
+- (void)newsWebviewConfigure
+{
+    WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
+    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:theConfiguration];
+    self.webView.navigationDelegate = self;
+    //    NSURL *nsurl=[NSURL URLWithString: webUrl];
+    NSURLRequest *nsrequest = [NSURLRequest requestWithURL:self.anArticle.articleUrl];
+    
+    [self.webView loadRequest:nsrequest];
+    [self.view insertSubview:self.webView atIndex:1];
+
+//    [HUD dismissAfterDelay:2 animated:YES];
+
+}
+
+- (void)JGShowLoadingHud
+{
+    HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Loading";
+    [HUD showInView:self.view];
+}
 
 
 @end

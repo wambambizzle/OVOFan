@@ -44,7 +44,7 @@
     [refresh addTarget:self action:@selector(refreshView:) forControlEvents: UIControlEventValueChanged];
     self.refreshControl = refresh;
     
-    [self JGLoadingHudShow];
+    [self JGShowLoadingHud];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showWithError:) name:@"showWithError" object:nil];
     
@@ -155,7 +155,7 @@
                                                         handler:^(UIAlertAction *action) {
                                                         
                                                         [_aSearch bingNewsSearch];
-                                                        [self JGLoadingHudShow];
+                                                        [self JGShowLoadingHud];
                                                         }];
     [alertController addAction:okAction];
     [alertController addAction:retryAction];
@@ -164,7 +164,7 @@
     
 }
 
-- (void)JGLoadingHudShow
+- (void)JGShowLoadingHud
 {
     HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     HUD.textLabel.text = @"Loading";
