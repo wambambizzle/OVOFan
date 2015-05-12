@@ -13,11 +13,14 @@
 
 #import "NewsCell.h"
 
+#import <JGProgressHUD/JGProgressHUD.h>
+
 
 @interface NewsTableViewController ()
 {
     NSMutableArray *recentNewsArray;
     BingSearch *_aSearch;
+    JGProgressHUD *HUD;
 }
 
 @end
@@ -40,6 +43,8 @@
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [refresh addTarget:self action:@selector(refreshView:) forControlEvents: UIControlEventValueChanged];
     self.refreshControl = refresh;
+    
+    [self JGLoadingHudShow];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showWithError:) name:@"showWithError" object:nil];
     
@@ -95,6 +100,7 @@
 {
    recentNewsArray = recentNews;
    [self.tableView reloadData];
+    [HUD dismissAnimated:YES];
 
 }
 
@@ -116,7 +122,7 @@
 
 - (void)refreshView:(UIRefreshControl *)refresh
 {
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh News Articles"];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Fresh News Incoming"];
     
     [_aSearch bingNewsSearch];
     
@@ -128,6 +134,7 @@
 
 -(void)showWithError:(NSNotification *)errorNotification
 {
+    [HUD dismissAnimated:YES];
     NSError *error = [errorNotification.userInfo objectForKey:@"error"];
     
     NSString *alertTitle = [NSString stringWithFormat:@"%@", [error localizedDescription]];
@@ -146,9 +153,9 @@
     
     UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
                                                         handler:^(UIAlertAction *action) {
-                                                            
+                                                        
                                                         [_aSearch bingNewsSearch];
-                                                            
+                                                        [self JGLoadingHudShow];
                                                         }];
     [alertController addAction:okAction];
     [alertController addAction:retryAction];
@@ -156,6 +163,15 @@
     [self presentViewController:alertController animated:YES completion:nil];
     
 }
+
+- (void)JGLoadingHudShow
+{
+    HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Loading";
+    
+    [HUD showInView:self.view];
+}
+
 
 /*
 // Override to support conditional editing of the table view.
