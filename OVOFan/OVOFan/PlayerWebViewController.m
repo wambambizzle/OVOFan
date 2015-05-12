@@ -7,10 +7,14 @@
 //
 
 #import "PlayerWebViewController.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 
 @import WebKit;
 
 @interface PlayerWebViewController () <WKNavigationDelegate>
+{
+    JGProgressHUD *HUD;
+}
 
 @property (strong, nonatomic) IBOutlet WKWebView *webView;
 
@@ -39,7 +43,25 @@
         NSString *lastName = [NSString stringWithFormat:@"%@ %@", nameParts[1], nameParts[2]];
         self.title = lastName; 
     }
+    
+    [self JGShowLoadingHud];
+    [self playerDetailsWebViewConfigure];
+    
+    if (self.webView)
+    {
+        [HUD dismissAfterDelay:2 animated:YES];
+    }
 
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)playerDetailsWebViewConfigure
+{
     WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
     self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:theConfiguration];
     self.webView.navigationDelegate = self;
@@ -48,14 +70,16 @@
     NSURLRequest *nsrequest = [NSURLRequest requestWithURL: theNsurl];
     
     [self.webView loadRequest:nsrequest];
-    [self.view addSubview:self.webView];
+    [self.view insertSubview:self.webView atIndex:1];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)JGShowLoadingHud
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Loading";
+    [HUD showInView:self.view];
 }
+
 
 /*
 #pragma mark - Navigation
