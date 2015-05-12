@@ -164,6 +164,8 @@
     
 }
 
+#pragma mark - JG HUD Progress Method
+
 - (void)JGShowLoadingHud
 {
     HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];

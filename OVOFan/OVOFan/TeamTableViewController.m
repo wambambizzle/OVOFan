@@ -13,9 +13,12 @@
 
 #import "NetworkManager.h"
 
+#import <JGProgressHUD/JGProgressHUD.h>
+
 @interface TeamTableViewController ()
 {
     NSMutableArray *teamMemArray;
+    JGProgressHUD *HUD;
 }
 
 @end
@@ -32,6 +35,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showWithError:) name:@"showWithError" object:nil];
    
     self.title = @"Team";
+    
+    [self JGShowLoadingHud];
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +107,7 @@
 {
     teamMemArray = team;
     [self.tableView reloadData];
+    [HUD dismissAnimated:YES];
 }
 
 #pragma mark - UITableView delegate
@@ -121,6 +127,7 @@
 
 -(void)showWithError:(NSNotification *)errorNotification
 {
+    [HUD dismissAnimated:YES];
     NSError *error = [errorNotification.userInfo objectForKey:@"error"];
     
     NSString *alertTitle = [NSString stringWithFormat:@"%@", [error localizedDescription]];
@@ -141,13 +148,23 @@
                                                         handler:^(UIAlertAction *action) {
                                                             
                                                         [[NetworkManager sharedNetworkManager] fetchCurrentTeam];
-                                                            
+                                                        [self JGShowLoadingHud];
                                                         }];
     [alertController addAction:okAction];
     [alertController addAction:retryAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
     
+}
+
+#pragma mark - JG HUD Progress Method
+
+- (void)JGShowLoadingHud
+{
+    HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Loading";
+    
+    [HUD showInView:self.view];
 }
 
 /*
