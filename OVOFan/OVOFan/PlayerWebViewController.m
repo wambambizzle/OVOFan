@@ -26,6 +26,12 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
     NSArray *nameParts = [self.aPlayer.name componentsSeparatedByString:@" "];
     if (![self.aPlayer.name containsString:@" "])
     {

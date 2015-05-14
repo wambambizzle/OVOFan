@@ -28,6 +28,12 @@
     [NetworkManager sharedNetworkManager].leagueStandingsdelegate = self;
     [[NetworkManager sharedNetworkManager] fetchLeagueStandings];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
     self.title = @"League Standings";
     
     ovoPurple = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1];

@@ -11,7 +11,7 @@
 
 @import WebKit;
 
-@interface WebsiteViewController () <WKNavigationDelegate>
+@interface WebsiteViewController () <WKNavigationDelegate, WKUIDelegate>
 {
     JGProgressHUD *HUD;
 }
@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     
     [self JGShowLoadingHud];
     [self newsWebviewConfigure];
@@ -34,6 +35,10 @@
     {
         [HUD dismissAfterDelay:2 animated:YES];
     }
+//    else if (!self.webView)
+//    {
+//       self.title = @"ERROR: Failed to load page";
+//    }
     
 }
 
@@ -64,6 +69,49 @@
     HUD.textLabel.text = @"Loading";
     [HUD showInView:self.view];
 }
+
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)())completionHandler
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message
+                                                                             message:nil
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction *action) {
+                                                          completionHandler();
+                                                      }]];
+    [self presentViewController:alertController animated:YES completion:^{}];
+}
+
+//- (void)wkwebviewDidError
+//{
+//    [HUD dismissAnimated:YES];
+//    NSString *alertTitle = @"Network Error. Check Signal Strength or Wifi Connectivitiy";
+//    NSString *alertMessage = @"Click Retry to try again";
+//    
+//    UIAlertController *alertController = [UIAlertController
+//                                          alertControllerWithTitle:alertTitle
+//                                          message:alertMessage
+//                                          preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                     handler:^(UIAlertAction *action) {
+//                                                         
+//                                                         
+//                                                     }];
+//    
+//    UIAlertAction *retryAction = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault
+//                                                        handler:^(UIAlertAction *action) {
+//                                                            
+//                                                            [self newsWebviewConfigure];
+//                                                            
+//                                                        }];
+//    [alertController addAction:okAction];
+//    [alertController addAction:retryAction];
+//    
+//    [self presentViewController:alertController animated:YES completion:nil];
+// 
+//}
 
 
 @end

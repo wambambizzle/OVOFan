@@ -40,6 +40,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
+    
     self.title = @"Orlando's Very Own";
 
 }

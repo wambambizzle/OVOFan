@@ -34,6 +34,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showWithError:) name:@"showWithError" object:nil];
    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
     self.title = @"Team";
     
     [self JGShowLoadingHud];

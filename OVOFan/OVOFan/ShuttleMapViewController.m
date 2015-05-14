@@ -13,32 +13,51 @@
 
 #define MAP_DISPLAY_SCALE 1.5 *1609.344
 
-@interface ShuttleMapViewController () <CLLocationManagerDelegate, MKAnnotation>
+@interface ShuttleMapViewController () <CLLocationManagerDelegate, MKAnnotation, MKOverlay>
 {
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;
-
+    
+    UIColor *ovoPurple;
+    
 
 }
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (nonatomic, strong) NSMutableArray *allRouteCoords;
+@property (nonatomic, strong) MKPolyline *polyline;
 
 @end
 
 @implementation ShuttleMapViewController
+@synthesize boundingMapRect;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ovoPurple = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1];
+    
+    
     [self configureMapView];
     [self configureAndDropPins];
     [self configureLocationManager];
     
+//    [self drawLineRoute];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
     self.title = @"Shuttle Map";
     self.navigationItem.prompt = @"Citrus Bowl Connection";
-
+    
+//    28.541944, -81.382936   28.538447, -81.383096
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,14 +66,16 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)configureMapView
+#pragma mark - Map Configuration
+
+- (void)configureMapView
 {
     self.coordinate = CLLocationCoordinate2DMake(28.541974, -81.390542);
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.coordinate, MAP_DISPLAY_SCALE, MAP_DISPLAY_SCALE);
     [self.mapView setRegion:viewRegion];
 }
 
--(void)configureAndDropPins
+- (void)configureAndDropPins
 {
     // first annotation
     CLLocationCoordinate2D churchAndNortonAve = CLLocationCoordinate2DMake(28.540197, -81.398224);
@@ -80,7 +101,31 @@
     
 }
 
--(void)configureLocationManager
+#pragma mark - MK Overlay Path
+
+//    CLLocationCoordinate2D purplePoints[2];
+//    purplePoints[0] = CLLocationCoordinate2DMake(28.541944, -81.382936);
+//    purplePoints[1] = CLLocationCoordinate2DMake(28.538447, -81.383096);
+
+//MKPolylineRenderer
+
+
+    
+- (void)drawLineRoute
+{
+        CLLocationCoordinate2D purplePoints[2];
+        purplePoints[0] = CLLocationCoordinate2DMake(28.541944, -81.382936);
+        purplePoints[1] = CLLocationCoordinate2DMake(28.538447, -81.383096);
+    
+    self.polyline = [MKPolyline polylineWithCoordinates:purplePoints count:2];
+    self.polyline.title = @"Citrus Bowl Connection";
+    
+    [self.mapView addOverlay:self.polyline];
+}
+
+#pragma mark - Location Manager
+
+- (void)configureLocationManager
 {
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusRestricted)
     {
@@ -104,7 +149,7 @@
 //        [self.pinCurrentItem setEnabled:NO];
     }
 }
--(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     if (status != kCLAuthorizationStatusAuthorizedWhenInUse)
     {
@@ -116,7 +161,7 @@
     }
 }
 
--(void)enableLocationManager:(BOOL)enable
+- (void)enableLocationManager:(BOOL)enable
 {
     if (locationManager)
     {
@@ -131,7 +176,7 @@
         }
     }
 }
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
 //    CLLocation *loca = [locations lastObject];
         self.mapView.showsUserLocation = YES;

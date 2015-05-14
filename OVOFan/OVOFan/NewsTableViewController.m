@@ -37,6 +37,12 @@
     
     recentNewsArray = [[NSMutableArray alloc] init];
     
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
     self.title = @"News";
     
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];

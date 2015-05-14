@@ -47,6 +47,12 @@ typedef enum
     goalsArray = [[NSArray alloc] init];
     assitsArray = [[NSArray alloc] init];
     attendanceArray = [[NSArray alloc] init];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont fontWithName:@"HelveticaNeue-Light" size:20],
+      NSFontAttributeName,
+      [UIColor whiteColor],NSForegroundColorAttributeName, nil]];
 
     self.title = @"Club Stats";
     
