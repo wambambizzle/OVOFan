@@ -13,7 +13,7 @@
 
 #define MAP_DISPLAY_SCALE 1.5 *1609.344
 
-@interface ShuttleMapViewController () <CLLocationManagerDelegate, MKAnnotation, MKOverlay>
+@interface ShuttleMapViewController () <CLLocationManagerDelegate, MKAnnotation, MKOverlay, MKMapViewDelegate>
 {
     CLLocationManager *locationManager;
     CLGeocoder *geocoder;
@@ -26,8 +26,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, strong) NSMutableArray *allRouteCoords;
-@property (nonatomic, strong) MKPolyline *polyline;
 
 @end
 
@@ -39,13 +37,13 @@
     [super viewDidLoad];
     
     ovoPurple = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1];
-    
-    
+    self.mapView.delegate = self;
+
     [self configureMapView];
     [self configureAndDropPins];
     [self configureLocationManager];
     
-//    [self drawLineRoute];
+    [self drawLineRoute];
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
@@ -56,7 +54,7 @@
     self.title = @"Shuttle Map";
     self.navigationItem.prompt = @"Citrus Bowl Connection";
     
-//    28.541944, -81.382936   28.538447, -81.383096
+
     
 }
 
@@ -103,25 +101,44 @@
 
 #pragma mark - MK Overlay Path
 
-//    CLLocationCoordinate2D purplePoints[2];
-//    purplePoints[0] = CLLocationCoordinate2DMake(28.541944, -81.382936);
-//    purplePoints[1] = CLLocationCoordinate2DMake(28.538447, -81.383096);
+//citrus bowl 28.540037, -81.403691   28.540065, -81.401824   28.537916, -81.401781  28.537859, -81.403691
 
-//MKPolylineRenderer
+//    CLLocationCoordinate2D citrusBowlPts[4];
+//    citrusBowlPts[0] = CLLocationCoordinate2DMake(28.540037, -81.403691);
+//    citrusBowlPts[1] = CLLocationCoordinate2DMake(28.540065, -81.401824);
+//    citrusBowlPts[2] = CLLocationCoordinate2DMake(28.537916, -81.401781);
+//    citrusBowlPts[3] = CLLocationCoordinate2DMake(28.537859, -81.403691);
 
 
-    
 - (void)drawLineRoute
 {
-        CLLocationCoordinate2D purplePoints[2];
-        purplePoints[0] = CLLocationCoordinate2DMake(28.541944, -81.382936);
-        purplePoints[1] = CLLocationCoordinate2DMake(28.538447, -81.383096);
+        CLLocationCoordinate2D purplePoints[6];
+        purplePoints[0] = CLLocationCoordinate2DMake(28.541988, -81.393155); //central and wesmore
+        purplePoints[1] = CLLocationCoordinate2DMake(28.541980, -81.397242);
+        purplePoints[2] = CLLocationCoordinate2DMake(28.541978, -81.398302);
+        purplePoints[3] = CLLocationCoordinate2DMake(28.540180, -81.398287); //church and norton
+        purplePoints[4] = CLLocationCoordinate2DMake(28.540153, -81.397239);
+        purplePoints[5] = CLLocationCoordinate2DMake(28.540127, -81.393152);
+        MKPolyline *purplePolyline = [MKPolyline polylineWithCoordinates:purplePoints count:6];
+        purplePolyline.title = @"Citrus Bowl Connection";
     
-    self.polyline = [MKPolyline polylineWithCoordinates:purplePoints count:2];
-    self.polyline.title = @"Citrus Bowl Connection";
-    
-    [self.mapView addOverlay:self.polyline];
+    [self.mapView addOverlay:purplePolyline];
 }
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if([overlay isKindOfClass:[MKPolyline class]])
+    {
+        MKPolylineRenderer *polyRender = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+        polyRender.lineWidth = 2;
+        polyRender.strokeColor = ovoPurple;
+        return polyRender;
+    }
+    
+    return nil;
+}
+
+
 
 #pragma mark - Location Manager
 
