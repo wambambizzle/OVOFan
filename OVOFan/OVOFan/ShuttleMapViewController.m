@@ -112,15 +112,31 @@
 
 - (void)drawLineRoute
 {
-        CLLocationCoordinate2D purplePoints[6];
-        purplePoints[0] = CLLocationCoordinate2DMake(28.541988, -81.393155); //central and wesmore
-        purplePoints[1] = CLLocationCoordinate2DMake(28.541980, -81.397242);
-        purplePoints[2] = CLLocationCoordinate2DMake(28.541978, -81.398302);
-        purplePoints[3] = CLLocationCoordinate2DMake(28.540180, -81.398287); //church and norton
-        purplePoints[4] = CLLocationCoordinate2DMake(28.540153, -81.397239);
-        purplePoints[5] = CLLocationCoordinate2DMake(28.540127, -81.393152);
-        MKPolyline *purplePolyline = [MKPolyline polylineWithCoordinates:purplePoints count:6];
-        purplePolyline.title = @"Citrus Bowl Connection";
+    CLLocationCoordinate2D purplePoints[16];
+    purplePoints[0] = CLLocationCoordinate2DMake(28.541988, -81.393155); //central and wesmore
+    purplePoints[1] = CLLocationCoordinate2DMake(28.541980, -81.397242);
+    purplePoints[2] = CLLocationCoordinate2DMake(28.541978, -81.398302);
+    purplePoints[3] = CLLocationCoordinate2DMake(28.540188, -81.398279); //church and norton
+    purplePoints[4] = CLLocationCoordinate2DMake(28.540153, -81.397239);
+    purplePoints[5] = CLLocationCoordinate2DMake(28.540164, -81.393151);
+    purplePoints[6] = CLLocationCoordinate2DMake(28.541988, -81.393155);
+    purplePoints[7] = CLLocationCoordinate2DMake(28.542004, -81.389030);
+    purplePoints[8] = CLLocationCoordinate2DMake(28.541997, -81.386999);
+    purplePoints[9] = CLLocationCoordinate2DMake(28.542011, -81.382878);
+    purplePoints[10] = CLLocationCoordinate2DMake(28.540175, -81.382843);
+    purplePoints[11] = CLLocationCoordinate2DMake(28.539459, -81.382851);
+    purplePoints[12] = CLLocationCoordinate2DMake(28.538372, -81.383068);
+    purplePoints[13] = CLLocationCoordinate2DMake(28.538310, -81.384907);
+    purplePoints[14] = CLLocationCoordinate2DMake(28.538304, -81.386936);    
+    purplePoints[15] = CLLocationCoordinate2DMake(28.541997, -81.386999);
+
+
+
+
+//    purplePoints[16] = CLLocationCoordinate2DMake(28.541997, -81.386999);
+    
+    MKPolyline *purplePolyline = [MKPolyline polylineWithCoordinates:purplePoints count:16];
+    purplePolyline.title = @"Citrus Bowl Connection";
     
     [self.mapView addOverlay:purplePolyline];
 }
@@ -130,7 +146,7 @@
     if([overlay isKindOfClass:[MKPolyline class]])
     {
         MKPolylineRenderer *polyRender = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
-        polyRender.lineWidth = 2;
+        polyRender.lineWidth = 1;
         polyRender.strokeColor = ovoPurple;
         return polyRender;
     }
