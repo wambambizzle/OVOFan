@@ -11,7 +11,7 @@
 @import CoreLocation;
 @import MapKit;
 
-#define MAP_DISPLAY_SCALE 1.5 *1609.344
+#define MAP_DISPLAY_SCALE 1.8 *1909.344
 
 @interface ShuttleMapViewController () <CLLocationManagerDelegate, MKAnnotation, MKOverlay, MKMapViewDelegate>
 {
@@ -43,7 +43,10 @@
     [self configureAndDropPins];
     [self configureLocationManager];
     
+    [self drawCitrusBowlOverlay];
+//    [self drawCitrusCircleOverlay];
     [self drawShuttleRoute];
+    
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
@@ -68,7 +71,7 @@
 
 - (void)configureMapView
 {
-    self.coordinate = CLLocationCoordinate2DMake(28.541974, -81.390542);
+    self.coordinate = CLLocationCoordinate2DMake(28.538690, -81.392683); //28.538285, -81.391100
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.coordinate, MAP_DISPLAY_SCALE, MAP_DISPLAY_SCALE);
     [self.mapView setRegion:viewRegion];
 }
@@ -106,15 +109,22 @@
     //citrus bowl 28.540037, -81.403691   28.540065, -81.401824   28.537916, -81.401781  28.537859, -81.403691
     
     CLLocationCoordinate2D citrusBowlPts[4];
-    citrusBowlPts[0] = CLLocationCoordinate2DMake(28.540037, -81.403691);
-    citrusBowlPts[1] = CLLocationCoordinate2DMake(28.540065, -81.401824);
-    citrusBowlPts[2] = CLLocationCoordinate2DMake(28.537916, -81.401781);
-    citrusBowlPts[3] = CLLocationCoordinate2DMake(28.537859, -81.403691);
+    citrusBowlPts[0] = CLLocationCoordinate2DMake(28.540029, -81.403734);
+    citrusBowlPts[1] = CLLocationCoordinate2DMake(28.540055, -81.401790);
+    citrusBowlPts[2] = CLLocationCoordinate2DMake(28.537902, -81.401762);
+    citrusBowlPts[3] = CLLocationCoordinate2DMake(28.537894, -81.403700);
 
     MKPolygon *polygon = [MKPolygon polygonWithCoordinates:citrusBowlPts count:4];
     polygon.title = @"Citrus Bowl";
     [self.mapView addOverlay:polygon];
 }
+
+//- (void)drawCitrusCircleOverlay
+//{
+//    CLLocationCoordinate2D citrusBowlCent = CLLocationCoordinate2DMake(28.539038, -81.402714);
+//    
+//    [self.mapView addOverlay:[MKCircle circleWithCenterCoordinate:citrusBowlCent radius:100]];
+//}
 
 - (void)drawShuttleRoute
 {
@@ -150,7 +160,7 @@
     {
         MKPolylineRenderer *polyRender = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
         polyRender.lineWidth = 2;
-        polyRender.lineDashPattern = @[@4, @6];
+        polyRender.lineDashPattern = @[@7, @7];
         polyRender.strokeColor = ovoPurple;
         
         return polyRender;
@@ -159,9 +169,18 @@
     {
         MKPolygonRenderer *polygonRender = [[MKPolygonRenderer alloc] initWithOverlay:overlay];
         polygonRender.fillColor = ovoPurple;
-        polygonRender.lineWidth = 1;
-        polygonRender.strokeColor = [UIColor yellowColor];
-        
+//        if (polygonRender.fillColor)
+//        {
+//            polygonRender.alpha = 0.60;
+//        }
+        polygonRender.lineWidth = 6;
+        polygonRender.alpha = 0.60;
+        polygonRender.strokeColor = ovoPurple;
+
+//        MKCircleRenderer *circleRender = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+//        circleRender.fillColor = ovoPurple;
+//        circleRender.alpha = 0.65;
+//        
         return polygonRender;
         
     }

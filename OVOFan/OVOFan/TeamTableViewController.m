@@ -74,7 +74,7 @@
     cell.playerImage.layer.cornerRadius = cell.playerImage.frame.size.height / 2;
     cell.playerImage.layer.masksToBounds = YES;
     cell.playerImage.layer.borderWidth = 4.5f;
-
+ 
     cell.playerImage.layer.borderColor = [UIColor colorWithRed:0.392 green:0.208 blue:0.553 alpha:1].CGColor;
    
     NSArray *nameParts = [aPlayer.name componentsSeparatedByString:@" "];
