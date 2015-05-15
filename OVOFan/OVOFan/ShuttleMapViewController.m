@@ -43,7 +43,7 @@
     [self configureAndDropPins];
     [self configureLocationManager];
     
-    [self drawLineRoute];
+    [self drawShuttleRoute];
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
@@ -101,16 +101,22 @@
 
 #pragma mark - MK Overlay Path
 
-//citrus bowl 28.540037, -81.403691   28.540065, -81.401824   28.537916, -81.401781  28.537859, -81.403691
+- (void)drawCitrusBowlOverlay
+{
+    //citrus bowl 28.540037, -81.403691   28.540065, -81.401824   28.537916, -81.401781  28.537859, -81.403691
+    
+    CLLocationCoordinate2D citrusBowlPts[4];
+    citrusBowlPts[0] = CLLocationCoordinate2DMake(28.540037, -81.403691);
+    citrusBowlPts[1] = CLLocationCoordinate2DMake(28.540065, -81.401824);
+    citrusBowlPts[2] = CLLocationCoordinate2DMake(28.537916, -81.401781);
+    citrusBowlPts[3] = CLLocationCoordinate2DMake(28.537859, -81.403691);
 
-//    CLLocationCoordinate2D citrusBowlPts[4];
-//    citrusBowlPts[0] = CLLocationCoordinate2DMake(28.540037, -81.403691);
-//    citrusBowlPts[1] = CLLocationCoordinate2DMake(28.540065, -81.401824);
-//    citrusBowlPts[2] = CLLocationCoordinate2DMake(28.537916, -81.401781);
-//    citrusBowlPts[3] = CLLocationCoordinate2DMake(28.537859, -81.403691);
+    MKPolygon *polygon = [MKPolygon polygonWithCoordinates:citrusBowlPts count:4];
+    polygon.title = @"Citrus Bowl";
+    [self.mapView addOverlay:polygon];
+}
 
-
-- (void)drawLineRoute
+- (void)drawShuttleRoute
 {
     CLLocationCoordinate2D purplePoints[16];
     purplePoints[0] = CLLocationCoordinate2DMake(28.541988, -81.393155); //central and wesmore
@@ -130,13 +136,10 @@
     purplePoints[14] = CLLocationCoordinate2DMake(28.538304, -81.386936);    
     purplePoints[15] = CLLocationCoordinate2DMake(28.541997, -81.386999);
 
-
-
-
-//    purplePoints[16] = CLLocationCoordinate2DMake(28.541997, -81.386999);
     
     MKPolyline *purplePolyline = [MKPolyline polylineWithCoordinates:purplePoints count:16];
     purplePolyline.title = @"Citrus Bowl Connection";
+
     
     [self.mapView addOverlay:purplePolyline];
 }
@@ -146,9 +149,21 @@
     if([overlay isKindOfClass:[MKPolyline class]])
     {
         MKPolylineRenderer *polyRender = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
-        polyRender.lineWidth = 1;
+        polyRender.lineWidth = 2;
+        polyRender.lineDashPattern = @[@4, @6];
         polyRender.strokeColor = ovoPurple;
+        
         return polyRender;
+    }
+    else //if ([overlay isKindOfClass:[MKPolygon class]])
+    {
+        MKPolygonRenderer *polygonRender = [[MKPolygonRenderer alloc] initWithOverlay:overlay];
+        polygonRender.fillColor = ovoPurple;
+        polygonRender.lineWidth = 1;
+        polygonRender.strokeColor = [UIColor yellowColor];
+        
+        return polygonRender;
+        
     }
     
     return nil;
