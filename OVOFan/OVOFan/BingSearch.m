@@ -50,7 +50,7 @@
     
     NSString *market = @"'en-us'";
     
-    NSInteger top = 10;
+    NSInteger top = 8;
     
     NSMutableString *fullUri = [NSMutableString stringWithCapacity:256];
     
