@@ -3334,9 +3334,6 @@
                                 <state key="normal" image="shuttle">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="242" y="263" width="88" height="100"/>
-                                </variation>
                                 <connections>
                                     <action selector="shuttleMapTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RgM-PM-iF2"/>
                                 </connections>
@@ -3346,9 +3343,6 @@
                                 <state key="normal" image="newspaper">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="66" y="427" width="101" height="100"/>
-                                </variation>
                                 <connections>
                                     <action selector="recentNewsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="k2k-S6-4RH"/>
                                 </connections>
@@ -3398,9 +3392,6 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="98" y="367" width="37" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="teamTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YTM-zs-vs0"/>
                                 </connections>
@@ -3412,9 +3403,6 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="260" y="203" width="52" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="leagueStandingsTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q7V-Zs-7Co"/>
                                 </connections>
@@ -3426,9 +3414,6 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="261" y="366" width="49" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="shuttleMapTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M10-se-Vqx"/>
                                 </connections>
@@ -3473,9 +3458,6 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="253" y="530" width="65" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="scheduleTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zWe-ky-Ykq"/>
                                 </connections>
@@ -3485,9 +3467,6 @@
                                 <state key="normal" image="calendar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="235" y="426" width="100" height="101"/>
-                                </variation>
                                 <connections>
                                     <action selector="scheduleTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZnF-Va-Qlb"/>
                                 </connections>
