@@ -1,2 +1,2 @@
 # OVOFan
-Orlando's Very Own (OVO) is an Orlando City Soccer Club based app made by a fan for the fans.
+Orlando's Very Own is an unoffical Orlando City Soccer Club app made by a fan for the fans
